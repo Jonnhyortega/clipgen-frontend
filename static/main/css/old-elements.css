@@ -1,0 +1,161 @@
+/* EN ESTE ARCHIVO VAMOS A ENCONTRAR ESTILOS DE ELEMENTOS QUE YA NO SE USAN EN EL PROYECTO */
+
+/*barra superior*/
+/* Barra superior */
+.navbar {
+  background-color: #15251d;
+  border-bottom: 2px solid;
+  border-image: linear-gradient(45deg, #87f414, #0a6207, #0b340f, #07141a) 1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-brand img {
+  margin-right: 10px;
+}
+
+.navbar-text {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.navbar .btn {
+  margin-left: 10px;
+}
+
+.navbar .container-fluid {
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.navbar-toggler {
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+.navbar-toggler-icon {
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+  top: -7px;
+}
+
+.navbar-toggler-icon::after {
+  top: 7px;
+}
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 768px) {
+  .navbar .container-fluid {
+    flex-direction: column;
+  }
+
+  .navbar .navbar-nav {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar .nav-link {
+    display: block;
+    padding: 10px 0;
+    margin: 5px 0;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: all 0.5s;
+  }
+
+  .navbar .nav-link:hover {
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #87f414, #0a6207, #0b340f, #07141a) 1;
+    background-color: #1e1e1e;
+  }
+}
+
+/* Efectos y animaciones */
+.navbar .nav-link.active {
+  border: 2px solid;
+  border-image: linear-gradient(45deg, #87f414, #0a6207, #0b340f, #07141a) 1;
+  color: #ffffff;
+  animation: borderAnimation 5s infinite;
+}
+
+.navbar .nav-link {
+  color: #3a9c47;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #87f414;
+  border: 2px solid;
+  border-image: linear-gradient(45deg, #87f414, #0a6207, #0b340f, #07141a) 1;
+}
+
+/* Animación del borde */
+@keyframes borderAnimation {
+  0% {
+    border-image-source: linear-gradient(
+      45deg,
+      #87f414,
+      #0a6207,
+      #0b340f,
+      #07141a
+    );
+  }
+  50% {
+    border-image-source: linear-gradient(
+      135deg,
+      #07141a,
+      #0b340f,
+      #0a6207,
+      #87f414
+    );
+  }
+  100% {
+    border-image-source: linear-gradient(
+      45deg,
+      #87f414,
+      #0a6207,
+      #0b340f,
+      #07141a
+    );
+  }
+}
+
+/* Efecto de sombra en el desplazamiento */
+.navbar.scrolled {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #1e1e1e;
+}
+
+/* Botones de la barra de navegación */
+.navbar .nav-link {
+  font-size: 1rem;
+  padding: 8px 16px;
+}
+
+.navbar .btn {
+  font-size: 1rem;
+  padding: 8px 16px;
+}
