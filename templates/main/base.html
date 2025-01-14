@@ -5,6 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
@@ -20,7 +24,7 @@
       rel="stylesheet"
     />
     <link href="{% static 'main/css/login.css' %}" rel="stylesheet" />
-    <!-- <link href="{% static 'main/css/register.css' %}" rel="stylesheet" /> -->
+    <link href="{% static 'main/css/register.css' %}" rel="stylesheet" />
     <!-- <style>
         :root {
             --background-image-url: url("{% static 'img/back.webp' %}");
@@ -95,9 +99,9 @@
         <a href="{% url 'sobre' %}">ClipgenAI</a>
         <a href="{% url 'logout' %}">Cerrar Sesión</a>
         {% else %}
-        <a href="{% url 'sobre' %}">ClipgenAI</a>
-        <a href="{% url 'login' %}">Iniciar Sesión</a>
-        <a href="{% url 'register' %}">Registrarse</a>
+        <a id="sobre" href="{% url 'sobre' %}">ClipgenAI</a>
+        <a id="login" href="{% url 'login' %}">Iniciar Sesión</a>
+        <a id="register" href="{% url 'register' %}">Registrarse</a>
         {% endif %}
       </div>
     </nav>
@@ -111,10 +115,42 @@
           a tu creatividad y deja que tus historias brillen como nunca antes.
         </h3>
       </div>
-      <a href="">Prueba ClipgenAI</a>
+      <a href="/index">Prueba ClipgenAI</a>
     </section>
     <!-- HERO SECTION -->
     <!-- BENEFITS SECTION -->
+    <section class="benefits">
+      <p>Lorem ipsum dolor sit amet.</p>
+      <span
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
+        necessitatibus in autem.</span
+      >
+      <div class="cards-benefits-container">
+        <div class="card-benefit">
+          <img src="{% static 'img/clipgen.ai logo.png' %}" alt="Logo" />
+          <h3>Automatización</h3>
+          <p>
+            Automatiza la creación de tus videos y ahorra tiempo y esfuerzo.
+          </p>
+        </div>
+        <div class="card-benefit">
+          <img src="{% static 'img/clipgen.ai logo.png' %}" alt="Logo" />
+          <h3>Personalización</h3>
+          <p>
+            Personaliza tus videos con una amplia variedad de plantillas y
+            efectos.
+          </p>
+        </div>
+        <div class="card-benefit">
+          <img src="{% static 'img/clipgen.ai logo.png' %}" alt="Logo" />
+          <h3>Exportación</h3>
+          <p>
+            Exporta tus videos en alta calidad y compártelos en tus redes
+            sociales.
+          </p>
+        </div>
+      </div>
+    </section>
     <!-- BENEFITS SECTION -->
     {% block container %}
     <div class="container">{% block content %} {% endblock %}</div>
@@ -125,6 +161,7 @@
     <script src="{% static 'main/js/scripts.js' %}"></script>
     <script src="{% static 'main/js/chatbot.js' %}"></script>
     <script src="{% static 'main/js/tab_management.js' %}"></script>
+    <script src="{% static 'main/js/utils.js' %}"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const navbar = document.querySelector(".navbar");

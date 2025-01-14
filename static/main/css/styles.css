@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 
 :root {
   /* PALETA DE COLORES */
@@ -8,7 +9,7 @@
   --greenFull4: #7f965e;
   --greenFull5: #ccdea1;
   /* FONTS */
-  --main: "Funnel Display", serif;
+  --main: "Nunito", serif;
   --second: "Roboto", serif;
 }
 
@@ -56,9 +57,10 @@ body {
   overflow-y: auto;
   font-family: var(--second);
   ::-webkit-scrollbar {
-    width: 12px; /* Ancho de la scrollbar */
-    height: 12px; /* Altura de la scrollbar */
+    width: 12px;
+    height: 12px;
   }
+  /* border: 1px solid red; */
 }
 
 /* NAVBAR */
@@ -67,18 +69,22 @@ nav {
   padding: 10px 0;
   position: fixed;
   /* background-color: var(--greenFull1); */
-  background-color: black;
-  border-bottom: 2px solid var(--greenFull4);
+  /* background-color: black; */
+  backdrop-filter: blur(25px) saturate(200%);
+  -webkit-backdrop-filter: blur(25px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0);
+  border-bottom: 1px solid var(--greenFull4);
   top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 2000;
+
   .link-logo {
     transition: 0.8s;
   }
   .link-logo:hover {
-    filter: drop-shadow(1px 1px 5px var(--greenFull4));
+    filter: drop-shadow(1px 1px 5px var(--greenFull5));
   }
 
   .nav-links {
@@ -89,6 +95,7 @@ nav {
       text-decoration: none;
       color: var(--greenFull5);
       font-family: var(--main);
+      font-weight: bold;
     }
 
     a:hover {
@@ -123,7 +130,7 @@ nav {
         90deg,
         var(--greenFull3),
         var(--greenFull4),
-        var(--greenFull1)
+        var(--greenFull5)
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -131,7 +138,7 @@ nav {
     }
     h3 {
       text-align: right;
-      color: var(--greenFull3);
+      color: white;
       font-family: var(--second);
       font-weight: bold;
       font-size: 40px;
@@ -155,6 +162,68 @@ nav {
   }
 }
 /* HERO SECTION */
+/* BENEFITS SECTION */
+.benefits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  padding: 10px;
+  min-height: 100vh;
+  max-width: 80vw;
+  margin: 0 auto;
+  p {
+    font-family: var(--main);
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--greenFull5);
+    text-align: center;
+  }
+
+  span {
+    font-family: var(--second);
+    font-size: 20px;
+    color: var(--greenFull5);
+    text-align: center;
+    font-weight: 300;
+  }
+
+  .cards-benefits-container {
+    display: flex;
+    gap: 20px;
+    .card-benefit {
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid var(--greenFull5);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      * {
+        border: 1px solid var(--greenFull5);
+      }
+      img {
+        width: 100px;
+        margin-bottom: 15px;
+      }
+      h3 {
+        font-family: var(--main);
+        font-size: 25px;
+        color: var(--greenFull5);
+        text-align: center;
+      }
+      p {
+        font-family: var(--second);
+        font-size: 20px;
+        color: var(--greenFull5);
+        text-align: center;
+        font-weight: 200;
+      }
+    }
+  }
+}
+/* BENEFITS SECTION */
 
 /* Mensajes de alerta centrados */
 /* Mensajes de alerta centrados y personalizados */
@@ -225,13 +294,11 @@ nav {
 }
 
 .container {
-  margin-top: 50px;
-  max-width: 800px;
+  position: relative;
+  border: 1px solid var(--greenFull5);
   width: 100%;
-  background-color: #0d9aff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-custom {
@@ -1097,9 +1164,29 @@ button:hover #clip {
   animation: fadeIn 0.5s ease-in-out;
 }
 
+.head-dashboard {
+  display: flex;
+  align-items: center;
+  border: 1px solid gold;
+  * {
+    border: 1px solid gold;
+  }
+  h1 {
+    font-family: var(--main);
+    font-size: 2rem;
+    color: var(--greenFull5);
+    font-weight: bold;
+  }
+
+  img {
+    width: 60px;
+  }
+}
 /* Estilo para la alerta de minutos restantes */
 .minutes-info {
-  background-color: #0b340f;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--greenFull4);
   color: #ffffff;
   border: 2px solid;
   border-image: linear-gradient(45deg, #87f414, #0a6207, #0b340f, #07141a) 1;

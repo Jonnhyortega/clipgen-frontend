@@ -1,18 +1,24 @@
 {% extends "main/base.html" %} {% load static %} {% block title %}Generador de
 Videos IA{% endblock %} {% block content %}
 <div id="errorMessage" class="alert alert-danger d-none" role="alert"></div>
-<h1 class="text-center mb-5">Clipgen.ai</h1>
-<div class="minutes-info">
-  <strong>Minutos restantes:</strong> {{ minutes_left }} min |
-  <strong>Fecha de vencimiento:</strong> {{ reset_date|date:"d M Y" }}
-  <button class="btn-upgrade" onclick="showUpgradePanel()">Upgrade</button>
-  {% if current_plan_name %}
-  <strong>Plan Actual:</strong> {{ current_plan_name }}
-  <!-- solo aparece el botón si hay plan actual -->
-  <button class="btn-cancel" onclick="showCancelPanel()">Cancelar Plan</button>
-  {% else %}
-  <strong>Plan Actual: Free</strong>
-  {% endif %}
+
+<div class="head-dashboard">
+  <img src="{% static 'img/clipgen.ai logo.png' %}" alt="" />
+  <h1>Clipgen Ai</h1>
+  <div class="minutes-info">
+    <strong>Minutos restantes: {{ minutes_left }} min </strong> |
+    <strong>Fecha de vencimiento: {{ reset_date|date:"d M Y" }}</strong>
+    <button class="btn-upgrade" onclick="showUpgradePanel()">Upgrade</button>
+    {% if current_plan_name %}
+    <strong>Plan Actual: {{ current_plan_name }}</strong>
+    <!-- solo aparece el botón si hay plan actual -->
+    <button class="btn-cancel" onclick="showCancelPanel()">
+      Cancelar Plan
+    </button>
+    {% else %}
+    <strong>Plan Actual: Free</strong>
+    {% endif %}
+  </div>
 </div>
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">

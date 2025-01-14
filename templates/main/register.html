@@ -1,12 +1,16 @@
 <!-- register.html -->
-{% extends "main/base.html" %} {% block title %}Registro{% endblock %} {% block
-container %}
+{% extends "main/base.html" %}
+{% block title %}Registro{% endblock %}
+{% block content %}
 <div class="register-container">
-  <h2>Registro</h2>
+  <h2>Crear cuenta</h2>
   <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
+    <input type="text" name="username" placeholder="Nombre de usuario">
+    <input type="email" name="email" placeholder="Correo electrónico">
+    <input type="password" name="password" placeholder="Contraseña">
+    <input type="password" name="password2" placeholder="Repetir contraseña">
     <button class="submit-button" type="submit">Registrarse</button>
   </form>
+  <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia sesión</a></p>
 </div>
 {% endblock %}
