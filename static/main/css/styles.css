@@ -20,27 +20,28 @@
 
   a {
     text-decoration: none;
+    cursor: pointer;
   }
 
-  /* Estilo de la scrollbar */
   ::-webkit-scrollbar {
     width: 12px;
     height: 12px;
   }
 
-  /* Estilo del track (fondo de la scrollbar) */
   ::-webkit-scrollbar-track {
     background: black;
   }
 
-  /* Estilo del thumb (parte que se mueve) */
   ::-webkit-scrollbar-thumb {
     background: var(--greenFull2);
   }
 
-  /* Estilo del thumb al pasar el mouse */
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--greenFull4); /* Color del thumb al pasar el mouse */
+    background: var(--greenFull4);
+  }
+
+  section {
+    width: 100%;
   }
 }
 
@@ -78,7 +79,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 2000;
+  z-index: 1999;
 
   .link-logo {
     transition: 0.8s;
@@ -91,9 +92,10 @@ nav {
     display: flex;
     margin-right: 25px;
     gap: 10px;
+    padding-bottom: 4px;
     a {
       text-decoration: none;
-      color: var(--greenFull5);
+      color: white;
       font-family: var(--main);
       font-weight: bold;
     }
@@ -130,7 +132,7 @@ nav {
         90deg,
         var(--greenFull3),
         var(--greenFull4),
-        var(--greenFull5)
+        white
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -149,16 +151,17 @@ nav {
     margin-top: 45px;
     padding: 10px 20px;
     border-radius: 5px;
-    background-color: var(--greenFull4);
+    background-color: var(--greenFull5);
     color: black;
     font-family: var(--main);
-    transition: 0.6s;
+    transition: 0.2s;
+    font-weight: 500;
   }
 
   a:hover {
     transition: 0.6s;
-    background-color: var(--greenFull5);
-    transform: scale(1.1);
+    background-color: white;
+    transform: translateY(-4px);
   }
 }
 /* HERO SECTION */
@@ -192,14 +195,16 @@ nav {
   .cards-benefits-container {
     display: flex;
     gap: 20px;
+
     .card-benefit {
       padding: 15px;
-      border-radius: 10px;
-      border: 1px solid var(--greenFull5);
+      border-radius: 5px;
+      background: var(--greenFull5);
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       align-items: center;
+      box-shadow: 1px 1px 10px 2px var(--greenFull3);
       * {
         border: 1px solid var(--greenFull5);
       }
@@ -210,13 +215,13 @@ nav {
       h3 {
         font-family: var(--main);
         font-size: 25px;
-        color: var(--greenFull5);
+        color: black;
         text-align: center;
       }
       p {
         font-family: var(--second);
         font-size: 20px;
-        color: var(--greenFull5);
+        color: var(--greenFull1);
         text-align: center;
         font-weight: 200;
       }
@@ -295,7 +300,6 @@ nav {
 
 .container {
   position: relative;
-  border: 1px solid var(--greenFull5);
   width: 100%;
   padding: 20px;
   border-radius: 8px;

@@ -1,16 +1,26 @@
 .register-container {
+  min-height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  background-color: rgba(0, 0, 0, 0);
+
   /* border: 1px solid gold;
   * {
     border: 1px solid gold;
   } */
-  h2 {
-    margin: 0 auto;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 75px;
-    font-family: var(--main);
+  div {
+    margin-top: 20px;
   }
-
   p {
     text-align: center;
     font-weight: bold;
@@ -25,12 +35,30 @@
   }
 }
 
+#close-modal-register {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 form {
-  border: none;
   display: flex;
   flex-direction: column;
   width: 300px;
   margin: 0 auto;
+  position: relative;
+
+
+  h2 {
+    margin-bottom: 45px;
+    width: 100%;
+    text-align: center;
+    font-family: var(--main);
+  }
 
   input {
     width: 100%;
@@ -44,9 +72,15 @@ form {
     color: white;
     text-align: left;
     margin-bottom: 10px;
+    outline: none;
   }
 
   input::placeholder {
     color: var(--greenFull3);
+  }
+
+  input:focus {
+    outline: none;
+    border: 1px solid var(--greenFull5);
   }
 }

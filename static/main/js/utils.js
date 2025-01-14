@@ -1,21 +1,24 @@
-const underLineNavLink = () => {
-  const pathActual = window.location.pathname;
+// FUNCTION TO SHOW MODAL LOGIN
 
-  if (pathActual === "/login/") {
-    document.getElementById("register").style.textDecoration = "none";
-    document.getElementById("sobre").style.textDecoration = "none";
-    document.getElementById("login").style.textDecoration = "underline";
-  }
-  if (pathActual === "register") {
-    document.getElementById("login").style.textDecoration = "none";
-    document.getElementById("sobre").style.textDecoration = "none";
-    document.getElementById("register").style.textDecoration = "underline";
-  }
-  if (pathActual === "/sobre/") {
-    document.getElementById("register").style.textDecoration = "none";
-    document.getElementById("login").style.textDecoration = "none";
-    document.getElementById("sobre").style.textDecoration = "underline";
+  const showLogin = () => {
+    const modalLogin = document.getElementById("login-section");
+    console.log("depuracion")
+    if (modalLogin.style.display === "none") {
+      modalLogin.style.display = "flex";
+    } else {
+      modalLogin.style.display = "none";
+    }
+  };
+
+const showRegister = () => {
+  const modalRegister = document.getElementById("register-container");
+
+  if (modalRegister.style.display === "none") {
+    modalRegister.style.display = "flex";
+  } else {
+    modalRegister.style.display = "none";
   }
 };
 
-document.addEventListener("DOMContentLoaded", underLineNavLink);
+
+

@@ -1,9 +1,10 @@
 <!-- login.html -->
 {% extends "main/base.html" %} {% load static %} {% block title%}Login{%endblock%} {% block container %}
+
 <section id="login-section">
-    <div class="login-container1">
-        <h3>Comencemos</h3>
-        <form action="" method="POST">
+  <form style="border: 1px solid white;" action="" method="POST">
+          <span id="close-modal-login" onclick="showLogin()" ><i class="fa-solid fa-xmark"></i></span>
+          <h3>Comencemos</h3>
           {% csrf_token %}
           <div class="input-type">
             <input
@@ -22,12 +23,10 @@
             />
           </div>
           <button style="height: fit-content;" class="submit-button" type="submit">Iniciar Sesión</button>
-          <div class="third-line-form"><strong>¿No tienes cuenta?</strong><a href="{% url 'register' %}"> Regístrate aquí</a></div>
-        </form>
-      </div>
-      <div class="login-container2">
-        <img src="{% static 'img/clipgen.ai logo.png' %}" alt="Logo">
-        <h1>Clipgen Ai</h1>
-      </div>
+          <div class="third-line-form">
+            <strong>¿No tienes cuenta?</strong>
+            <a href="{% url 'register' %}"> Regístrate aquí</a>
+          </div>
+    </form>      
 </section>
 {% endblock %}

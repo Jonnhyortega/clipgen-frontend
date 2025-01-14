@@ -25,63 +25,12 @@
     />
     <link href="{% static 'main/css/login.css' %}" rel="stylesheet" />
     <link href="{% static 'main/css/register.css' %}" rel="stylesheet" />
-    <!-- <style>
-        :root {
-            --background-image-url: url("{% static 'img/back.webp' %}");
-        }
-    </style> -->
+
     <meta name="csrf-token" content="{{ csrf_token }}" />
   </head>
   <body>
-    <!-- OLD NAV -->
-    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img
-            src="{% static 'img/clipgen.ai logo.png' %}"
-            alt="Logo"
-            width="30"
-            height="30"
-            class="d-inline-block align-text-top"
-          />
-          Automatiza tus videos
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            {% if user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'index' %}">Crea Contenido</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'sobre' %}">Sobre Clipgen.ai</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a>
-            </li>
-            {% else %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'sobre' %}">Sobre Clipgen.ai</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
-            </li>
-            {% endif %}
-          </ul>
-        </div>
-      </div>
-    </nav> -->
-    <!-- OLD NAV -->
+   
+
     <!-- NEW NAVBAR -->
     <nav>
       <a class="link-logo" href="#">
@@ -95,17 +44,19 @@
       </a>
       <div class="nav-links">
         {% if user.is_authenticated %}
-        <a href="{% url 'index' %}">Generar Contenido</a>
-        <a href="{% url 'sobre' %}">ClipgenAI</a>
-        <a href="{% url 'logout' %}">Cerrar Sesión</a>
+        <a id="generate-content" href="{% url 'index' %}">Generar Contenido</a>
+        <a id="sobre" href="{% url 'sobre' %}">ClipgenAI</a>
+        <a id="cerrar-sesion" href="{% url 'logout' %}">Cerrar Sesión</a>
         {% else %}
         <a id="sobre" href="{% url 'sobre' %}">ClipgenAI</a>
-        <a id="login" href="{% url 'login' %}">Iniciar Sesión</a>
-        <a id="register" href="{% url 'register' %}">Registrarse</a>
+        <a id="login" onclick="showLogin()" style="cursor: pointer;">Iniciar Sesión</a>
+        <a id="register" onclick="showRegister()" style="cursor: pointer;">Registrarse</a>
         {% endif %}
       </div>
     </nav>
     <!-- NEW NAVBAR -->
+
+
     <!-- HERO SECTION -->
     <section class="hero">
       <div>
@@ -118,6 +69,9 @@
       <a href="/index">Prueba ClipgenAI</a>
     </section>
     <!-- HERO SECTION -->
+
+
+
     <!-- BENEFITS SECTION -->
     <section class="benefits">
       <p>Lorem ipsum dolor sit amet.</p>
@@ -152,6 +106,63 @@
       </div>
     </section>
     <!-- BENEFITS SECTION -->
+
+
+
+     <!-- LOGIN SECTION -->
+      <section id="login-section">
+          <span id="close-modal-login" onclick="showLogin()" ><i class="fa-solid fa-xmark"></i></span>
+          <form  action="" method="POST">
+              <h3>Comencemos</h3>
+              {% csrf_token %}
+              <div class="input-type">
+                <input
+                  class="input-is"
+                  type="email"
+                  required=""
+                  placeholder="Correo"
+                  name="email"
+                />
+                <input
+                  class="input-is"
+                  type="password"
+                  required=""
+                  placeholder="Contraseña"
+                  name="password"
+                />
+              </div>
+              <button class="submit-button" type="submit">Iniciar Sesión</button>
+              <button class="submit-button" ><img src="{% static 'img/icon-google.png' %}" alt="">Continuar con Google</button>
+
+          </form>      
+          <div class="third-line-form">
+              <p>¿No tienes cuenta?</p>
+              <a href="{% url 'register' %}"> Regístrate aquí</a>
+          </div>
+      </section>
+     <!-- LOGIN SECTION -->
+
+
+
+     <!-- REGISTER SECITON -->
+     <div class="register-container" id="register-container">
+      <span id="close-modal-register" onclick="showRegister()" ><i class="fa-solid fa-xmark"></i></span>
+      <form method="POST">
+    
+        <h2>Crear cuenta</h2>
+        <input type="text" name="username" placeholder="Nombre de usuario">
+        <input type="email" name="email" placeholder="Correo electrónico">
+        <input type="password" name="password" placeholder="Contraseña">
+        <input type="password" name="password2" placeholder="Repetir contraseña">
+        <button class="submit-button" type="submit">Registrarse</button>
+        <button class="submit-button" ><img src="{% static 'img/icon-google.png' %}" alt="">Continuar con Google</button>
+      </form>
+      <div><p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia sesión</a></p></div>
+    </div>
+     <!-- REGISTER SECITON -->
+
+
+
     {% block container %}
     <div class="container">{% block content %} {% endblock %}</div>
     {% endblock %}
