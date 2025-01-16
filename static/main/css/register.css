@@ -20,19 +20,22 @@
   } */
   div {
     margin-top: 20px;
-  }
-  p {
-    text-align: center;
-    font-weight: bold;
 
-    a {
-      color: var(--greenFull4);
-      transition: 0.5s;
-    }
-    a:hover {
-      color: var(--greenFull5);
+    p {
+      text-align: center;
+      font-weight: bold;
     }
   }
+}
+
+#link-to-login-register {
+  color: var(--greenFull3);
+  transition: 0.3s;
+}
+
+#link-to-login-register:hover {
+  transition: 0.3s;
+  color: var(--greenFull5);
 }
 
 #close-modal-register {
@@ -51,36 +54,65 @@ form {
   width: 300px;
   margin: 0 auto;
   position: relative;
+}
 
+form > h2 {
+  margin-bottom: 45px;
+  width: 100%;
+  text-align: center;
+  font-family: var(--main);
+}
 
-  h2 {
-    margin-bottom: 45px;
-    width: 100%;
-    text-align: center;
-    font-family: var(--main);
-  }
+form > input,
+form > label > input {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.48);
+  border: 1px solid var(--greenFull4);
+  border-radius: 3px;
+  padding: 0.5em;
+  font-size: 1em;
+  font-family: var(--second);
+  font-weight: 400;
+  color: white;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
+  outline: none;
+}
 
-  input {
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.48);
-    border: 1px solid var(--greenFull4);
-    border-radius: 3px;
-    padding: 0.5em;
-    font-size: 1em;
-    font-family: var(--second);
-    font-weight: 400;
-    color: white;
-    text-align: left;
-    margin-bottom: 10px;
-    outline: none;
-  }
+input::placeholder,
+form > label > input::placeholder {
+  color: white;
+  font-weight: 300; 
+}
 
-  input::placeholder {
-    color: var(--greenFull3);
-  }
+input:focus,
+form > label > input:focus {
+  outline: none;
+  border: 1px solid var(--greenFull5);
+}
 
-  input:focus {
-    outline: none;
-    border: 1px solid var(--greenFull5);
-  }
+form > label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  position: relative;
+  /* border: 1px solid red;
+  * {
+    border: 1px solid gold;
+  } */
+}
+
+form > label > div {
+  cursor: pointer;
+  margin: 0;
+  position: absolute;
+  right: 10px;
+  top: -10px;
+}
+
+#icon-password1:hover,
+#icon-password2:hover {
+  color: var(--greenFull5);
 }

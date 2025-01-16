@@ -23,7 +23,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 10px;
   padding: 25px;
   border-radius: 5px;
   backdrop-filter: blur(25px) saturate(180%);
@@ -33,6 +33,26 @@
   * {
     border: 1px solid gold;
   } */
+
+  .third-line {
+    display: flex;
+    gap: 10px;
+    p {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    a {
+      font-weight: bold;
+      color: var(--greenFull3);
+      transition: 0.3s;
+    }
+
+    a:hover {
+      transition: 0.3s;
+      color: var(--greenFull5);
+    }
+  }
 }
 
 #close-modal-login {
@@ -46,8 +66,7 @@
 }
 
 form {
-  background-color: transparent;
-  border: 1px solid var(--greenFull4);
+  /* border: 1px solid var(--greenFull4); */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -65,24 +84,23 @@ form {
   }
 }
 
-.third-line-form {
+#label-login {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-top: 0;
-  a {
-    color: var(--greenFull4);
-    font-weight: bold;
-    font-size: 17px;
-    text-decoration: none;
-    transition: 0.5s;
-    font-family: var(--second);
-    text-align: right;
-  }
-  a:hover {
-    color: var(--greenFull5);
-  }
+  gap: 15px;
+  position: relative;
+}
+
+#icon-login-password {
+  cursor: pointer;
+  margin: 0;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+#icon-login-password:hover {
+  color: var(--greenFull5);
 }
 
 .input-type {
@@ -99,16 +117,18 @@ form {
   padding: 0.5em;
   font-size: 1em;
   font-family: var(--second);
-  font-weight: 400;
-  color: var(--greenFull5);
+  font-weight: bold;
+  color: white;
   text-align: left;
 }
 
 .input-is::placeholder {
-  font-weight: bold;
+  color: white;
+  font-weight: 300;
 }
 
 .submit-button {
+  border: none;
   width: 100%;
   border-radius: 5px;
   padding: 0;
@@ -121,10 +141,10 @@ form {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  font-family: var(--main);
 
   img {
-
-    width: 25px;  
+    width: 25px;
   }
 }
 

@@ -14,10 +14,10 @@
     />
     <title>{% block title %}Clipgen.ai{% endblock %}</title>
     <link rel="icon" href="{% static 'img/clipgen.ai logo.png' %}" />
-    <link
+    <!-- <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
-    />
+    /> -->
     <link href="{% static 'main/css/styles.css' %}" rel="stylesheet" />
     <link
       href="{% static 'main/css/descargar_eliminar.css' %}"
@@ -29,8 +29,6 @@
     <meta name="csrf-token" content="{{ csrf_token }}" />
   </head>
   <body>
-   
-
     <!-- NEW NAVBAR -->
     <nav>
       <a class="link-logo" href="#">
@@ -49,28 +47,29 @@
         <a id="cerrar-sesion" href="{% url 'logout' %}">Cerrar Sesión</a>
         {% else %}
         <a id="sobre" href="{% url 'sobre' %}">ClipgenAI</a>
-        <a id="login" onclick="showLogin()" style="cursor: pointer;">Iniciar Sesión</a>
-        <a id="register" onclick="showRegister()" style="cursor: pointer;">Registrarse</a>
+        <span href="" id="login" onclick="showLogin()">Iniciar Sesión</span>
+        <span href="" id="register" onclick="showRegister()">Registrarse</span>
         {% endif %}
       </div>
     </nav>
     <!-- NEW NAVBAR -->
 
-
     <!-- HERO SECTION -->
     <section class="hero">
       <div>
-        <h1>Automatizá tus videos.</h1>
-        <h3>
+        <h1 class="animate__animated animate__backInDown">
+          Automatizá tus videos.
+        </h1>
+        <h3 class="animate__animated animate__fadeIn">
           Transforma tus ideas en vídeos únicos y cautivadores. Da rienda suelta
           a tu creatividad y deja que tus historias brillen como nunca antes.
         </h3>
       </div>
-      <a href="/index">Prueba ClipgenAI</a>
+      <a href="/index" class="animate__animated animate__bounce"
+        >Prueba ClipgenAI</a
+      >
     </section>
     <!-- HERO SECTION -->
-
-
 
     <!-- BENEFITS SECTION -->
     <section class="benefits">
@@ -107,67 +106,99 @@
     </section>
     <!-- BENEFITS SECTION -->
 
-
-
-     <!-- LOGIN SECTION -->
-      <section id="login-section">
-          <span id="close-modal-login" onclick="showLogin()" ><i class="fa-solid fa-xmark"></i></span>
-          <form  action="" method="POST">
-              <h3>Comencemos</h3>
-              {% csrf_token %}
-              <div class="input-type">
-                <input
-                  class="input-is"
-                  type="email"
-                  required=""
-                  placeholder="Correo"
-                  name="email"
-                />
-                <input
-                  class="input-is"
-                  type="password"
-                  required=""
-                  placeholder="Contraseña"
-                  name="password"
-                />
-              </div>
-              <button class="submit-button" type="submit">Iniciar Sesión</button>
-              <button class="submit-button" ><img src="{% static 'img/icon-google.png' %}" alt="">Continuar con Google</button>
-
-          </form>      
-          <div class="third-line-form">
-              <p>¿No tienes cuenta?</p>
-              <a href="{% url 'register' %}"> Regístrate aquí</a>
-          </div>
-      </section>
-     <!-- LOGIN SECTION -->
-
-
-
-     <!-- REGISTER SECITON -->
-     <div class="register-container" id="register-container">
-      <span id="close-modal-register" onclick="showRegister()" ><i class="fa-solid fa-xmark"></i></span>
-      <form method="POST">
-    
-        <h2>Crear cuenta</h2>
-        <input type="text" name="username" placeholder="Nombre de usuario">
-        <input type="email" name="email" placeholder="Correo electrónico">
-        <input type="password" name="password" placeholder="Contraseña">
-        <input type="password" name="password2" placeholder="Repetir contraseña">
-        <button class="submit-button" type="submit">Registrarse</button>
-        <button class="submit-button" ><img src="{% static 'img/icon-google.png' %}" alt="">Continuar con Google</button>
+    <!-- LOGIN SECTION -->
+    <section id="login-section" class="animate__animated animate__fadeIn">
+      <span id="close-modal-login" onclick="showLogin()"
+        ><i class="fa-solid fa-xmark"></i
+      ></span>
+      <form action="" method="POST">
+        <h3>Comencemos</h3>
+        {% csrf_token %}
+        <div class="input-type">
+          <input
+            class="input-is"
+            type="email"
+            required=""
+            placeholder="Correo"
+            name="email"
+          />
+          <label id="label-login">
+            <input
+              class="input-is"
+              id="login-password"
+              type="password"
+              required=""
+              placeholder="Contraseña"
+              name="password"
+            />
+            <div id="icon-login-password"><i class="fa-solid fa-eye"></i></div>
+          </label>
+        </div>
+        <button class="submit-button" type="submit">Iniciar Sesión</button>
+        <button class="submit-button">
+          <img src="{% static 'img/icon-google.png' %}" alt="" />Continuar con
+          Google
+        </button>
       </form>
-      <div><p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia sesión</a></p></div>
+      <div class="third-line">
+        <p>¿No tienes cuenta?</p>
+        <a onclick="loginToRegister()"> Regístrate aquí</a>
+      </div>
+    </section>
+    <!-- LOGIN SECTION -->
+
+    <!-- REGISTER SECITON -->
+    <div
+      class="register-container animate__animated animate__fadeIn"
+      id="register-container"
+    >
+      <span id="close-modal-register" onclick="showRegister()"
+        ><i class="fa-solid fa-xmark"></i
+      ></span>
+      <form method="POST">
+        <h2>Crear cuenta</h2>
+        <input type="text" name="username" placeholder="Nombre de usuario" />
+        <input type="email" name="email" placeholder="Correo electrónico" />
+        <label>
+          <input
+            id="password1"
+            type="password"
+            name="password"
+            placeholder="Contraseña"
+          />
+          <div id="icon-password1"><i class="fa-solid fa-eye"></i></div>
+        </label>
+        <label>
+          <input
+            id="password2"
+            type="password"
+            name="password2"
+            placeholder="Repetir contraseña"
+          />
+          <div id="icon-password2"><i class="fa-solid fa-eye"></i></div>
+        </label>
+        <button class="submit-button" type="submit">Registrarse</button>
+        <button class="submit-button">
+          <img src="{% static 'img/icon-google.png' %}" alt="" />Continuar con
+          Google
+        </button>
+      </form>
+      <div>
+        <p>
+          ¿Ya tienes una cuenta?
+          <a id="link-to-login-register" onclick="registerToLogin()"
+            >Inicia sesión</a
+          >
+        </p>
+      </div>
     </div>
-     <!-- REGISTER SECITON -->
-
-
+    <!-- REGISTER SECITON -->
 
     {% block container %}
     <div class="container">{% block content %} {% endblock %}</div>
     {% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{% static 'main/js/scripts.js' %}"></script>
     <script src="{% static 'main/js/chatbot.js' %}"></script>

@@ -718,7 +718,7 @@ function confirmCancelPlan() {
 }
 
 function showCancelPanel() {
-  document.getElementById("cancelPanel").style.display = "block";
+  document.getElementById("cancelPanel").style.display = "flex";
 }
 
 function hideCancelPanel() {
