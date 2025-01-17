@@ -4,7 +4,7 @@ Videos IA{% endblock %} {% block content %}
 
 <section id="dashboard-section">
   <!-- Contenedor de botones para controlar seccion de generacion de contenido -->
-  <aside id="aside-buttons" class="open-aside" role="tablist">
+  <aside id="aside-buttons" class="close-aside" role="tablist">
     <div class="logo-dashboard-container">
       <img src="{% static 'img/clipgen.ai logo.png' %}" alt="Logo de Clipgen" />
       <h1>Clipgen Ai</h1>
@@ -32,7 +32,9 @@ Videos IA{% endblock %} {% block content %}
         Configuración
       </button>
     </div>
-    <span id="control-aside"><i class="fa-regular fa-circle-xmark"></i></span>
+    <span id="control-aside"
+      ><i class="fa-solid fa-arrow-right-from-bracket"></i
+    ></span>
   </aside>
   <!-- Contenedor de botones para controlar seccion de generacion de contenido -->
 
@@ -110,41 +112,43 @@ Videos IA{% endblock %} {% block content %}
     </div>
     <!-- Paneles oculto al iniciar -->
 
-    <div class="control-container-open" id="dashboard-content-generator">
-      <div class="dashboard-content-forms animate__animated animate__lightSpeedInLeft" id="generate-script">
-        <form class="form-user-dashboard " id="generateForm">
+    <div class="control-container-close" id="dashboard-content-generator">
+      <div
+        class="dashboard-content-forms animate__animated animate__lightSpeedInLeft"
+        id="generate-script"
+      >
+        <form class="form-user-dashboard" id="generateForm">
           <div class="block-form">
             <label for="inputTitle" class="label-user-dashboard"
               >Título del Video</label
             >
-            <div class="input-suggestions">
-              <input
-                type="text"
-                class="input-user-dashboard"
-                id="inputTitle"
-                placeholder="Introduce un título"
-              />
-              <button
-                class="btn btn-outline-secondary"
-                type="button"
-                onclick="suggestTitles()"
+            <input
+              type="text"
+              class="input-user-dashboard"
+              id="inputTitle"
+              placeholder="Introduce un título"
+            />
+            <button
+              class="btn-outline-secondary"
+              type="button"
+              onclick="suggestTitles()"
+            >
+              <svg
+                height="24"
+                width="24"
+                fill="#FFFFFF"
+                viewBox="0 0 24 24"
+                data-name="Layer 1"
+                id="Layer_1"
+                class="sparkle"
               >
-                <svg
-                  height="24"
-                  width="24"
-                  fill="#FFFFFF"
-                  viewBox="0 0 24 24"
-                  data-name="Layer 1"
-                  id="Layer_1"
-                  class="sparkle"
-                >
-                  <path
-                    d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"
-                  ></path>
-                </svg>
-                <span class="text">Sugerir Títulos</span>
-              </button>
-            </div>
+                <path
+                  d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"
+                ></path>
+              </svg>
+              <span class="text">Sugerir Títulos</span>
+            </button>
+
             <div id="titleSuggestions"></div>
           </div>
           <div class="block-form">
@@ -383,7 +387,6 @@ Videos IA{% endblock %} {% block content %}
       <div
         class="dashboard-content-forms animate__animated animate__lightSpeedInLeft"
         id="upload-script"
-        
       >
         <form id="uploadForm" class="dashboard-content-forms">
           <div class="block-form">
@@ -613,7 +616,6 @@ Videos IA{% endblock %} {% block content %}
       <div
         class="dashboard-content-forms animate__animated animate__lightSpeedInLeft"
         id="your-videos"
-  
       >
         <h3>Tus Videos</h3>
         <div id="videosList">
@@ -625,12 +627,12 @@ Videos IA{% endblock %} {% block content %}
       </div>
 
       <div
-        class="dashboard-content-forms animate__animated animate__lightSpeedInLeft"
+        class="block-form dashboard-content-forms animate__animated animate__lightSpeedInLeft"
         id="config"
       >
         <form id="configForm" method="POST">
           {% csrf_token %}
-          <div>
+          <div class="block-form">
             <label for="chatgptApiKey" class="label-user-dashboard"
               >ChatGPT API Key</label
             >
@@ -652,25 +654,20 @@ Videos IA{% endblock %} {% block content %}
               placeholder="Introduce tu clave API de ElevenLabs"
             />
           </div>
-          <div class="d-grid gap-2">
-            <button
-              type="button"
-              class="btn btn-custom"
-              onclick="saveApiKeys()"
-            >
-              <strong>Guardar</strong>
-              <div id="container-stars">
-                <div id="stars"></div>
-              </div>
-              <div id="glow">
-                <div class="circle"></div>
-                <div class="circle"></div>
-              </div>
-            </button>
-          </div>
+          <button type="button" class="btn-custom" onclick="saveApiKeys()">
+            <strong>Guardar</strong>
+            <div id="container-stars">
+              <div id="stars"></div>
+            </div>
+            <div id="glow">
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+          </button>
         </form>
+
         <form id="changeCredentialsForm">
-          <div>
+          <div class="block-form">
             <label for="newUsername" class="label-user-dashboard"
               >Nuevo Usuario</label
             >
@@ -681,7 +678,7 @@ Videos IA{% endblock %} {% block content %}
               placeholder="Introduce tu nuevo nombre de usuario"
             />
           </div>
-          <div>
+          <div class="block-form">
             <label for="currentPassword" class="label-user-dashboard"
               >Contraseña Actual</label
             >
@@ -692,7 +689,7 @@ Videos IA{% endblock %} {% block content %}
               placeholder="Introduce tu contraseña actual"
             />
           </div>
-          <div>
+          <div class="block-form">
             <label for="newPassword" class="label-user-dashboard"
               >Nueva Contraseña</label
             >
@@ -703,7 +700,7 @@ Videos IA{% endblock %} {% block content %}
               placeholder="Introduce tu nueva contraseña"
             />
           </div>
-          <div class="d-grid gap-2">
+          <div class="block-form">
             <button
               type="button"
               class="btn btn-custom"
@@ -720,26 +717,42 @@ Videos IA{% endblock %} {% block content %}
             </button>
           </div>
         </form>
-        <div class="minutes-info">
-          <strong>Minutos restantes: {{ minutes_left }} min </strong> |
-          <strong>Fecha de vencimiento: {{ reset_date|date:"d M Y" }}</strong>
-          <button class="btn-upgrade" onclick="showUpgradePanel()">
-            Mejorar plan
-          </button>
-          {% if current_plan_name %}
-          <strong>Plan Actual: {{ current_plan_name }}</strong>
-          <!-- solo aparece el botón si hay plan actual -->
-          <button class="btn-cancel" onclick="showCancelPanel()">
-            Cancelar Plan
-          </button>
-          {% else %}
-          <strong>Plan Actual: Free</strong>
-          {% endif %}
+
+        <div class="minute-info" style="padding: 15px">
+          <div class="block-form">
+            <strong class="label-user-dashboard"
+              >Minutos restantes: 200 {{ minutes_left }} min
+            </strong>
+            <strong class="label-user-dashboard"
+              >Fecha de vencimiento: 12/12/25 {{ reset_date|date:"d M Y"}}</strong>
+
+            {% if current_plan_name %}
+            <strong class="label-user-dashboard"
+              >Plan Actual: {{ current_plan_name }}</strong
+            >
+            <!-- solo aparece el botón si hay plan actual -->
+            <button class="btn-cancel" onclick="showCancelPanel()">
+              Cancelar Plan
+            </button>
+            {% else %}
+            <strong class="label-user-dashboard">Plan Actual: Free</strong>
+            <button class="btn-custom" onclick="showUpgradePanel()">
+              <strong>Mejorar plan</strong>
+              <div id="container-stars">
+                <div id="stars"></div>
+              </div>
+              <div id="glow">
+                <div class="circle"></div>
+                <div class="circle"></div>
+              </div>
+            </button>
+            {% endif %}
+          </div>
         </div>
       </div>
     </div>
 
-    <div id="scriptSection" >
+    <div id="scriptSection">
       <h2>Guion Generado</h2>
       <textarea
         id="generatedScript"

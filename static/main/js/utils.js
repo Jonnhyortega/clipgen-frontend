@@ -8,6 +8,7 @@ const showLogin = () => {
     modalLogin.style.display = "none";
   }
 };
+
 // FUNCTION TO SHOW MODAL REGISTER
 const showRegister = () => {
   const modalRegister = document.getElementById("register-container");
@@ -18,6 +19,7 @@ const showRegister = () => {
     modalRegister.style.display = "none";
   }
 };
+
 // FUNCTION TO CLOSE MODAL LOGIN AND OPEN REGISTER
 const loginToRegister = () => {
   const modalLogin = document.getElementById("login-section");
@@ -26,6 +28,7 @@ const loginToRegister = () => {
   modalLogin.style.display = "none";
   modalRegister.style.display = "flex";
 };
+
 // FUNCTION TO CLOSE MODAL REGISTER AND OPEN LOGIN
 const registerToLogin = () => {
   const modalLogin = document.getElementById("login-section");
@@ -34,11 +37,11 @@ const registerToLogin = () => {
   modalRegister.style.display = "none";
   modalLogin.style.display = "flex";
 };
+
 // FUNCTION TO SHOW PASSWORD1 REGISTER
 let statePassword = false;
 const divIcon = document.getElementById("icon-password1");
 const inputPassword = document.getElementById("password1");
-
 divIcon.addEventListener("click", () => {
   statePassword = !statePassword;
 
@@ -55,7 +58,6 @@ divIcon.addEventListener("click", () => {
 let statePassword2 = false;
 const divIcon2 = document.getElementById("icon-password2");
 const inputPassword2 = document.getElementById("password2");
-
 divIcon2.addEventListener("click", () => {
   statePassword2 = !statePassword2;
   if (statePassword2) {
@@ -66,11 +68,11 @@ divIcon2.addEventListener("click", () => {
     divIcon2.innerHTML = '<i class="fa-solid fa-eye"></i></i>';
   }
 });
+
 // FUNCTION TO SHOW PASSWORD IN LOGIN
 let stateloginPassword = false;
 const divIconLogin = document.getElementById("icon-login-password");
 const loginPassword = document.getElementById("login-password");
-
 divIconLogin.addEventListener("click", () => {
   stateloginPassword = !stateloginPassword;
 
@@ -83,7 +85,7 @@ divIconLogin.addEventListener("click", () => {
   }
 });
 
-// FUNCTION TO CONTROL DASHBOARD ELEMENTS SHOW AND HIDDEN
+// FUNCTION TO CONTROL DASHBOARD ELEMENTS: SHOW AND HIDDEN
 const asideButtons = document.getElementById("aside-buttons");
 const asideControl = document.getElementById("control-aside");
 const containerApp = document.getElementById("dashboard-content-generator");
@@ -97,12 +99,14 @@ asideControl.addEventListener("click", () => {
     containerApp.classList.remove("control-container-close");
     containerApp.classList.add("control-container-open");
     asideControl.innerHTML = `<i class="fa-regular fa-circle-xmark"></i>`;
+    asideControl.style.boxShadow = "none"; 
   } else {
     asideButtons.classList.remove("open-aside");
     asideButtons.classList.add("close-aside");
     containerApp.classList.remove("control-container-open");
     containerApp.classList.add("control-container-close");
     asideControl.innerHTML = `<i class="fa-solid fa-arrow-right-from-bracket"></i>`;
+    asideControl.style.boxShadow = "0px 0px 5px 2px var(--greenFull4)"; 
   }
 });
 
