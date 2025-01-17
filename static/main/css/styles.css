@@ -74,7 +74,7 @@ nav {
   backdrop-filter: blur(25px) saturate(200%);
   -webkit-backdrop-filter: blur(25px) saturate(200%);
   background-color: rgba(255, 255, 255, 0);
-  /* border-bottom: 1px solid var(--greenFull4); */
+  border-bottom: 1px solid var(--greenFull4);
   top: 0;
   display: flex;
   justify-content: space-between;
@@ -378,51 +378,51 @@ nav {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  background-color: transparent;
-  border-right: 1px solid var(--greenFull4);
+  backdrop-filter: blur(25px) saturate(200%);
+  -webkit-backdrop-filter: blur(25px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0);  border-right: 1px solid var(--greenFull4);
   border-top: 1px solid var(--greenFull4);
   border-bottom: 1px solid var(--greenFull4);
   color: white;
   height: 100vh;
-  top: 0;
+  top: 74px;
   z-index: 1000;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  /* border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px; */
   padding: 0 10px;
-  width: 330px;
+  width: 300px;
   transition-duration: 0.4s;
-  position: absolute;
+  position: fixed;
 }
 
 .open-aside {
   transition-duration: 1s all;
-  left: 0;
+  right: -5px;
 }
 
 .close-aside {
-  left: -300px;
+  right: -300px;
   transition-duration: 1s all;
 }
 
 .control-container-open {
-  margin-left: 400px;
   /* * {
     border: 1px solid gold;
   } */
-  width: 100%;
   transition-duration: 0.4s;
+  width: calc(100vw - 300px);
+  float: right;
 }
 
 .control-container-close {
-  margin-left: 40px;
+  width: 90vw;
   transition-duration: 0.4s;
-  width: 100vh;
 }
 
 #control-aside {
   position: absolute;
-  top: -30px;
-  right: -60px;
+  top: -24px;
+  left: -60px;
   color: var(--greenFull4);
   font-size: 25px;
   cursor: pointer;
@@ -690,6 +690,7 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   right: -8px;
   box-shadow: 0 0 20px #0db823;
 }
+
 @keyframes animateC {
   0% {
     transform: rotate(0deg);
@@ -724,6 +725,7 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   border-radius: 4px;
   cursor: pointer;
 }
+
 /* Sugerencia cuando se pasa el cursor */
 .suggestion-item:hover {
   border: 2px solid;
@@ -732,57 +734,9 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
 }
 
 /* Estilos para la pestaña activa con animación de gradiente */
-.nav-tabs .nav-link.active {
-  border: 2px solid;
-  border-image: linear-gradient(45deg, #87f414, #0a6207, #0b340f, #07141a) 1;
-  color: #ffffff;
-  animation: borderAnimation 5s infinite;
-}
-
-/* Estilos para las pestañas */
-.nav-tabs .nav-link {
-  color: #ffffff;
-  background: none;
-  border: 2px solid #1c3a40;
-  transition: border 0.5s;
-  height: auto;
-}
-
-.nav-tabs .nav-link:hover {
-  border: 2px solid;
-  border-image: linear-gradient(45deg, #87f414, #0a6207, #0b340f, #07141a) 1;
-  color: #ffffff;
-}
-
-/* Animación del borde */
-@keyframes borderAnimation {
-  0% {
-    border-image-source: linear-gradient(
-      45deg,
-      #87f414,
-      #0a6207,
-      #0b340f,
-      #07141a
-    );
-  }
-  50% {
-    border-image-source: linear-gradient(
-      135deg,
-      #07141a,
-      #0b340f,
-      #0a6207,
-      #87f414
-    );
-  }
-  100% {
-    border-image-source: linear-gradient(
-      45deg,
-      #87f414,
-      #0a6207,
-      #0b340f,
-      #07141a
-    );
-  }
+.active {
+  background-color: var(--greenFull5);
+  color: black;
 }
 
 /* Estilos para el chatbot */

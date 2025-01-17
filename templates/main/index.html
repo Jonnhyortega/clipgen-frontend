@@ -111,8 +111,8 @@ Videos IA{% endblock %} {% block content %}
     <!-- Paneles oculto al iniciar -->
 
     <div class="control-container-open" id="dashboard-content-generator">
-      <div class="dashboard-content-forms" id="generate-script">
-        <form class="form-user-dashboard" id="generateForm">
+      <div class="dashboard-content-forms animate__animated animate__lightSpeedInLeft" id="generate-script">
+        <form class="form-user-dashboard " id="generateForm">
           <div class="block-form">
             <label for="inputTitle" class="label-user-dashboard"
               >Título del Video</label
@@ -381,7 +381,7 @@ Videos IA{% endblock %} {% block content %}
       </div>
 
       <div
-        class="dashboard-content-forms"
+        class="dashboard-content-forms animate__animated animate__lightSpeedInLeft"
         id="upload-script"
         
       >
@@ -611,7 +611,7 @@ Videos IA{% endblock %} {% block content %}
       </div>
 
       <div
-        class="dashboard-content-forms"
+        class="dashboard-content-forms animate__animated animate__lightSpeedInLeft"
         id="your-videos"
   
       >
@@ -625,7 +625,7 @@ Videos IA{% endblock %} {% block content %}
       </div>
 
       <div
-        class="dashboard-content-forms"
+        class="dashboard-content-forms animate__animated animate__lightSpeedInLeft"
         id="config"
       >
         <form id="configForm" method="POST">
@@ -641,7 +641,7 @@ Videos IA{% endblock %} {% block content %}
               placeholder="Introduce tu clave API de ChatGPT"
             />
           </div>
-          <div>
+          <div class="block-form">
             <label for="elevenlabsApiKey" class="label-user-dashboard"
               >ElevenLabs API Key</label
             >
@@ -669,7 +669,7 @@ Videos IA{% endblock %} {% block content %}
             </button>
           </div>
         </form>
-        <form id="changeCredentialsForm" class="mt-4">
+        <form id="changeCredentialsForm">
           <div>
             <label for="newUsername" class="label-user-dashboard"
               >Nuevo Usuario</label

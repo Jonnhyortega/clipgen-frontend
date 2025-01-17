@@ -107,7 +107,61 @@ asideControl.addEventListener("click", () => {
 });
 
 // FUNCTION TO SHOW DASHBOARD CONTENTS
+// PANELS TO SHOW
 const generateScript = document.getElementById("generate-script");
 const uploadScript = document.getElementById("upload-script");
 const yourVideos = document.getElementById("your-videos");
 const config = document.getElementById("config");
+// BUTTONS TO CONTROL
+const generateScriptButton = document.getElementById("generate-script-tab");
+const uploadScriptButton = document.getElementById("upload-script-tab");
+const yourVideosButton = document.getElementById("your-videos-tab");
+const configButton = document.getElementById("config-tab");
+
+generateScriptButton.addEventListener("click", () => {
+  generateScript.style.display = "flex";
+  uploadScript.style.display = "none";
+  yourVideos.style.display = "none";
+  config.style.display = "none";
+  // BUTTONS ACTIVE
+  generateScriptButton.classList.add("active");
+  uploadScriptButton.classList.remove("active");
+  yourVideosButton.classList.remove("active");
+  configButton.classList.remove("active");
+});
+
+uploadScriptButton.addEventListener("click", () => {
+  uploadScript.style.display = "flex";
+  generateScript.style.display = "none";
+  yourVideos.style.display = "none";
+  config.style.display = "none";
+  // BUTTONS ACTIVE
+  uploadScriptButton.classList.add("active");
+  generateScriptButton.classList.remove("active");
+  yourVideosButton.classList.remove("active");
+  configButton.classList.remove("active");
+});
+
+yourVideosButton.addEventListener("click", () => {
+  yourVideos.style.display = "flex";
+  uploadScript.style.display = "none";
+  generateScript.style.display = "none";
+  config.style.display = "none";
+  // BUTTONS ACTIVE
+  yourVideosButton.classList.add("active");
+  uploadScriptButton.classList.remove("active");
+  generateScriptButton.classList.remove("active");
+  configButton.classList.remove("active");
+});
+
+configButton.addEventListener("click", () => {
+  config.style.display = "flex";
+  uploadScript.style.display = "none";
+  yourVideos.style.display = "none";
+  generateScript.style.display = "none";
+  // BUTTONS ACTIVE
+  configButton.classList.add("active");
+  uploadScriptButton.classList.remove("active");
+  yourVideosButton.classList.remove("active");
+  generateScriptButton.classList.remove("active");
+});
