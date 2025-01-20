@@ -3,11 +3,9 @@
 
 :root {
   /* PALETA DE COLORES */
-  --greenFull2: #151e10;
-  --greenFull1: #26371a;
-  --greenFull3: #4b613c;
-  --greenFull4: #7f965e;
-  --greenFull5: #ccdea1;
+  --greenFull1: #9df01a;
+  --greenFull2: #70e000;
+  --greenFull3: #38b000;
   /* FONTS */
   --main: "Nunito", serif;
   --second: "Roboto", serif;
@@ -50,7 +48,7 @@
 
     a:hover {
       transition: 0.3s;
-      color: var(--greenFull5);
+      color: var(--greenFull3);
     }
   }
 }
@@ -100,7 +98,7 @@ form {
   top: 10px;
 }
 #icon-login-password:hover {
-  color: var(--greenFull5);
+  color: var(--green3);
 }
 
 .input-type {

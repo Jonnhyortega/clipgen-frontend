@@ -35,7 +35,7 @@
 
 #link-to-login-register:hover {
   transition: 0.3s;
-  color: var(--greenFull5);
+  color: var(--greenFull3);
 }
 
 #close-modal-register {
@@ -89,7 +89,7 @@ form > label > input::placeholder {
 input:focus,
 form > label > input:focus {
   outline: none;
-  border: 1px solid var(--greenFull5);
+  border: 1px solid var(--greenFull3);
 }
 
 form > label {
@@ -114,5 +114,5 @@ form > label > div {
 
 #icon-password1:hover,
 #icon-password2:hover {
-  color: var(--greenFull5);
+  color: var(--green3);
 }

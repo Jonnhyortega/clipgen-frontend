@@ -4,37 +4,50 @@ Videos IA{% endblock %} {% block content %}
 
 <section id="dashboard-section">
   <!-- Contenedor de botones para controlar seccion de generacion de contenido -->
-  <aside id="aside-buttons" class="close-aside" role="tablist">
-    <div class="logo-dashboard-container">
-      <img src="{% static 'img/clipgen.ai logo.png' %}" alt="Logo de Clipgen" />
-      <h1>Clipgen Ai</h1>
-    </div>
+  <aside id="aside-buttons" role="tablist">
     <div class="buttons-content">
-      <button class="button-tab" id="generate-script-tab">
+      <button class="button-tab active" id="generate-script-tab">
         <span id="icon-content-buttons-aside"
-          ><i class="fa-solid fa-circle-play"></i></span
-        >Generar Guion
+          ><i class="fa-solid fa-circle-play"></i
+        ></span>
+        <span>Generar Guion</span>
       </button>
       <button class="button-tab" id="upload-script-tab">
         <span id="icon-content-buttons-aside">
           <i class="fa-solid fa-i-cursor"></i></span
-        >Ingresar Guion
+        ><span>Ingresar Guion</span>
       </button>
       <button class="button-tab" id="your-videos-tab">
         <span id="icon-content-buttons-aside"
           ><i class="fa-solid fa-video"></i></span
-        >Tus Videos
+        ><span>Tus Videos</span>
       </button>
       <button class="button-tab" id="config-tab">
         <span id="icon-content-buttons-aside"
           ><i class="fa-solid fa-gear"></i
         ></span>
-        Configuración
+        <span>Configuración</span>
       </button>
     </div>
-    <span id="control-aside"
-      ><i class="fa-solid fa-arrow-right-from-bracket"></i
-    ></span>
+    <div class="secondary-content">
+      <div class="logos-redes">
+        <a href="https://www.instagram.com/clipgenai/" target="_blank">
+          <span><i class="fa-brands fa-instagram"></i></span>
+        </a>
+        <a href="https://www.youtube.com/">
+          <span><i class="fa-brands fa-youtube"></i></span>
+        </a>
+      </div>
+      <div class="links-secondary">
+        <a href="{% url 'sobre' %}">Acerca de</a>
+        <a
+          >Clipgen
+          <script>
+            document.write(new Date().getFullYear());
+          </script></a
+        >
+      </div>
+    </div>
   </aside>
   <!-- Contenedor de botones para controlar seccion de generacion de contenido -->
 
@@ -112,7 +125,7 @@ Videos IA{% endblock %} {% block content %}
     </div>
     <!-- Paneles oculto al iniciar -->
 
-    <div class="control-container-close" id="dashboard-content-generator">
+    <div id="dashboard-content-generator">
       <div
         class="dashboard-content-forms animate__animated animate__lightSpeedInLeft"
         id="generate-script"
@@ -627,7 +640,7 @@ Videos IA{% endblock %} {% block content %}
       </div>
 
       <div
-        class="block-form dashboard-content-forms animate__animated animate__lightSpeedInLeft"
+        class="dashboard-content-forms animate__animated animate__lightSpeedInLeft"
         id="config"
       >
         <form id="configForm" method="POST">
@@ -724,7 +737,9 @@ Videos IA{% endblock %} {% block content %}
               >Minutos restantes: 200 {{ minutes_left }} min
             </strong>
             <strong class="label-user-dashboard"
-              >Fecha de vencimiento: 12/12/25 {{ reset_date|date:"d M Y"}}</strong>
+              >Fecha de vencimiento: 12/12/25 {{ reset_date|date:"d M
+              Y"}}</strong
+            >
 
             {% if current_plan_name %}
             <strong class="label-user-dashboard"

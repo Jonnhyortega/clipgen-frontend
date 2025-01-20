@@ -85,30 +85,6 @@ divIconLogin.addEventListener("click", () => {
   }
 });
 
-// FUNCTION TO CONTROL DASHBOARD ELEMENTS: SHOW AND HIDDEN
-const asideButtons = document.getElementById("aside-buttons");
-const asideControl = document.getElementById("control-aside");
-const containerApp = document.getElementById("dashboard-content-generator");
-let asideOpen = false;
-
-asideControl.addEventListener("click", () => {
-  asideOpen = !asideOpen;
-  if (asideOpen) {
-    asideButtons.classList.remove("close-aside");
-    asideButtons.classList.add("open-aside");
-    containerApp.classList.remove("control-container-close");
-    containerApp.classList.add("control-container-open");
-    asideControl.innerHTML = `<i class="fa-regular fa-circle-xmark"></i>`;
-    asideControl.style.boxShadow = "none"; 
-  } else {
-    asideButtons.classList.remove("open-aside");
-    asideButtons.classList.add("close-aside");
-    containerApp.classList.remove("control-container-open");
-    containerApp.classList.add("control-container-close");
-    asideControl.innerHTML = `<i class="fa-solid fa-arrow-right-from-bracket"></i>`;
-    asideControl.style.boxShadow = "0px 0px 5px 2px var(--greenFull4)"; 
-  }
-});
 
 // FUNCTION TO SHOW DASHBOARD CONTENTS
 // PANELS TO SHOW
