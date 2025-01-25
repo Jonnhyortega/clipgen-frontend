@@ -24,11 +24,14 @@ nav {
 
   .link-logo > h1 {
     font-family: var(--main);
-    color: var(--greenFull3);
-    -webkit-text-stroke: 2px black; 
-    color: white; 
-    font-size: 35px;
+    color: white;
+    -webkit-text-stroke: 1px rgb(33, 33, 33);
+    font-size: 28px;
     font-weight: bolder;
+    /* background: linear-gradient(to right, #004d03, #4caf50);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
   }
 }
 
