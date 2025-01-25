@@ -274,7 +274,7 @@ function updateVideosInProgress() {
                 <h4>${task.title}</h4>
                 <p class="status">Estado: ${currentStep}</p>
                 <div class="progress">
-                    <div class="progress-bar progress-bar-striped bg-success" 
+                    <div class="progress-bar progress-bar-striped" 
                          role="progressbar" 
                          style="width: ${progressPercentage}%;" 
                          aria-valuenow="${progressPercentage}" 
@@ -632,14 +632,14 @@ function deleteVideo(videoId) {
 
 function showUpgradePanel() {
   const panel = document.getElementById("upgradePanel");
-  panel.style.display = "block";
+  panel.style.display = "flex";
 
   fetch("/get-plans-json/")
     .then((response) => response.json())
     .then((data) => {
       const container = document.getElementById("plansContainer");
       container.innerHTML = "";
-
+// LA PARTE DE LOS PLANES FUE CODEADA MANUALMENTE EN INDEX.HTML
       data.plans.forEach((plan) => {
         const planDiv = document.createElement("div");
         planDiv.classList.add("plan-item");
@@ -717,13 +717,13 @@ function confirmCancelPlan() {
     });
 }
 
-function showCancelPanel() {
-  document.getElementById("cancelPanel").style.display = "flex";
-}
+// function showCancelPanel() {
+//   document.getElementById("cancelPanel").style.display = "flex";
+// }
 
-function hideCancelPanel() {
-  document.getElementById("cancelPanel").style.display = "none";
-}
+// function hideCancelPanel() {
+//   document.getElementById("cancelPanel").style.display = "none";
+// }
 
 function confirmCancelPlan() {
   // Llamar al endpoint que cancela la suscripción en Stripe

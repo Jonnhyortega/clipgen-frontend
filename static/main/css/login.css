@@ -6,6 +6,8 @@
   --greenFull1: #9df01a;
   --greenFull2: #70e000;
   --greenFull3: #38b000;
+  --blackPanel: rgb(22, 22, 22);
+
   /* FONTS */
   --main: "Nunito", serif;
   --second: "Roboto", serif;
@@ -42,12 +44,12 @@
 
     a {
       font-weight: bold;
-      color: var(--greenFull3);
-      transition: 0.3s;
+      color: var(--greenFull2);
+      transition: 0.1s;
     }
 
     a:hover {
-      transition: 0.3s;
+      transition: 0.1s;
       color: var(--greenFull3);
     }
   }
@@ -63,23 +65,25 @@
   cursor: pointer;
 }
 
-form {
+#form-login {
   /* border: 1px solid var(--greenFull4); */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   gap: 5px;
-  width: 450px;
+  width: 400px;
   position: relative;
-  padding: 35px 25px;
+  padding: 30px;
+  background-color: var(--blackPanel);
+  
+}
 
-  h3 {
-    font-family: var(--main);
-    font-weight: bold;
-    font-size: 35px;
-    color: white;
-    margin-bottom: 25px;
-  }
+#form-login > h3 {
+  font-family: var(--main);
+  font-weight: bold;
+  font-size: 35px;
+  color: white;
+  margin-bottom: 25px;
 }
 
 #label-login {
@@ -120,6 +124,10 @@ form {
   text-align: left;
 }
 
+.input-is:focus{
+  border: none;
+}
+
 .input-is::placeholder {
   color: white;
   font-weight: 300;
@@ -132,7 +140,7 @@ form {
   padding: 0;
   background-color: white;
   color: black;
-  transition: 0.5s;
+  transition: 0.2s;
   padding: 10px 5px;
   cursor: pointer;
   display: flex;
@@ -140,14 +148,14 @@ form {
   justify-content: center;
   gap: 10px;
   font-family: var(--main);
-
+  font-weight: 400;
   img {
     width: 25px;
   }
 }
 
 .submit-button:hover {
-  background-color: var(--greenFull4);
+  background-color: rgb(143, 143, 143);
 }
 
 .login-container2 {
@@ -160,14 +168,28 @@ form {
   border-radius: 15px;
   background-color: var(--greenFull4);
 
-  img {
-    width: 300px;
-  }
 
-  h1 {
-    font-weight: 4rem;
-    font-weight: bold;
-    font-family: var(--main);
-    color: black;
-  }
+  
+}
+
+.login-container2 > img {
+  width: 300px;
+}
+
+
+.login-container2 > h1 {
+  font-weight: 4rem;
+  font-weight: bold;
+  font-family: var(--main);
+  color: black;
+}
+
+#link-to-login-register {
+  color: var(--greenFull3);
+  transition: 0.3s;
+}
+
+#link-to-login-register:hover {
+  transition: 0.3s;
+  color: var(--greenFull2);
 }

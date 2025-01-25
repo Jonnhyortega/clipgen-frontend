@@ -14,10 +14,7 @@
   -webkit-backdrop-filter: blur(25px) saturate(180%);
   background-color: rgba(0, 0, 0, 0);
 
-  /* border: 1px solid gold;
-  * {
-    border: 1px solid gold;
-  } */
+
   div {
     margin-top: 20px;
 
@@ -35,7 +32,7 @@
 
 #link-to-login-register:hover {
   transition: 0.3s;
-  color: var(--greenFull3);
+  color: var(--greenFull2);
 }
 
 #close-modal-register {
@@ -46,14 +43,6 @@
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  margin: 0 auto;
-  position: relative;
 }
 
 form > h2 {
@@ -89,7 +78,7 @@ form > label > input::placeholder {
 input:focus,
 form > label > input:focus {
   outline: none;
-  border: 1px solid var(--greenFull3);
+  border: none;
 }
 
 form > label {
@@ -98,10 +87,6 @@ form > label {
   justify-content: center;
   gap: 15px;
   position: relative;
-  /* border: 1px solid red;
-  * {
-    border: 1px solid gold;
-  } */
 }
 
 form > label > div {

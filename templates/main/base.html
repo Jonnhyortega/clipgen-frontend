@@ -9,15 +9,20 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <link
+      rel="stylesheet"
+      href="https://img.icons8.com/nolan/64/high-volume.png"
+    />
+    <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=subtitles"
+    />
+
     <title>{% block title %}Clipgen.ai{% endblock %}</title>
     <link rel="icon" href="{% static 'img/clipgen.ai logo.png' %}" />
-    <!-- <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    /> -->
     <link href="{% static 'main/css/styles.css' %}" rel="stylesheet" />
     <link
       href="{% static 'main/css/descargar_eliminar.css' %}"
@@ -29,6 +34,8 @@
       href="{% static 'main/css/Dashboard/dashboard-styles.css' %}"
       rel="stylesheet"
     />
+    <link href="{% static 'main/css/Navbar/navbar.css' %}" rel="stylesheet" />
+    <link href="{% static 'main/css/Hero/hero.css' %}" rel="stylesheet" />
 
     <meta name="csrf-token" content="{{ csrf_token }}" />
   </head>
@@ -61,16 +68,16 @@
 
     <!-- HERO SECTION -->
     <!-- <section class="hero">
-      <div>
-        <h1 class="animate__animated animate__backInDown">
+      <div id="content-hero">
+        <span id="title-hero" class="animate__animated animate__backInDown">
           Automatizá tus videos.
-        </h1>
-        <h3 class="animate__animated animate__fadeIn">
+        </span>
+        <h3 id="foot-hero" class="animate__animated animate__fadeIn">
           Transforma tus ideas en vídeos únicos y cautivadores. Da rienda suelta
           a tu creatividad y deja que tus historias brillen como nunca antes.
         </h3>
       </div>
-      <a href="/index" class="animate__animated animate__bounce"
+      <a id="link-hero" href="/index" class="animate__animated animate__bounce"
         >Prueba ClipgenAI</a
       >
     </section> -->
@@ -116,8 +123,8 @@
       <span id="close-modal-login" onclick="showLogin()"
         ><i class="fa-solid fa-xmark"></i
       ></span>
-      <form action="" method="POST">
-        <h3>Comencemos</h3>
+      <form id="form-login" action="" method="POST">
+        <h2>Comencemos</h2>
         {% csrf_token %}
         <div class="input-type">
           <input
@@ -147,7 +154,9 @@
       </form>
       <div class="third-line">
         <p>¿No tienes cuenta?</p>
-        <a onclick="loginToRegister()"> Regístrate aquí</a>
+        <a onclick="loginToRegister()" id="link-to-login-register">
+          Regístrate aquí</a
+        >
       </div>
     </section>
     <!-- LOGIN SECTION -->
@@ -160,7 +169,7 @@
       <span id="close-modal-register" onclick="showRegister()"
         ><i class="fa-solid fa-xmark"></i
       ></span>
-      <form method="POST">
+      <form id="form-login" method="POST">
         <h2>Crear cuenta</h2>
         <input type="text" name="username" placeholder="Nombre de usuario" />
         <input type="email" name="email" placeholder="Correo electrónico" />
@@ -203,13 +212,13 @@
     <div class="container">{% block content %} {% endblock %}</div>
     {% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{% static 'main/js/scripts.js' %}"></script>
     <script src="{% static 'main/js/chatbot.js' %}"></script>
     <script src="{% static 'main/js/tab_management.js' %}"></script>
     <script src="{% static 'main/js/utils.js' %}"></script>
-    <script>
+    <script src="{% static 'main/js/panelCancel.js' %}"></script>
+    <!-- <script>
       document.addEventListener("DOMContentLoaded", function () {
         const navbar = document.querySelector(".navbar");
         window.addEventListener("scroll", function () {
@@ -220,6 +229,6 @@
           }
         });
       });
-    </script>
+    </script> -->
   </body>
 </html>
