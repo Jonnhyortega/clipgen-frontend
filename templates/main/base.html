@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css"
+    />
+
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <link
@@ -36,6 +41,10 @@
     />
     <link href="{% static 'main/css/Navbar/navbar.css' %}" rel="stylesheet" />
     <link href="{% static 'main/css/Hero/hero.css' %}" rel="stylesheet" />
+    <link
+      href="{% static 'main/css/Benefits-Section/benefits.css' %}"
+      rel="stylesheet"
+    />
 
     <meta name="csrf-token" content="{{ csrf_token }}" />
   </head>
@@ -67,7 +76,7 @@
     <!-- NEW NAVBAR -->
 
     <!-- HERO SECTION -->
-    <section class="hero">
+    <!-- <section class="hero">
       <div id="content-hero">
         <span id="title-hero" class="animate__animated animate__backInDown">
           Automatizá tus videos.
@@ -80,42 +89,74 @@
       <a id="link-hero" href="/index" class="animate__animated animate__bounce"
         >Prueba ClipgenAI</a
       >
-    </section>
+    </section> -->
     <!-- HERO SECTION -->
 
     <!-- BENEFITS SECTION -->
-    <!-- <section class="benefits">
-      <p>Lorem ipsum dolor sit amet.</p>
+    <section class="benefits">
+      <!-- <p>Lorem ipsum dolor sit amet.</p>
       <span
         >Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
         necessitatibus in autem.</span
-      >
+      > -->
       <div class="cards-benefits-container">
         <div class="card-benefit">
-          <img src="{% static 'img/clipgen.ai logo.png' %}" alt="Logo" />
-          <h3>Automatización</h3>
-          <p>
-            Automatiza la creación de tus videos y ahorra tiempo y esfuerzo.
-          </p>
-        </div>
-        <div class="card-benefit">
-          <img src="{% static 'img/clipgen.ai logo.png' %}" alt="Logo" />
           <h3>Personalización</h3>
+          <!-- <img src="{% static 'img/clipgen.ai logo.png' %}" alt="Logo" /> -->
           <p>
             Personaliza tus videos con una amplia variedad de plantillas y
             efectos.
           </p>
         </div>
         <div class="card-benefit">
-          <img src="{% static 'img/clipgen.ai logo.png' %}" alt="Logo" />
+          <h3>Automatización</h3>
+          <!-- <img src="{% static 'img/clipgen.ai logo.png' %}" alt="Logo" /> -->
+          <p>
+            Velocidad asegurada para mayor provecho y menos perdida de tiempo.
+          </p>
+          <div class="container-start">
+            <img
+              width="36"
+              height="36"
+              src="https://img.icons8.com/fluency/50/star.png"
+              alt="star"
+            />
+            <img
+              width="36"
+              height="36"
+              src="https://img.icons8.com/fluency/50/star.png"
+              alt="star"
+            />
+            <img
+              width="36"
+              height="36"
+              src="https://img.icons8.com/fluency/50/star.png"
+              alt="star"
+            />
+            <img
+              width="36"
+              height="36"
+              src="https://img.icons8.com/fluency/50/star.png"
+              alt="star"
+            />
+            <img
+              width="36"
+              height="36"
+              src="https://img.icons8.com/fluency/50/star.png"
+              alt="star"
+            />
+          </div>
+        </div>
+        <div class="card-benefit">
           <h3>Exportación</h3>
+          <!-- <img src="{% static 'img/clipgen.ai logo.png' %}" alt="Logo" /> -->
           <p>
             Exporta tus videos en alta calidad y compártelos en tus redes
             sociales.
           </p>
         </div>
       </div>
-    </section> -->
+    </section>
     <!-- BENEFITS SECTION -->
 
     <!-- LOGIN SECTION -->
@@ -252,11 +293,13 @@
     {% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{% static 'main/js/scripts.js' %}"></script>
+    <!-- <script src="{% static 'main/js/scripts.js' %}"></script> -->
     <script src="{% static 'main/js/chatbot.js' %}"></script>
     <script src="{% static 'main/js/tab_management.js' %}"></script>
-    <script src="{% static 'main/js/utils.js' %}"></script>
-    <script src="{% static 'main/js/panelCancel.js' %}"></script>
+    <script src="{% static 'main/js/dashboard.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+    <script src="{% static 'main/js/init.js' %}"></script>
+
     <!-- <script>
       document.addEventListener("DOMContentLoaded", function () {
         const navbar = document.querySelector(".navbar");

@@ -20,7 +20,7 @@ Videos IA{% endblock %} {% block content %}
       <button class="button-tab" id="your-videos-tab">
         <span id="icon-content-buttons-aside"
           ><i class="fa-solid fa-video"></i></span
-        ><span>Tus Videos</span>
+        ><span>Galeria</span>
       </button>
       <button class="button-tab" id="config-tab">
         <span id="icon-content-buttons-aside"
@@ -233,7 +233,7 @@ Videos IA{% endblock %} {% block content %}
           <img
             width="35"
             height="35"
-            src="https://img.icons8.com/nolan/64/high-volume.png"
+            src="https://img.icons8.com/fluency/48/high-volume.png"
             alt="high-volume"
           />
           <p>Audio</p>
@@ -243,8 +243,8 @@ Videos IA{% endblock %} {% block content %}
           <img
             width="35"
             height="35"
-            src="https://img.icons8.com/external-anggara-filled-outline-anggara-putra/32/external-subtitles-multimedia-anggara-filled-outline-anggara-putra-3.png"
-            alt="external-subtitles-multimedia-anggara-filled-outline-anggara-putra-3"
+            src="https://img.icons8.com/external-anggara-flat-anggara-putra/32/external-subtitles-multimedia-anggara-flat-anggara-putra.png"
+            alt="external-subtitles-multimedia-anggara-flat-anggara-putra"
           />
           <p>Subtitulos</p>
         </span>
@@ -266,6 +266,12 @@ Videos IA{% endblock %} {% block content %}
         onclick="acceptManualScript()"
       >
         Generar video
+        <img
+          width="22"
+          height="22"
+          src="https://img.icons8.com/material-sharp/50/sparkling.png"
+          alt="sparkling"
+        />
       </button>
       <!-- MODAL CON LAS OPCIONES DE CONFIGURACION -->
       <div id="modal-upload">
@@ -478,6 +484,12 @@ Videos IA{% endblock %} {% block content %}
             onclick="suggestTitles()"
           >
             Sugerir Títulos
+            <img
+              width="22"
+              height="22"
+              src="https://img.icons8.com/material-sharp/50/sparkling.png"
+              alt="sparkling"
+            />
           </button>
         </div>
 
@@ -490,7 +502,7 @@ Videos IA{% endblock %} {% block content %}
           <img
             width="35"
             height="35"
-            src="https://img.icons8.com/nolan/64/high-volume.png"
+            src="https://img.icons8.com/fluency/48/high-volume.png"
             alt="high-volume"
           />
           <p>Audio</p>
@@ -500,8 +512,8 @@ Videos IA{% endblock %} {% block content %}
           <img
             width="35"
             height="35"
-            src="https://img.icons8.com/external-anggara-filled-outline-anggara-putra/32/external-subtitles-multimedia-anggara-filled-outline-anggara-putra-3.png"
-            alt="external-subtitles-multimedia-anggara-filled-outline-anggara-putra-3"
+            src="https://img.icons8.com/external-anggara-flat-anggara-putra/32/external-subtitles-multimedia-anggara-flat-anggara-putra.png"
+            alt="external-subtitles-multimedia-anggara-flat-anggara-putra"
           />
           <p>Subtitulos</p>
         </span>
@@ -519,6 +531,12 @@ Videos IA{% endblock %} {% block content %}
       <!-- BOTON PARA GENERAR VIDEO -->
       <button type="button" class="btn btn-custom" onclick="generateScript()">
         Generar video
+        <img
+          width="22"
+          height="22"
+          src="https://img.icons8.com/material-sharp/50/sparkling.png"
+          alt="sparkling"
+        />
       </button>
       <!-- MODAL CON LAS OPCIONES DE VIDEO CONFIGURACION-->
       <div id="modal_GENERATE">
@@ -757,92 +775,96 @@ Videos IA{% endblock %} {% block content %}
     </form>
 
     <div id="your-videos">
-      <h3>Tus videos</h3>
+      <div class="box-title-content">
+        <img
+          width="50"
+          height="50"
+          src="https://img.icons8.com/fluency/50/movies-folder--v2.png"
+          alt="movies-folder--v2"
+        />
+        <h3>Galeria</h3>
+      </div>
+
       <div id="videosList">
-        <h3>Tareas en Progreso</h3>
-        <div id="inProgressTasks"></div>
-        <h3>Videos Almacenados</h3>
-        <div id="existingVideos"></div>
+        <h4><i class="fa-regular fa-clock"></i> Tareas en progreso</h4>
+        <div id="inProgressTasks">
+          <span>
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/officel/50/road-worker.png"
+              alt="road-worker"
+            />
+            <p>Creando video: "lobo cazando"</p>
+            <div id="puntos-suspensivos">
+              <p data="first-dot" class="dot animate__animated animate__fadeIn">
+                .
+              </p>
+              <p
+                data="second-dot"
+                class="dot animate__animated animate__fadeIn"
+              >
+                .
+              </p>
+              <p data="third-dot" class="dot animate__animated animate__fadeIn">
+                .
+              </p>
+            </div>
+          </span>
+          <div class="status">
+            <img
+              class="img-status"
+              src="{% static 'img/clipgen.ai logo.png' %}"
+              alt="Logo"
+              width="50"
+              height="50"
+            />
+            <p>Generando guion y descargando imágenes</p>
+          </div>
+          <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="videos-store">
+        <h3><i class="fa-solid fa-film"></i> Videos almacenados</h3>
+        <div id="existingVideos">
+          
+        </div>
       </div>
     </div>
 
     <div class="dashboard-content-forms" id="config">
       <form class="config-form" id="configForm" method="POST">
+        <h3>
+          Gestionar claves de API<span id="btn-open-config-apis">>></span>
+        </h3>
         {% csrf_token %}
-        <div class="block-form">
-          <label for="chatgptApiKey" class="label-user-dashboard"
-            >ChatGPT API Key</label
-          >
-          <input
-            type="text"
-            class="input-user-dashboard"
-            id="chatgptApiKey"
-            placeholder="Introduce tu clave API de ChatGPT"
-          />
-        </div>
-        <div class="block-form">
-          <label for="elevenlabsApiKey" class="label-user-dashboard"
-            >ElevenLabs API Key</label
-          >
-          <input
-            type="text"
-            class="input-user-dashboard"
-            id="elevenlabsApiKey"
-            placeholder="Introduce tu clave API de ElevenLabs"
-          />
-        </div>
-        <button type="button" class="btn-custom" onclick="saveApiKeys()">
-          <strong>Guardar</strong>
-          <div id="container-stars">
-            <div id="stars"></div>
+        <div id="content-config-apis">
+          <div class="block-form">
+            <label for="chatgptApiKey" class="label-user-dashboard"
+              >ChatGPT API Key</label
+            >
+            <input
+              type="text"
+              class="input-user-dashboard"
+              id="chatgptApiKey"
+              placeholder="Introduce tu clave API de ChatGPT"
+            />
           </div>
-          <div id="glow">
-            <div class="circle"></div>
-            <div class="circle"></div>
+          <div class="block-form">
+            <label for="elevenlabsApiKey" class="label-user-dashboard"
+              >ElevenLabs API Key</label
+            >
+            <input
+              type="text"
+              class="input-user-dashboard"
+              id="elevenlabsApiKey"
+              placeholder="Introduce tu clave API de ElevenLabs"
+            />
           </div>
-        </button>
-      </form>
-
-      <form class="config-form" id="changeCredentialsForm">
-        <div class="block-form">
-          <label for="newUsername" class="label-user-dashboard"
-            >Nuevo Usuario</label
-          >
-          <input
-            type="text"
-            class="input-user-dashboard"
-            id="newUsername"
-            placeholder="Introduce tu nuevo nombre de usuario"
-          />
-        </div>
-        <div class="block-form">
-          <label for="currentPassword" class="label-user-dashboard"
-            >Contraseña Actual</label
-          >
-          <input
-            type="password"
-            class="input-user-dashboard"
-            id="currentPassword"
-            placeholder="Introduce tu contraseña actual"
-          />
-        </div>
-        <div class="block-form">
-          <label for="newPassword" class="label-user-dashboard"
-            >Nueva Contraseña</label
-          >
-          <input
-            type="password"
-            class="input-user-dashboard"
-            id="newPassword"
-            placeholder="Introduce tu nueva contraseña"
-          />
-        </div>
-        <div class="block-form">
-          <button
-            type="button"
-            class="btn btn-custom"
-            onclick="changeCredentials()"
-          >
+          <button type="button" class="btn-custom" onclick="saveApiKeys()">
             <strong>Guardar</strong>
             <div id="container-stars">
               <div id="stars"></div>
@@ -851,6 +873,53 @@ Videos IA{% endblock %} {% block content %}
               <div class="circle"></div>
               <div class="circle"></div>
             </div>
+          </button>
+        </div>
+      </form>
+
+      <form class="config-form" id="changeCredentialsForm">
+        <h3>Gestionar usuario <span id="btn-open-credencials">>></span></h3>
+
+        <div id="content-change-credencials">
+          <div class="block-form">
+            <label for="newUsername" class="label-user-dashboard"
+              >Nuevo Usuario</label
+            >
+            <input
+              type="text"
+              class="input-user-dashboard"
+              id="newUsername"
+              placeholder="Introduce tu nuevo nombre de usuario"
+            />
+          </div>
+          <div class="block-form">
+            <label for="currentPassword" class="label-user-dashboard"
+              >Contraseña Actual</label
+            >
+            <input
+              type="password"
+              class="input-user-dashboard"
+              id="currentPassword"
+              placeholder="Introduce tu contraseña actual"
+            />
+          </div>
+          <div class="block-form">
+            <label for="newPassword" class="label-user-dashboard"
+              >Nueva Contraseña</label
+            >
+            <input
+              type="password"
+              class="input-user-dashboard"
+              id="newPassword"
+              placeholder="Introduce tu nueva contraseña"
+            />
+          </div>
+          <button
+            type="button"
+            class="btn btn-custom"
+            onclick="changeCredentials()"
+          >
+            Guardar
           </button>
         </div>
       </form>
@@ -933,7 +1002,8 @@ Videos IA{% endblock %} {% block content %}
 
   <div id="videoSection">
     <h2>Video Generado</h2>
-    <video id="generatedVideo" controls class="w-100"></video>
+    <!-- <video id="generatedVideo" controls class="w-100"></video> -->
+    <video src="https://www.youtube.com/watch?v=R4id1K3P8mI"></video>
     <div>
       <button class="btn btn-custom" onclick="repeatVideo()">
         Repetir Video
@@ -985,14 +1055,15 @@ Videos IA{% endblock %} {% block content %}
       <button onclick="sendMessage()">Enviar</button>
     </div>
   </div>
-  <button class="chatbot-toggle" id="chatbotToggle" onclick="toggleChatbot()">
-    <img
-      src="{% static 'img/clipgen.ai logo.png' %}"
-      alt="Chat Icon"
-      width="30"
-      height="30"
-    />
-  </button>
+  <!-- <button class="chatbot-toggle" id="chatbotToggle" onclick="toggleChatbot()"> -->
+  <img
+    class="chatbot-toggle"
+    id="chatbotToggle"
+    onclick="toggleChatbot()"
+    src="{% static 'img/clipgen.ai logo.png' %}"
+    alt="Chat Icon"
+  />
+  <!-- </button> -->
   <!-- CHATBOT -->
 </section>
 {% endblock %}

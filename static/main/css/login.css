@@ -109,7 +109,7 @@
 }
 
 .input-is:focus {
-  border: 1px solid gold;
+  outline: none;
 }
 
 .input-is::placeholder {

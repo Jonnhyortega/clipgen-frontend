@@ -196,23 +196,6 @@ function pollTasksStatus() {
     });
 }
 
-// Aseguramos que exista el contenedor de tareas en progreso
-document.addEventListener("DOMContentLoaded", function () {
-  const yourVideosTab = document.getElementById("your-videos");
-  if (yourVideosTab) {
-    if (!yourVideosTab.querySelector("#inProgressTasks")) {
-      const tasksContainer = document.createElement("div");
-      tasksContainer.id = "inProgressTasks";
-      const existingVideos = yourVideosTab.querySelector("#existingVideos");
-      if (existingVideos) {
-        yourVideosTab.insertBefore(tasksContainer, existingVideos);
-      } else {
-        yourVideosTab.appendChild(tasksContainer);
-      }
-    }
-  }
-});
-
 function updateVideosInProgress() {
   console.log("Actualizando videos en progreso:", tasksInProgress);
 
@@ -271,7 +254,7 @@ function updateVideosInProgress() {
       taskProgressItem.setAttribute("data-task-id", task.task_id);
 
       taskProgressItem.innerHTML = `
-                <h4>${task.title}</h4>
+                <h4>Creando: "${task.title}"</h4>
                 <p class="status">Estado: ${currentStep}</p>
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped" 
@@ -462,25 +445,6 @@ function resetForm() {
   hideError();
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Verifico si la estructura del tab de videos existe
-  const yourVideosTab = document.getElementById("your-videos");
-  if (yourVideosTab) {
-    // Aseguro de que tiene la estructura correcta
-    if (!yourVideosTab.querySelector("#inProgressTasks")) {
-      const inProgressContainer = document.createElement("div");
-      inProgressContainer.id = "inProgressTasks";
-      yourVideosTab.appendChild(inProgressContainer);
-    }
-
-    if (!yourVideosTab.querySelector("#existingVideos")) {
-      const videosContainer = document.createElement("div");
-      videosContainer.id = "existingVideos";
-      yourVideosTab.appendChild(videosContainer);
-    }
-  }
-});
-
 function fetchVideos() {
   console.log("Fetching videos...");
 
@@ -574,14 +538,6 @@ function fetchVideos() {
     });
 }
 
-document
-  .getElementById("your-videos-tab")
-  .addEventListener("show.bs.tab", function (e) {
-    console.log("Videos tab shown");
-    fetchVideos();
-    updateVideosInProgress();
-  });
-
 function downloadVideo(videoUrl) {
   const link = document.createElement("a");
   link.href = videoUrl;
@@ -599,12 +555,6 @@ function downloadVideo(videoUrl) {
   link.click();
   document.body.removeChild(link);
 }
-
-document.getElementById("your-videos-tab").addEventListener("click", () => {
-  console.log("Your videos tab clicked");
-  fetchVideos();
-  updateVideosInProgress();
-});
 
 function deleteVideo(videoId) {
   const csrfToken = document.querySelector("[name=csrfmiddlewaretoken]").value;
@@ -639,7 +589,7 @@ function showUpgradePanel() {
     .then((data) => {
       const container = document.getElementById("plansContainer");
       container.innerHTML = "";
-// LA PARTE DE LOS PLANES FUE CODEADA MANUALMENTE EN INDEX.HTML
+      // LA PARTE DE LOS PLANES FUE CODEADA MANUALMENTE EN INDEX.HTML
       data.plans.forEach((plan) => {
         const planDiv = document.createElement("div");
         planDiv.classList.add("plan-item");
@@ -750,3 +700,65 @@ function confirmCancelPlan() {
       console.error("Error:", error);
     });
 }
+
+// INIT APP
+// INIT APP
+// INIT APP
+// INIT APP
+// INIT APP
+document.getElementById("your-videos-tab").addEventListener("click", () => {
+  console.log("Your videos tab clicked");
+  fetchVideos();
+  updateVideosInProgress();
+});
+
+// Aseguramos que exista el contenedor de tareas en progreso
+document.addEventListener("DOMContentLoaded", function () {
+  const yourVideosTab = document.getElementById("your-videos");
+  if (yourVideosTab) {
+    if (!yourVideosTab.querySelector("# ")) {
+      const tasksContainer = document.createElement("div");
+      tasksContainer.id = "inProgressTasks";
+      const existingVideos = yourVideosTab.querySelector("#existingVideos");
+      if (existingVideos) {
+        yourVideosTab.insertBefore(tasksContainer, existingVideos);
+      } else {
+        yourVideosTab.appendChild(tasksContainer);
+      }
+    }
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Verifico si la estructura del tab de videos existe
+  const yourVideosTab = document.getElementById("your-videos");
+  if (yourVideosTab) {
+    // Aseguro de que tiene la estructura correcta
+    if (!yourVideosTab.querySelector("#inProgressTasks")) {
+      const inProgressContainer = document.createElement("div");
+      inProgressContainer.id = "inProgressTasks";
+      yourVideosTab.appendChild(inProgressContainer);
+    }
+
+    if (!yourVideosTab.querySelector("#existingVideos")) {
+      const videosContainer = document.createElement("div");
+      videosContainer.id = "existingVideos";
+      yourVideosTab.appendChild(videosContainer);
+    }
+  }
+});
+
+document
+  .getElementById("your-videos-tab")
+  .addEventListener("show.bs.tab", function (e) {
+    console.log("Videos tab shown");
+    fetchVideos();
+    updateVideosInProgress();
+  });
+
+// INIT APP
+// INIT APP
+// INIT APP
+// INIT APP
+// INIT APP
+// INIT APP
