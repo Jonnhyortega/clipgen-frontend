@@ -96,6 +96,7 @@
 #upload-form,
 #generate-script {
   display: none;
+  position: relative;
 }
 
 #config {
@@ -429,6 +430,7 @@ input[type="file"]::-webkit-file-upload-button {
 
 .dashboard-content-forms {
   width: 100%;
+  height: 90vh;
 }
 
 .block-form {
@@ -475,15 +477,17 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   background: transparent;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  font-weight: bold;
+  font-weight: 300;
   color: white;
   width: 100%;
-  font-family: var(--main);
+  font-family: var(--third);
+  transition: 0.5s all;
 }
 
 .btn-outline-secondary:hover {
   background-color: var(--borderInputs);
   box-shadow: 1px 1px 1px 1px var(--borderInputs);
+  letter-spacing: 1px;
 }
 
 /* BOTON DE SUGERIR TITULOS */
@@ -498,11 +502,44 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
 /* DASHBOARD APP*/
 /* DASHBOARD APP*/
 .minutes-info {
+  margin-top: 40px;
+  border-top: 1px solid var(--inputs);
   display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
   color: #ffffff;
-  border: 1px solid var(--green);
-  padding: 0 0 12px 0;
-  border-radius: 4px;
+  padding: 12px;
+}
+
+.minutes-info-line {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--borderInputs);
+  color: white;
+}
+
+.minutes-info-line > p {
+  text-align: left;
+  width: 170px;
+  color: white;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  font-size: 25px;
+  font-family: var(--main);
+}
+
+.minutes-info-line > strong {
+  color: var(--greenFull2);
+  font-weight: bolder;
+  letter-spacing: 1px;
+  font-size: 30px;
+  font-family: var(--third);
 }
 
 /* BUTTON SAVE API KEY */
@@ -523,6 +560,10 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   font-weight: bold;
   position: relative;
   text-align: left;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-custom > img {
@@ -542,23 +583,297 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
 /* BUTTON SAVE API KEY */
 
 /* CONFIG SECTION */
+
+#config > h3 {
+  font-family: var(--main);
+  font-weight: bolder;
+  letter-spacing: 2px;
+  color: white;
+  font-size: 35px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 25px;
+}
 #configForm,
-#changeCredentialsForm,
-#minute-info {
-  width: 60%;
+#changeCredentialsForm {
+  width: 80%;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  margin: 20px auto;
+  /* border: 1px solid gold;
+  * {
+    border: 1px solid blue;
+  } */
 }
 
 #content-change-credencials,
 #content-config-apis {
-  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
+  transition: 0.6s all;
+  width: 100%;
 }
+
+.open-form-config {
+  transition: 0.6s all;
+  overflow-y: scroll;
+  height: 60vh;
+  padding: 60px;
+  background-color: var(--borderInputs);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.close-form-config {
+  transition: 0.6s all;
+  height: 1px;
+  border-top: 1px solid var(--borderInputs);
+  overflow-y: hidden;
+  background-color: transparent;
+  padding: 0;
+}
+
+#btn-open-credencials,
+#btn-open-config-api {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 260px;
+  color: white;
+  border: 1px solid var(--borderInputs);
+  background-color: transparent;
+  transition: 0.6s all;
+  padding: 15px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* #btn-open-credencials > i,
+#btn-open-config-api > i {
+  position: absolute;
+  top: 8px;
+  right: 5px;
+} */
+
+#btn-open-credencials:hover,
+#btn-open-config-api:hover {
+  background-color: var(--borderInputs);
+}
+
+.btn-cancel-plan {
+  overflow: hidden;
+  width: 32%;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid var(--borderInputs);
+  background-color: transparent;
+  transition: 0.2s;
+  position: relative;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: var(--main);
+  font-weight: bold;
+  position: relative;
+  text-align: left;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-cancel-plan:hover {
+  background-color: red;
+}
+
+.btn-cancel-panel {
+  color: var(--greenFull3);
+  font-weight: bold;
+}
+.btn-cancel-panel:hover {
+  color: var(--greenFull1);
+  background-color: black;
+}
+
+.btn-confirm-panel {
+  font-weight: bold;
+  color: rgb(255, 86, 86);
+}
+
+.btn-confirm-panel:hover {
+  background-color: black;
+  color: red;
+}
+
+/*cancelar plan*/
+/* Panel de confirmación overlay */
+.panel-cancel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  background-color: rgba(13, 13, 13, 0.343);
+  z-index: 9999;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.panel-cancel > a {
+  position: absolute;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: var(--main);
+  font-weight: bold;
+  font-size: 25px;
+  -webkit-text-stroke: 2px black;
+  color: white;
+  font-size: 25px;
+}
+
+@keyframes glow {
+  0% {
+    border-top: 1px solid white;
+  }
+  25% {
+    border-right: 1px solid white;
+  }
+  50% {
+    border-bottom: 1px solid white;
+  }
+  75% {
+    border-left: 1px solid white;
+  }
+  100% {
+    border: 1px solid white;
+  }
+}
+
+.animation-class {
+  animation: glow 2s infinite alternate;
+}
+
+.panel-cancel > a > img {
+  width: 70px;
+  filter: drop-shadow(1px 1px 5px var(--greenFull3));
+}
+
+/* Contenido interno (caja negra) */
+.panel-cancel-content {
+  /* background-color: rgb(13, 13, 13); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 90vw;
+  height: 80vh;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: var(--main);
+  text-align: center;
+  overflow-y: auto;
+}
+
+.panel-cancel-content > div {
+  width: 80%;
+}
+.panel-cancel-content > div > h2 {
+  color: white;
+  font-weight: bold;
+  font-size: 28px;
+  font-family: var(--main);
+}
+.panel-cancel-content > div > p {
+  color: white;
+  font-size: 16px;
+  font-family: var(--second);
+  text-align: center;
+  width: 100%;
+}
+
+.panel-cancel-content > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.panel-cancel-content > form > label,
+.panel-cancel-content > form > select,
+.panel-cancel-content > form > select > option,
+.panel-cancel-content > form > textarea {
+  width: 100%;
+  text-align: left;
+  font-family: var(--main);
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.panel-cancel-content > form > select,
+.panel-cancel-content > form > textarea {
+  background-color: transparent;
+  color: white;
+  border-radius: 2px;
+}
+
+#motivo > option {
+  color: black;
+  background-color: white;
+}
+
+#motivo,
+#comentarios,
+#comentarios:focus,
+#motivos:focus {
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.panel-cancel-content > form > textarea {
+  height: 100px;
+}
+
+.panel-cancel-content > form > select > option:hover {
+  color: black;
+}
+
+/* Botones específicos */
+
+.cancel-buttons-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 15px;
+}
+
+.cancel-buttons-div > button {
+  border: none;
+  background-color: rgba(34, 34, 34, 0.27);
+  font-weight: bolder;
+  font-size: 1.5rem;
+  font-family: var(--main);
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
 /* CONFIG SECTION */

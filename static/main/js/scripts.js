@@ -580,39 +580,55 @@ function deleteVideo(videoId) {
     });
 }
 
-function showUpgradePanel() {
-  const panel = document.getElementById("upgradePanel");
-  panel.style.display = "flex";
+// function showUpgradePanel() {
+//   const panel = document.getElementById("upgradePanel");
+//   panel.style.display = "flex";
 
-  fetch("/get-plans-json/")
-    .then((response) => response.json())
-    .then((data) => {
-      const container = document.getElementById("plansContainer");
-      container.innerHTML = "";
+//   fetch("/get-plans-json/")
+//     .then((response) => response.json())
+//     .then((data) => {
+
+  // ************************************************
+      // ************************************************
+      // ************************************************
+      // ************************************************
+      // ************************************************
+      // ************************************************
+      // ************************************************
       // LA PARTE DE LOS PLANES FUE CODEADA MANUALMENTE EN INDEX.HTML
-      data.plans.forEach((plan) => {
-        const planDiv = document.createElement("div");
-        planDiv.classList.add("plan-item");
-        planDiv.innerHTML = `
-            <h3>${plan.name}</h3>
-            <p><strong>$${plan.price}/mes</strong></p>
-            <p style="white-space: pre-line;">${plan.description}</p>
-            <p><strong>Minutos incluidos:</strong> ${plan.minutes_included}</p>
-            <button class="btn-subscription" onclick="subscribePlan(${plan.id})" style="margin-top: 10px;">
-              Suscribirme
-            </button>
-          `;
-        container.appendChild(planDiv);
-      });
-    })
-    .catch((error) => {
-      console.error("Error al obtener planes:", error);
-    });
-}
+      // ************************************************
+      // ************************************************
+      // ************************************************
+      // ************************************************
+      // ************************************************
+      // ************************************************
+      // ************************************************
+//       const container = document.getElementById("plansContainer");
+//       container.innerHTML = "";
+//       // LA PARTE DE LOS PLANES FUE CODEADA MANUALMENTE EN INDEX.HTML
+//       data.plans.forEach((plan) => {
+//         const planDiv = document.createElement("div");
+//         planDiv.classList.add("plan-item");
+//         planDiv.innerHTML = `
+//             <h3>${plan.name}</h3>
+//             <p><strong>$${plan.price}/mes</strong></p>
+//             <p style="white-space: pre-line;">${plan.description}</p>
+//             <p><strong>Minutos incluidos:</strong> ${plan.minutes_included}</p>
+//             <button class="btn-subscription" onclick="subscribePlan(${plan.id})" style="margin-top: 10px;">
+//               Suscribirme
+//             </button>
+//           `;
+//         container.appendChild(planDiv);
+//       });
+//     })
+//     .catch((error) => {
+//       console.error("Error al obtener planes:", error);
+//     });
+// }
 
-function hideUpgradePanel() {
-  document.getElementById("upgradePanel").style.display = "none";
-}
+// function hideUpgradePanel() {
+//   document.getElementById("upgradePanel").style.display = "none";
+// }
 
 function subscribePlan(planId) {
   // Llamar a create_checkout_session para obtener la URL de Stripe
@@ -716,7 +732,7 @@ document.getElementById("your-videos-tab").addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", function () {
   const yourVideosTab = document.getElementById("your-videos");
   if (yourVideosTab) {
-    if (!yourVideosTab.querySelector("# ")) {
+    if (!yourVideosTab.querySelector("#")) {
       const tasksContainer = document.createElement("div");
       tasksContainer.id = "inProgressTasks";
       const existingVideos = yourVideosTab.querySelector("#existingVideos");

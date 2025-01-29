@@ -246,34 +246,6 @@ const listenersOptions = () => {
   });
 };
 
-// VARIABLES CHANGE CREDENCIALS AND API
-const btnOpenApis = document.getElementById("btn-open-config-apis");
-const btnOpenChangeCredencials = document.getElementById(
-  "btn-open-config-apis"
-);
-const contentChangeCredencials = document.getElementById(
-  "content-change-credencials"
-);
-const contentConfigApis = document.getElementById("content-config-apis");
-
-const listenersChangeCredencials = () => {
-  btnOpenApis.addEventListener("click", () => {
-    contentChangeCredencials.style.display = "none";
-    contentConfigApis.style.display = "flex";
-  });
-  btnOpenChangeCredencials.addEventListener("click", () => {
-    contentConfigApis.style.display = "none";
-    contentChangeCredencials.style.display = "flex";
-  });
-};
-// INIT APP
-document.addEventListener("DOMContentLoaded", () => {
-  listenersChangeCredencials();
-  listenersOptions();
-  handleShowPanels();
-  renderTemplates(20);
-});
-
 // VIDEO ITEMS
 const templateVideoItem = `<div class="video-item">
             <h4>TITULO DE VIDEO</h4>
@@ -311,11 +283,95 @@ const templateVideoItem = `<div class="video-item">
                         </button>
                     </div>
           </div>`;
-
+const containerExistingVideos = document.getElementById("existingVideos");
+// renderizar cada video item
 const renderTemplates = (count) => {
   let videoItems = "";
   for (let i = 1; i <= count; i++) {
     videoItems += templateVideoItem;
   }
-  document.getElementById("existingVideos").innerHTML += videoItems;
+  containerExistingVideos.innerHTML += videoItems;
 };
+// function to show videos
+const btnOpenContainer = document.getElementById("btn-open-existing-videos");
+let containerOpen = false;
+const showVideos = () => {
+  btnOpenContainer.addEventListener("click", () => {
+    containerOpen = !containerOpen;
+    if (containerOpen) {
+      containerExistingVideos.classList.remove("close-existing");
+      containerExistingVideos.classList.add("open-existing");
+    } else {
+      containerExistingVideos.classList.remove("open-existing");
+      containerExistingVideos.classList.add("close-existing");
+    }
+  });
+};
+
+// FUNCTION TO SHOW CONFIG USER AND API CREDENCIALS SECTION
+const containerConfigApi = document.getElementById("content-config-apis");
+const containerChangeCredencials = document.getElementById(
+  "content-change-credencials"
+);
+let openContainerConfigApiChangeCredencilas = false;
+const btnOpenConfigApi = document.getElementById("btn-open-config-api");
+const btnOpenChangeCredencials = document.getElementById(
+  "btn-open-credencials"
+);
+
+const showConfigSections = () => {
+  btnOpenConfigApi.addEventListener("click", () => {
+    openContainerConfigApiChangeCredencilas =
+      !openContainerConfigApiChangeCredencilas;
+    if (openContainerConfigApiChangeCredencilas) {
+      containerConfigApi.classList.remove("close-form-config");
+      containerConfigApi.classList.add("open-form-config");
+    } else {
+      containerConfigApi.classList.remove("open-form-config");
+      containerConfigApi.classList.add("close-form-config");
+    }
+  });
+  btnOpenChangeCredencials.addEventListener("click", () => {
+    openContainerConfigApiChangeCredencilas =
+      !openContainerConfigApiChangeCredencilas;
+    if (openContainerConfigApiChangeCredencilas) {
+      containerChangeCredencials.classList.remove("close-form-config");
+      containerChangeCredencials.classList.add("open-form-config");
+    } else {
+      containerChangeCredencials.classList.remove("open-form-config");
+      containerChangeCredencials.classList.add("close-form-config");
+    }
+  });
+};
+
+// SHOW UPGRADE PANEL TO SECTION CHANGE-CREDENCIALS > UPGRADE PANEL
+let showPanelUpgrade = false;
+const panel = document.getElementById("upgradePanel");
+const btnOpenUpgrade = document.getElementById("btn-upgrade-plan");
+const btnCloseUpgrade = document.getElementById("btn-close-panel");
+const handleShowPanelUpgrade = () => {
+  btnOpenUpgrade.addEventListener("click", () => {
+    showPanelUpgrade = !showPanelUpgrade;
+    panel.style.display = showPanelUpgrade ? "flex" : "none";
+  });
+  btnCloseUpgrade.addEventListener("click", () => {
+    showPanelUpgrade = !showPanelUpgrade;
+    panel.style.display = showPanelUpgrade ? "flex" : "none";
+  });
+};
+
+// INICIALIZACION DE APP
+document.addEventListener("DOMContentLoaded", () => {
+  // BOTONES PARA MOSTRAR CADA FORM DE LA CONFIGURACION
+  handleShowPanels();
+  // BOTONES PARA MOSTRAR OPCIONES DE CADA SECCION
+  listenersOptions();
+  // RENDERIZA LOS VIDEO ITEMS EN CONTENEDOR #EXISTINGVIDEOS
+  renderTemplates(20);
+  // maneja la apertura del contenedor que muestra los videos
+  showVideos();
+  // MANEJA LA APERTURA DE LOS DOS CONTENEDORES EN CONFIGURACION
+  showConfigSections();
+  // APERTURA DE PANEL UPGRADE
+  handleShowPanelUpgrade();
+});

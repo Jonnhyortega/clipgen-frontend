@@ -55,7 +55,7 @@ Videos IA{% endblock %} {% block content %}
   <div id="upgradePanel" class="panel-upgrade">
     <div class="panel-upgrade-content">
       <p class="title-upgrade-panel">Selecciona tu Plan</p>
-      <button class="close-panel" onclick="hideUpgradePanel()">
+      <button id="btn-close-panel" class="close-panel">
         <i class="fa-solid fa-xmark"></i>
       </button>
 
@@ -88,9 +88,7 @@ Videos IA{% endblock %} {% block content %}
             </div>
           </div>
           <div id="plan-item-content-finally">
-            <button class="btn-subscription animation-class">
-              Suscribirme
-            </button>
+            <button class="btn-subscription">Suscribirme</button>
             <p id="price-plan">$29.99/mes</p>
           </div>
         </div>
@@ -243,8 +241,8 @@ Videos IA{% endblock %} {% block content %}
           <img
             width="35"
             height="35"
-            src="https://img.icons8.com/external-anggara-flat-anggara-putra/32/external-subtitles-multimedia-anggara-flat-anggara-putra.png"
-            alt="external-subtitles-multimedia-anggara-flat-anggara-putra"
+            src="https://img.icons8.com/external-xnimrodx-blue-xnimrodx/64/external-subtitle-translation-and-language-xnimrodx-blue-xnimrodx.png"
+            alt="external-subtitle-translation-and-language-xnimrodx-blue-xnimrodx"
           />
           <p>Subtitulos</p>
         </span>
@@ -484,12 +482,6 @@ Videos IA{% endblock %} {% block content %}
             onclick="suggestTitles()"
           >
             Sugerir Títulos
-            <img
-              width="22"
-              height="22"
-              src="https://img.icons8.com/material-sharp/50/sparkling.png"
-              alt="sparkling"
-            />
           </button>
         </div>
 
@@ -512,8 +504,8 @@ Videos IA{% endblock %} {% block content %}
           <img
             width="35"
             height="35"
-            src="https://img.icons8.com/external-anggara-flat-anggara-putra/32/external-subtitles-multimedia-anggara-flat-anggara-putra.png"
-            alt="external-subtitles-multimedia-anggara-flat-anggara-putra"
+            src="https://img.icons8.com/external-xnimrodx-blue-xnimrodx/64/external-subtitle-translation-and-language-xnimrodx-blue-xnimrodx.png"
+            alt="external-subtitle-translation-and-language-xnimrodx-blue-xnimrodx"
           />
           <p>Subtitulos</p>
         </span>
@@ -828,20 +820,22 @@ Videos IA{% endblock %} {% block content %}
       </div>
 
       <div id="videos-store">
-        <h3><i class="fa-solid fa-film"></i> Videos almacenados</h3>
-        <div id="existingVideos">
-          
-        </div>
+        <h3 id="btn-open-existing-videos">
+          <i class="fa-solid fa-film"></i> Videos almacenados
+        </h3>
+        <!-- <button id="btn-open-existing-videos">Ver videos</button> -->
+        <div id="existingVideos" class="close-existing"></div>
       </div>
     </div>
 
     <div class="dashboard-content-forms" id="config">
+      <h3>Opciones de configuracion</h3>
       <form class="config-form" id="configForm" method="POST">
-        <h3>
-          Gestionar claves de API<span id="btn-open-config-apis">>></span>
-        </h3>
+        <span id="btn-open-config-api"
+          ><i class="fa-solid fa-key"></i>Claves de API</span
+        >
         {% csrf_token %}
-        <div id="content-config-apis">
+        <div id="content-config-apis" class="close-form-config">
           <div class="block-form">
             <label for="chatgptApiKey" class="label-user-dashboard"
               >ChatGPT API Key</label
@@ -866,21 +860,16 @@ Videos IA{% endblock %} {% block content %}
           </div>
           <button type="button" class="btn-custom" onclick="saveApiKeys()">
             <strong>Guardar</strong>
-            <div id="container-stars">
-              <div id="stars"></div>
-            </div>
-            <div id="glow">
-              <div class="circle"></div>
-              <div class="circle"></div>
-            </div>
           </button>
         </div>
       </form>
 
       <form class="config-form" id="changeCredentialsForm">
-        <h3>Gestionar usuario <span id="btn-open-credencials">>></span></h3>
+        <span id="btn-open-credencials"
+          ><i class="fa-solid fa-user-gear"></i> Opciones de usuario</span
+        >
 
-        <div id="content-change-credencials">
+        <div id="content-change-credencials" class="close-form-config">
           <div class="block-form">
             <label for="newUsername" class="label-user-dashboard"
               >Nuevo Usuario</label
@@ -914,6 +903,7 @@ Videos IA{% endblock %} {% block content %}
               placeholder="Introduce tu nueva contraseña"
             />
           </div>
+
           <button
             type="button"
             class="btn btn-custom"
@@ -921,42 +911,37 @@ Videos IA{% endblock %} {% block content %}
           >
             Guardar
           </button>
+
+          <div class="minutes-info">
+            <span class="minutes-info-line"
+              ><p>Minutos restantes:</p>
+              <strong>200 min</strong>
+            </span>
+            <span class="minutes-info-line"
+              ><p>Fecha de vencimiento:</p>
+              <strong>12/12/25</strong></span
+            >
+
+            <!-- {% if current_plan_name %} -->
+            <!-- solo aparece el botón si hay plan actual -->
+            <!-- {% else %} -->
+            <!-- <span class="minutes-info-line"
+              ><p>Plan Actual:</p>
+              <strong>Free</strong></span
+            > -->
+            <span class="minutes-info-line"
+              ><p>Plan Actual:</p>
+              <strong>CREATOR</strong></span
+            >
+            <span id="btn-cancel-plan" class="btn-cancel-plan">
+              Cancelar Plan
+            </span>
+
+            <span id="btn-upgrade-plan" class="btn-custom"> Mejorar plan </span>
+            <!-- {% endif %} -->
+          </div>
         </div>
       </form>
-
-      <div class="minute-info">
-        <div class="block-form">
-          <strong class="label-user-dashboard"
-            >Minutos restantes: 200 {{ minutes_left }} min
-          </strong>
-          <strong class="label-user-dashboard"
-            >Fecha de vencimiento: 12/12/25 {{ reset_date|date:"d M Y"}}</strong
-          >
-
-          <!-- {% if current_plan_name %} -->
-          <!-- solo aparece el botón si hay plan actual -->
-          <!-- {% else %} -->
-          <strong class="label-user-dashboard">Plan Actual: Free</strong>
-          <strong class="label-user-dashboard"
-            >Plan Actual: {{ current_plan_name }}</strong
-          >
-          <strong id="btn-cancel-plan" class="btn-cancel-plan">
-            Cancelar Plan
-          </strong>
-
-          <button class="btn-custom" onclick="showUpgradePanel()">
-            <strong>Mejorar plan</strong>
-            <div id="container-stars">
-              <div id="stars"></div>
-            </div>
-            <div id="glow">
-              <div class="circle"></div>
-              <div class="circle"></div>
-            </div>
-          </button>
-          <!-- {% endif %} -->
-        </div>
-      </div>
     </div>
   </div>
   <!--  -->
