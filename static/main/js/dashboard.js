@@ -313,35 +313,63 @@ const containerConfigApi = document.getElementById("content-config-apis");
 const containerChangeCredencials = document.getElementById(
   "content-change-credencials"
 );
-let openContainerConfigApiChangeCredencilas = false;
+let openContainerConfigApiChangeCredencials = false;
 const btnOpenConfigApi = document.getElementById("btn-open-config-api");
 const btnOpenChangeCredencials = document.getElementById(
   "btn-open-credencials"
 );
 
+
+const handleContainersConfig_API = () => {
+  openContainerConfigApiChangeCredencials =
+    !openContainerConfigApiChangeCredencials;
+
+  containerConfigApi.classList.remove(
+    `${
+      openContainerConfigApiChangeCredencials
+        ? "close-form-config"
+        : "open-form-config"
+    }`
+  );
+  containerConfigApi.classList.add(
+    `${
+      openContainerConfigApiChangeCredencials
+        ? "open-form-config"
+        : "close-form-config"
+    }`
+  );
+};
+
+const handleContainersConfig_Credencials= () => {
+  openContainerConfigApiChangeCredencials =
+    !openContainerConfigApiChangeCredencials;
+    
+    containerChangeCredencials.classList.remove(
+    `${
+      openContainerConfigApiChangeCredencials
+        ? "close-form-config"
+        : "open-form-config"
+    }`
+  );
+  containerChangeCredencials.classList.add(
+    `${
+      openContainerConfigApiChangeCredencials
+        ? "open-form-config"
+        : "close-form-config"
+    }`
+  );
+};
+
 const showConfigSections = () => {
   btnOpenConfigApi.addEventListener("click", () => {
-    openContainerConfigApiChangeCredencilas =
-      !openContainerConfigApiChangeCredencilas;
-    if (openContainerConfigApiChangeCredencilas) {
-      containerConfigApi.classList.remove("close-form-config");
-      containerConfigApi.classList.add("open-form-config");
-    } else {
-      containerConfigApi.classList.remove("open-form-config");
-      containerConfigApi.classList.add("close-form-config");
-    }
+    handleContainersConfig_API();
+
   });
   btnOpenChangeCredencials.addEventListener("click", () => {
-    openContainerConfigApiChangeCredencilas =
-      !openContainerConfigApiChangeCredencilas;
-    if (openContainerConfigApiChangeCredencilas) {
-      containerChangeCredencials.classList.remove("close-form-config");
-      containerChangeCredencials.classList.add("open-form-config");
-    } else {
-      containerChangeCredencials.classList.remove("open-form-config");
-      containerChangeCredencials.classList.add("close-form-config");
-    }
+    handleContainersConfig_Credencials  ();
+
   });
+ 
 };
 
 // SHOW UPGRADE PANEL TO SECTION CHANGE-CREDENCIALS > UPGRADE PANEL

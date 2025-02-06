@@ -18,20 +18,16 @@ nav {
     display: flex;
     align-items: center;
   }
+
   .link-logo > img:hover {
     filter: drop-shadow(1px 1px 5px var(--greenFull2));
   }
 
   .link-logo > h1 {
-    font-family: var(--main);
-    color: white;
-    -webkit-text-stroke: 1px rgb(33, 33, 33);
+    font-family: var(--four);
+    color: var(--greenFull3);
     font-size: 28px;
     font-weight: bolder;
-    /* background: linear-gradient(to right, #004d03, #4caf50);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
   }
 }
 
@@ -60,14 +56,16 @@ nav {
   font-family: var(--main);
   font-weight: bold;
   padding: 5px 10px;
-  border-radius: 25px;
+  border-radius: 4px;
   cursor: pointer;
 }
 .nav-links > span:nth-child(1) {
   border: 1px solid grey;
 }
 .nav-links > span:nth-child(1):hover {
-  border: 1px solid var(--greenFull2);
+  border: 1px solid transparent;
+  background-color: grey;
+  color: black;
 }
 
 .nav-links > span:nth-child(2) {

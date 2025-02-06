@@ -15,6 +15,21 @@
   flex-wrap: wrap;
   width: 500px;
   margin: 2rem auto;
+  position: relative;
+}
+
+#banner-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  border-radius: 5px;
+}
+
+#banner-top > img {
+  width: 100%;
+  height: 100px;
 }
 
 #more-options_GENERATE {
@@ -24,6 +39,26 @@
   justify-content: center;
   width: 100%;
   margin: 0 auto;
+  /* height: 1px;
+  overflow: hidden;
+  border-top: 1px solid gold; */
+}
+#more-options_GENERATE > .block-form {
+  font-size: 15px;
+}
+
+#more-options_GENERATE > .block-form:nth-child(1),
+#more-options_GENERATE > .block-form:nth-child(2),
+#more-options_GENERATE > .block-form:nth-child(3) {
+  width: 200px;
+}
+#more-options_GENERATE > .block-form:nth-child(4) {
+  width: 600px;
+}
+
+#more-options_GENERATE > .block-form:nth-child(5),
+#more-options_GENERATE > .block-form:nth-child(6) {
+  width: 300px;
 }
 
 #modal-upload,
@@ -40,16 +75,15 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  backdrop-filter: blur(25px) saturate(180%);
-  -webkit-backdrop-filter: blur(25px) saturate(180%);
-  background-color: rgba(255, 255, 255, 0);
+
+  background-color: rgb(0 0 0 / 90%);
   z-index: 5000;
 }
 
 .modal-options {
   z-index: 4999;
   height: 90vh;
-  width: 80vw;
+  width: 60vw;
   position: absolute;
   bottom: -5px;
   border-top-left-radius: 6px;
@@ -58,10 +92,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* backdrop-filter: blur(14px) saturate(180%);
-  -webkit-backdrop-filter: blur(14px) saturate(180%); */
-  background-color: var(--borderInputs);
-  /* background: linear-gradient(0deg, rgba(0,0,0,1) 88%, rgba(56,176,0,1) 100%); */
+  background-color: var(--blackPanel);
 }
 
 .close-modal-options {
@@ -412,7 +443,7 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 .select-user-dashboard option {
-  background-color: black;
+  background-color: var(--panel2);
   font-family: var(--second);
   color: white;
   font-weight: bold;
@@ -439,8 +470,30 @@ input[type="file"]::-webkit-file-upload-button {
   flex-direction: column;
   gap: 5px;
   border-radius: 4px;
+  position: relative;
 }
 
+#inputManualScript {
+  background-color: var(--inputs);
+  border: 1px solid var(--borderInputs);
+  padding: 20px 12px;
+  border-radius: 4px;
+  color: white;
+  font-family: var(--second);
+  font-weight: 500;
+  font-size: 18px;
+}
+
+#inputManualScript:focus {
+  border: 1px solid var(--borderInputs);
+  outline: none;
+}
+
+#btn-upload-script {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
 input[type="file"][webkitdirectory]::file-selector-button {
   background-color: var(--greenFull3);
   color: black;
@@ -457,10 +510,6 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   border: none;
 }
 
-#inputManualScript:focus {
-  border: 1px solid var(--borderInputs);
-  outline: none;
-}
 /* BOTON DE SUGERIR TITULOS */
 
 .suggest-tittle-content {
@@ -477,10 +526,11 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   background: transparent;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  font-weight: 300;
   color: white;
   width: 100%;
+  font-size: 15px;
   font-family: var(--third);
+  font-weight: 300;
   transition: 0.5s all;
 }
 
@@ -563,6 +613,7 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   margin: 0 auto;
   display: flex;
   align-items: center;
+  transition: 0.3s all;
   justify-content: center;
 }
 
@@ -570,12 +621,13 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   position: absolute;
   right: 15px;
   top: 5px;
-  transition: 0.4s all;
+  transition: 0.3s all;
 }
 
 .btn-custom:hover {
-  background-color: var(--greenFull2);
+  background: var(--greenFull1);
 }
+
 .btn-custom:hover > img {
   transform: scale(1.3);
   filter: drop-shadow(1px 1px 10px white);
@@ -592,8 +644,9 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   font-size: 35px;
   width: 100%;
   text-align: center;
-  margin-bottom: 25px;
+  padding: 30px 0;
 }
+
 #configForm,
 #changeCredentialsForm {
   width: 80%;
@@ -614,24 +667,30 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: 0.6s all;
-  width: 100%;
+  position: relative;
+  margin-bottom: 40px;
 }
 
 .open-form-config {
-  transition: 0.6s all;
+  transition: 0.8s all;
   overflow-y: scroll;
   height: 60vh;
+  width: 90%;
   padding: 60px;
-  background-color: var(--borderInputs);
-  border-radius: 10px;
-  margin-bottom: 20px;
+  background-color: transparent;
+  margin-bottom: 40px;
+  /* border-left: 1px solid var(--borderInputs); */
+  border: 1px solid var(--borderInputs);
+  border-radius: 4px;
 }
 
 .close-form-config {
-  transition: 0.6s all;
+  transition: 1s all;
   height: 1px;
+  width: 40%;
+  border-radius: 5px;
   border-top: 1px solid var(--borderInputs);
+  box-shadow: 1px 1px 3px 1px var(--panel2);
   overflow-y: hidden;
   background-color: transparent;
   padding: 0;
@@ -671,7 +730,7 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   margin: 0 auto;
   padding: 10px;
   border-radius: 4px;
-  border: 1px solid var(--borderInputs);
+  border: 1px solid white;
   background-color: transparent;
   transition: 0.2s;
   position: relative;
@@ -690,6 +749,7 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
 
 .btn-cancel-plan:hover {
   background-color: red;
+  border: 1px solid transparent;
 }
 
 .btn-cancel-panel {

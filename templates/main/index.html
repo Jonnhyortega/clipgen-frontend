@@ -197,7 +197,10 @@ Videos IA{% endblock %} {% block content %}
 
   <!--  -->
   <div id="dashboard-content-generator">
-    <form class="form-user-dashboard" id="uploadForm">
+    <form
+      id="uploadForm"
+      class="form-user-dashboard animate__animated animate__fadeIn"
+    >
       <!-- PANEL PRINCIPAL -->
       <div class="block-form">
         <label for="inputManualTitle" class="label-user-dashboard"
@@ -215,11 +218,24 @@ Videos IA{% endblock %} {% block content %}
           >Guion del Video</label
         >
         <textarea
-          class="input-user-dashboard"
           id="inputManualScript"
           rows="10"
           placeholder="Introduce el guion"
         ></textarea>
+        <button
+          type="button"
+          id="btn-upload-script"
+          class="btn btn-custom"
+          onclick="acceptManualScript()"
+        >
+          Generar video
+          <img
+            width="22"
+            height="22"
+            src="https://img.icons8.com/material-sharp/50/sparkling.png"
+            alt="sparkling"
+          />
+        </button>
       </div>
       <!-- CONTAINER CON BOTONES PARA MOSTRAR OPCIONES -->
       <div id="options-generate-scripts">
@@ -258,212 +274,12 @@ Videos IA{% endblock %} {% block content %}
         </span>
       </div>
       <!-- BOTON PARA GENERAR VIDEO -->
-      <button
-        type="button"
-        class="btn btn-custom"
-        onclick="acceptManualScript()"
-      >
-        Generar video
-        <img
-          width="22"
-          height="22"
-          src="https://img.icons8.com/material-sharp/50/sparkling.png"
-          alt="sparkling"
-        />
-      </button>
-      <!-- MODAL CON LAS OPCIONES DE CONFIGURACION -->
-      <div id="modal-upload">
-        <div class="animate__animated animate__bounceInUp modal-options">
-          <!-- opciones de configuracion -->
-          <div id="options-audio-template">
-            <div class="block-form">
-              <label for="inputVoiceType" class="label-user-dashboard"
-                >Tipo de Voz</label
-              >
-              <select class="select-user-dashboard" id="inputVoiceType">
-                <option value="openai">OpenAI</option>
-                <option value="elevenlabs">ElevenLabs</option>
-                <option value="clipgenvoices">ClipgenVoices</option>
-              </select>
-            </div>
-
-            <div class="block-form">
-              <label for="inputVoice" class="label-user-dashboard">Voz</label>
-              <select class="select-user-dashboard" id="inputVoice">
-                <option value="nova">Nova</option>
-                <option value="shimmer">Shimmer</option>
-                <option value="echo">Echo</option>
-                <option value="onyx">Onyx</option>
-                <option value="fable">Fable</option>
-                <option value="alloy">Alloy</option>
-              </select>
-            </div>
-
-            <div class="block-form">
-              <label for="musicOption" class="label-user-dashboard"
-                >Música</label
-              >
-              <select class="select-user-dashboard" id="musicOption">
-                <option value="no_music">Sin Música</option>
-                <option value="with_music">Con Música</option>
-              </select>
-            </div>
-          </div>
-          <div id="options-subtitle-template">
-            <div class="block-form">
-              <label for="inputLanguage" class="label-user-dashboard"
-                >Idioma</label
-              >
-              <select class="select-user-dashboard" id="inputLanguage">
-                <option value="es">Español</option>
-                <option value="en">Inglés</option>
-                <option value="fr">Francés</option>
-                <option value="de">Alemán</option>
-                <option value="it">Italiano</option>
-                <option value="pt">Portugués</option>
-                <option value="ru">Ruso</option>
-                <option value="zh">Chino</option>
-                <option value="ja">Japonés</option>
-                <option value="ko">Coreano</option>
-                <option value="ar">Árabe</option>
-                <option value="hi">Hindi</option>
-                <option value="tr">Turco</option>
-                <option value="nl">Neerlandés</option>
-                <option value="sv">Sueco</option>
-                <option value="pl">Polaco</option>
-                <option value="da">Danés</option>
-                <option value="fi">Finés</option>
-                <option value="no">Noruego</option>
-                <option value="el">Griego</option>
-                <option value="he">Hebreo</option>
-                <option value="hu">Húngaro</option>
-                <option value="cs">Checo</option>
-                <option value="ro">Rumano</option>
-                <option value="bg">Búlgaro</option>
-                <option value="uk">Ucraniano</option>
-                <option value="vi">Vietnamita</option>
-                <option value="th">Tailandés</option>
-                <option value="ms">Malayo</option>
-                <option value="id">Indonesio</option>
-                <option value="tl">Tagalo</option>
-                <option value="bn">Bengalí</option>
-                <option value="fa">Persa</option>
-                <option value="ur">Urdu</option>
-                <option value="et">Estonio</option>
-                <option value="lv">Letón</option>
-                <option value="lt">Lituano</option>
-                <option value="sk">Eslovaco</option>
-                <option value="sl">Esloveno</option>
-                <option value="sr">Serbio</option>
-                <option value="hr">Croata</option>
-                <option value="mk">Macedonio</option>
-                <option value="is">Islandés</option>
-                <option value="mt">Maltés</option>
-                <option value="cy">Galés</option>
-                <option value="ga">Irlandés</option>
-                <option value="af">Afrikáans</option>
-                <option value="sw">Suajili</option>
-                <option value="yo">Yoruba</option>
-                <option value="zu">Zulú</option>
-                <option value="am">Amárico</option>
-                <option value="tg">Tayiko</option>
-                <option value="ky">Kirguís</option>
-                <option value="uz">Uzbeko</option>
-                <option value="kk">Kazajo</option>
-                <option value="mn">Mongol</option>
-                <option value="ne">Nepalí</option>
-                <option value="si">Cingalés</option>
-                <option value="te">Telugu</option>
-                <option value="ta">Tamil</option>
-                <option value="kn">Canarés</option>
-                <option value="ml">Malayalam</option>
-                <option value="mr">Maratí</option>
-                <option value="gu">Guyaratí</option>
-                <option value="pa">Panyabí</option>
-                <option value="my">Birmano</option>
-                <option value="km">Camboyano</option>
-                <option value="lo">Lao</option>
-                <option value="hy">Armenio</option>
-                <option value="ka">Georgiano</option>
-                <option value="az">Azerí</option>
-                <option value="sq">Albanés</option>
-                <option value="bs">Bosnio</option>
-                <option value="eu">Euskera</option>
-                <option value="gl">Gallego</option>
-                <option value="ca">Catalán</option>
-              </select>
-            </div>
-            <div class="block-form">
-              <label for="subtitleOption" class="label-user-dashboard"
-                >¿Subtítulos?</label
-              >
-              <select class="select-user-dashboard" id="subtitleOption">
-                <option value="yes">Activados</option>
-                <option value="no">Desactivados</option>
-              </select>
-            </div>
-
-            <div class="block-form">
-              <label for="subtitlePosition" class="label-user-dashboard"
-                >Posición de los Subtítulos</label
-              >
-              <select class="select-user-dashboard" id="subtitlePosition">
-                <option value="bottom">Inferior</option>
-                <option value="top">Superior</option>
-                <option value="center">Centro</option>
-              </select>
-            </div>
-          </div>
-          <div id="more-options-upload">
-            <div class="block-form">
-              <div class="block-form">
-                <label for="contentOptionManual" class="label-user-dashboard"
-                  >Tipo de Contenido</label
-                >
-                <select class="select-user-dashboard" id="contentOptionManual">
-                  <option value="mixto">Mixto</option>
-                  <option value="imagenes">Solo Imágenes</option>
-                  <option value="videos">Solo Videos</option>
-                  <option value="personal">Carpeta Personal</option>
-                </select>
-              </div>
-            </div>
-            <div class="block-form" id="personalFolderSectionManual">
-              <!-- style="display: none" -->
-              <div class="block-form">
-                <label for="personalFolderManual" class="label-user-dashboard"
-                  >Seleccionar Carpeta Personal</label
-                >
-                <input
-                  type="file"
-                  id="personalFolderManual"
-                  webkitdirectory
-                  directory
-                  multiple
-                  class="input-user-dashboard"
-                />
-              </div>
-            </div>
-            <div class="block-form">
-              <label for="videoOrientationManual" class="label-user-dashboard"
-                >Orientación del Video</label
-              >
-              <select class="select-user-dashboard" id="videoOrientationManual">
-                <option value="horizontal">Horizontal</option>
-                <option value="vertical">Vertical</option>
-              </select>
-            </div>
-          </div>
-          <!-- opciones de configuracion -->
-
-          <span id="close-modal" class="close-modal-options">
-            Guardar cambios
-          </span>
-        </div>
-      </div>
     </form>
 
-    <form class="form-user-dashboard" id="generate-script">
+    <form
+      id="generate-script"
+      class="form-user-dashboard animate__animated animate__fadeIn"
+    >
       <!-- PANEL PRINCIPAL -->
       <div class="block-form">
         <label for="inputTitle" class="label-user-dashboard"
@@ -530,243 +346,9 @@ Videos IA{% endblock %} {% block content %}
           alt="sparkling"
         />
       </button>
-      <!-- MODAL CON LAS OPCIONES DE VIDEO CONFIGURACION-->
-      <div id="modal_GENERATE">
-        <div class="animate__animated animate__bounceInUp modal-options">
-          <!-- <img
-              src="{% static 'img/clipgen.ai logo.png' %}"
-              alt="Logo dashboard"
-            /> -->
-          <!-- opciones de configuracion -->
-          <div id="options-audio_GENERATE">
-            <div class="block-form">
-              <label for="inputVoiceType" class="label-user-dashboard"
-                >Tipo de Voz</label
-              >
-              <select class="select-user-dashboard" id="inputVoiceType">
-                <option value="openai">OpenAI</option>
-                <option value="elevenlabs">ElevenLabs</option>
-                <option value="clipgenvoices">ClipgenVoices</option>
-              </select>
-            </div>
-
-            <div class="block-form">
-              <label for="inputVoice" class="label-user-dashboard">Voz</label>
-              <select class="select-user-dashboard" id="inputVoice">
-                <option value="nova">Nova</option>
-                <option value="shimmer">Shimmer</option>
-                <option value="echo">Echo</option>
-                <option value="onyx">Onyx</option>
-                <option value="fable">Fable</option>
-                <option value="alloy">Alloy</option>
-              </select>
-            </div>
-
-            <div class="block-form">
-              <label for="musicOption" class="label-user-dashboard"
-                >Música</label
-              >
-              <select class="select-user-dashboard" id="musicOption">
-                <option value="no_music">Sin Música</option>
-                <option value="with_music">Con Música</option>
-              </select>
-            </div>
-          </div>
-          <div id="options-subtitle_GENERATE">
-            <div class="block-form">
-              <label for="inputLanguage" class="label-user-dashboard"
-                >Idioma</label
-              >
-              <select class="select-user-dashboard" id="inputLanguage">
-                <option value="es">Español</option>
-                <option value="en">Inglés</option>
-                <option value="fr">Francés</option>
-                <option value="de">Alemán</option>
-                <option value="it">Italiano</option>
-                <option value="pt">Portugués</option>
-                <option value="ru">Ruso</option>
-                <option value="zh">Chino</option>
-                <option value="ja">Japonés</option>
-                <option value="ko">Coreano</option>
-                <option value="ar">Árabe</option>
-                <option value="hi">Hindi</option>
-                <option value="tr">Turco</option>
-                <option value="nl">Neerlandés</option>
-                <option value="sv">Sueco</option>
-                <option value="pl">Polaco</option>
-                <option value="da">Danés</option>
-                <option value="fi">Finés</option>
-                <option value="no">Noruego</option>
-                <option value="el">Griego</option>
-                <option value="he">Hebreo</option>
-                <option value="hu">Húngaro</option>
-                <option value="cs">Checo</option>
-                <option value="ro">Rumano</option>
-                <option value="bg">Búlgaro</option>
-                <option value="uk">Ucraniano</option>
-                <option value="vi">Vietnamita</option>
-                <option value="th">Tailandés</option>
-                <option value="ms">Malayo</option>
-                <option value="id">Indonesio</option>
-                <option value="tl">Tagalo</option>
-                <option value="bn">Bengalí</option>
-                <option value="fa">Persa</option>
-                <option value="ur">Urdu</option>
-                <option value="et">Estonio</option>
-                <option value="lv">Letón</option>
-                <option value="lt">Lituano</option>
-                <option value="sk">Eslovaco</option>
-                <option value="sl">Esloveno</option>
-                <option value="sr">Serbio</option>
-                <option value="hr">Croata</option>
-                <option value="mk">Macedonio</option>
-                <option value="is">Islandés</option>
-                <option value="mt">Maltés</option>
-                <option value="cy">Galés</option>
-                <option value="ga">Irlandés</option>
-                <option value="af">Afrikáans</option>
-                <option value="sw">Suajili</option>
-                <option value="yo">Yoruba</option>
-                <option value="zu">Zulú</option>
-                <option value="am">Amárico</option>
-                <option value="tg">Tayiko</option>
-                <option value="ky">Kirguís</option>
-                <option value="uz">Uzbeko</option>
-                <option value="kk">Kazajo</option>
-                <option value="mn">Mongol</option>
-                <option value="ne">Nepalí</option>
-                <option value="si">Cingalés</option>
-                <option value="te">Telugu</option>
-                <option value="ta">Tamil</option>
-                <option value="kn">Canarés</option>
-                <option value="ml">Malayalam</option>
-                <option value="mr">Maratí</option>
-                <option value="gu">Guyaratí</option>
-                <option value="pa">Panyabí</option>
-                <option value="my">Birmano</option>
-                <option value="km">Camboyano</option>
-                <option value="lo">Lao</option>
-                <option value="hy">Armenio</option>
-                <option value="ka">Georgiano</option>
-                <option value="az">Azerí</option>
-                <option value="sq">Albanés</option>
-                <option value="bs">Bosnio</option>
-                <option value="eu">Euskera</option>
-                <option value="gl">Gallego</option>
-                <option value="ca">Catalán</option>
-              </select>
-            </div>
-            <div class="block-form">
-              <label for="subtitleOption" class="label-user-dashboard"
-                >¿Subtítulos?</label
-              >
-              <select class="select-user-dashboard" id="subtitleOption">
-                <option value="yes">Activados</option>
-                <option value="no">Desactivados</option>
-              </select>
-            </div>
-
-            <div class="block-form">
-              <label for="subtitlePosition" class="label-user-dashboard"
-                >Posición de los Subtítulos</label
-              >
-              <select class="select-user-dashboard" id="subtitlePosition">
-                <option value="bottom">Inferior</option>
-                <option value="top">Superior</option>
-                <option value="center">Centro</option>
-              </select>
-            </div>
-          </div>
-          <div id="more-options_GENERATE">
-            <div class="block-form">
-              <label for="videoCount" class="label-user-dashboard"
-                >Número de Videos a Generar</label
-              >
-              <select class="select-user-dashboard" id="videoCount">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
-            </div>
-            <div class="block-form">
-              <label for="videoDuration" class="label-user-dashboard"
-                >Duración del Video</label
-              >
-              <select class="select-user-dashboard" id="videoDuration">
-                <option value="menos de 1 minuto">Menos de 1 minuto</option>
-                <option value="2 minutos">1-2 minutos</option>
-                <option value="10 minutos">5-10 minutos</option>
-                <option value="20 minutos">15-20 minutos</option>
-                <!--
-                                  <option value="30 minutos">20-30 minutos</option>
-                                  <option value="40 minutos">Más de 30 minutos</option>
-                                  -->
-              </select>
-            </div>
-            <div class="block-form">
-              <label for="contentOption" class="label-user-dashboard"
-                >Tipo de Contenido</label
-              >
-              <select class="select-user-dashboard" id="contentOption">
-                <option value="mixto">Mixto</option>
-                <option value="imagenes">Solo Imágenes</option>
-                <option value="videos">Solo Videos</option>
-                <option value="personal">Carpeta Personal</option>
-                <option value="google">Google solo imágenes</option>
-              </select>
-            </div>
-            <div class="block-form">
-              <label for="referenceLink" class="label-user-dashboard"
-                >Ingresa un link de referencia</label
-              >
-              <input
-                type="text"
-                class="input-user-dashboard"
-                id="referenceLink"
-                placeholder="https://www.youtube.com/watch?v=..."
-              />
-            </div>
-            <div class="block-form">
-              <label for="videoOrientation" class="label-user-dashboard"
-                >Orientación del Video</label
-              >
-              <select
-                class="select-user-dashboard"
-                id="videoOrientation"
-                style="width: auto"
-              >
-                <option value="horizontal">Horizontal</option>
-                <option value="vertical">Vertical</option>
-              </select>
-            </div>
-            <div class="block-form" id="personalFolderSection">
-              <!-- style="display: none" -->
-              <div class="block-form">
-                <label for="personalFolder" class="label-user-dashboard"
-                  >Seleccionar Carpeta Personal</label
-                >
-                <input
-                  type="file"
-                  id="personalFolder"
-                  webkitdirectory
-                  directory
-                  multiple
-                  class="input-user-dashboard"
-                />
-              </div>
-            </div>
-          </div>
-          <!-- opciones de configuracion -->
-
-          <span id="close-modal_GENERATE" class="close-modal-options">
-            Guardar cambios
-            <!-- <i class="fa-solid fa-floppy-disk"></i> -->
-          </span>
-        </div>
-      </div>
     </form>
 
-    <div id="your-videos">
+    <div id="your-videos" class="animate__animated animate__fadeIn">
       <div class="box-title-content">
         <img
           width="50"
@@ -828,7 +410,10 @@ Videos IA{% endblock %} {% block content %}
       </div>
     </div>
 
-    <div class="dashboard-content-forms" id="config">
+    <div
+      class="dashboard-content-forms animate__animated animate__fadeIn"
+      id="config"
+    >
       <h3>Opciones de configuracion</h3>
       <form class="config-form" id="configForm" method="POST">
         <span id="btn-open-config-api"
@@ -943,16 +528,452 @@ Videos IA{% endblock %} {% block content %}
         </div>
       </form>
     </div>
+
+    <!-- PANELES DE CONFIGURACION DESPLEGABLES -->
+    <!-- MODAL CON LAS OPCIONES DE CONFIGURACION -->
+    <div id="modal-upload">
+      <div class="animate__animated animate__bounceInUp modal-options">
+        <!-- opciones de configuracion -->
+        <div id="options-audio-template">
+          <div class="block-form">
+            <label for="inputVoiceType" class="label-user-dashboard"
+              >Tipo de Voz</label
+            >
+            <select class="select-user-dashboard" id="inputVoiceType">
+              <option value="openai">OpenAI</option>
+              <option value="elevenlabs">ElevenLabs</option>
+              <option value="clipgenvoices">ClipgenVoices</option>
+            </select>
+          </div>
+
+          <div class="block-form">
+            <label for="inputVoice" class="label-user-dashboard">Voz</label>
+            <select class="select-user-dashboard" id="inputVoice">
+              <option value="nova">Nova</option>
+              <option value="shimmer">Shimmer</option>
+              <option value="echo">Echo</option>
+              <option value="onyx">Onyx</option>
+              <option value="fable">Fable</option>
+              <option value="alloy">Alloy</option>
+            </select>
+          </div>
+
+          <div class="block-form">
+            <label for="musicOption" class="label-user-dashboard">Música</label>
+            <select class="select-user-dashboard" id="musicOption">
+              <option value="no_music">Sin Música</option>
+              <option value="with_music">Con Música</option>
+            </select>
+          </div>
+        </div>
+        <div id="options-subtitle-template">
+          <div class="block-form">
+            <label for="inputLanguage" class="label-user-dashboard"
+              >Idioma</label
+            >
+            <select class="select-user-dashboard" id="inputLanguage">
+              <option value="es">Español</option>
+              <option value="en">Inglés</option>
+              <option value="fr">Francés</option>
+              <option value="de">Alemán</option>
+              <option value="it">Italiano</option>
+              <option value="pt">Portugués</option>
+              <option value="ru">Ruso</option>
+              <option value="zh">Chino</option>
+              <option value="ja">Japonés</option>
+              <option value="ko">Coreano</option>
+              <option value="ar">Árabe</option>
+              <option value="hi">Hindi</option>
+              <option value="tr">Turco</option>
+              <option value="nl">Neerlandés</option>
+              <option value="sv">Sueco</option>
+              <option value="pl">Polaco</option>
+              <option value="da">Danés</option>
+              <option value="fi">Finés</option>
+              <option value="no">Noruego</option>
+              <option value="el">Griego</option>
+              <option value="he">Hebreo</option>
+              <option value="hu">Húngaro</option>
+              <option value="cs">Checo</option>
+              <option value="ro">Rumano</option>
+              <option value="bg">Búlgaro</option>
+              <option value="uk">Ucraniano</option>
+              <option value="vi">Vietnamita</option>
+              <option value="th">Tailandés</option>
+              <option value="ms">Malayo</option>
+              <option value="id">Indonesio</option>
+              <option value="tl">Tagalo</option>
+              <option value="bn">Bengalí</option>
+              <option value="fa">Persa</option>
+              <option value="ur">Urdu</option>
+              <option value="et">Estonio</option>
+              <option value="lv">Letón</option>
+              <option value="lt">Lituano</option>
+              <option value="sk">Eslovaco</option>
+              <option value="sl">Esloveno</option>
+              <option value="sr">Serbio</option>
+              <option value="hr">Croata</option>
+              <option value="mk">Macedonio</option>
+              <option value="is">Islandés</option>
+              <option value="mt">Maltés</option>
+              <option value="cy">Galés</option>
+              <option value="ga">Irlandés</option>
+              <option value="af">Afrikáans</option>
+              <option value="sw">Suajili</option>
+              <option value="yo">Yoruba</option>
+              <option value="zu">Zulú</option>
+              <option value="am">Amárico</option>
+              <option value="tg">Tayiko</option>
+              <option value="ky">Kirguís</option>
+              <option value="uz">Uzbeko</option>
+              <option value="kk">Kazajo</option>
+              <option value="mn">Mongol</option>
+              <option value="ne">Nepalí</option>
+              <option value="si">Cingalés</option>
+              <option value="te">Telugu</option>
+              <option value="ta">Tamil</option>
+              <option value="kn">Canarés</option>
+              <option value="ml">Malayalam</option>
+              <option value="mr">Maratí</option>
+              <option value="gu">Guyaratí</option>
+              <option value="pa">Panyabí</option>
+              <option value="my">Birmano</option>
+              <option value="km">Camboyano</option>
+              <option value="lo">Lao</option>
+              <option value="hy">Armenio</option>
+              <option value="ka">Georgiano</option>
+              <option value="az">Azerí</option>
+              <option value="sq">Albanés</option>
+              <option value="bs">Bosnio</option>
+              <option value="eu">Euskera</option>
+              <option value="gl">Gallego</option>
+              <option value="ca">Catalán</option>
+            </select>
+          </div>
+          <div class="block-form">
+            <label for="subtitleOption" class="label-user-dashboard"
+              >¿Subtítulos?</label
+            >
+            <select class="select-user-dashboard" id="subtitleOption">
+              <option value="yes">Activados</option>
+              <option value="no">Desactivados</option>
+            </select>
+          </div>
+          <div class="block-form">
+            <label for="subtitleType" class="label-user-dashboard"
+              >¿Tipo de subtítulos?</label
+            >
+            <select class="select-user-dashboard" id="subtitleType">
+              <option value="1">Opcion 1</option>
+              <option value="2">Opcion 2</option>
+              <option value="3">Opcion 3</option>
+            </select>
+          </div>
+
+          <div class="block-form">
+            <label for="subtitlePosition" class="label-user-dashboard"
+              >Posición de los Subtítulos</label
+            >
+            <select class="select-user-dashboard" id="subtitlePosition">
+              <option value="bottom">Inferior</option>
+              <option value="top">Superior</option>
+              <option value="center">Centro</option>
+            </select>
+          </div>
+        </div>
+        <div id="more-options-upload">
+          <div class="block-form">
+            <div class="block-form">
+              <label for="contentOptionManual" class="label-user-dashboard"
+                >Tipo de Contenido</label
+              >
+              <select class="select-user-dashboard" id="contentOptionManual">
+                <option value="mixto">Mixto</option>
+                <option value="imagenes">Solo Imágenes</option>
+                <option value="videos">Solo Videos</option>
+                <option value="personal">Carpeta Personal</option>
+              </select>
+            </div>
+          </div>
+          <div class="block-form" id="personalFolderSectionManual">
+            <!-- style="display: none" -->
+            <div class="block-form">
+              <label for="personalFolderManual" class="label-user-dashboard"
+                >Seleccionar Carpeta Personal</label
+              >
+              <input
+                type="file"
+                id="personalFolderManual"
+                webkitdirectory
+                directory
+                multiple
+                class="input-user-dashboard"
+              />
+            </div>
+          </div>
+          <div class="block-form">
+            <label for="videoOrientationManual" class="label-user-dashboard"
+              >Orientación del Video</label
+            >
+            <select class="select-user-dashboard" id="videoOrientationManual">
+              <option value="horizontal">Horizontal</option>
+              <option value="vertical">Vertical</option>
+            </select>
+          </div>
+        </div>
+        <!-- opciones de configuracion -->
+
+        <span id="close-modal" class="close-modal-options">
+          Guardar cambios
+        </span>
+      </div>
+    </div>
+    <!-- MODAL CON LAS OPCIONES DE VIDEO CONFIGURACION SCRIPT GENERATION-->
+    <div id="modal_GENERATE">
+      <div class="animate__animated animate__bounceInUp modal-options">
+        <!-- opciones de configuracion -->
+
+        <div id="options-audio_GENERATE">
+          <div class="block-form">
+            <label for="inputVoiceType" class="label-user-dashboard"
+              >Tipo de Voz</label
+            >
+            <select class="select-user-dashboard" id="inputVoiceType">
+              <option value="openai">OpenAI</option>
+              <option value="elevenlabs">ElevenLabs</option>
+              <option value="clipgenvoices">ClipgenVoices</option>
+            </select>
+          </div>
+
+          <div class="block-form">
+            <label for="inputVoice" class="label-user-dashboard">Voz</label>
+            <select class="select-user-dashboard" id="inputVoice">
+              <option value="nova">Nova</option>
+              <option value="shimmer">Shimmer</option>
+              <option value="echo">Echo</option>
+              <option value="onyx">Onyx</option>
+              <option value="fable">Fable</option>
+              <option value="alloy">Alloy</option>
+            </select>
+          </div>
+
+          <div class="block-form">
+            <label for="musicOption" class="label-user-dashboard">Música</label>
+            <select class="select-user-dashboard" id="musicOption">
+              <option value="no_music">Sin Música</option>
+              <option value="with_music">Con Música</option>
+            </select>
+          </div>
+        </div>
+        <div id="options-subtitle_GENERATE">
+          <div class="block-form">
+            <label for="inputLanguage" class="label-user-dashboard"
+              >Idioma</label
+            >
+            <select class="select-user-dashboard" id="inputLanguage">
+              <option value="es">Español</option>
+              <option value="en">Inglés</option>
+              <option value="fr">Francés</option>
+              <option value="de">Alemán</option>
+              <option value="it">Italiano</option>
+              <option value="pt">Portugués</option>
+              <option value="ru">Ruso</option>
+              <option value="zh">Chino</option>
+              <option value="ja">Japonés</option>
+              <option value="ko">Coreano</option>
+              <option value="ar">Árabe</option>
+              <option value="hi">Hindi</option>
+              <option value="tr">Turco</option>
+              <option value="nl">Neerlandés</option>
+              <option value="sv">Sueco</option>
+              <option value="pl">Polaco</option>
+              <option value="da">Danés</option>
+              <option value="fi">Finés</option>
+              <option value="no">Noruego</option>
+              <option value="el">Griego</option>
+              <option value="he">Hebreo</option>
+              <option value="hu">Húngaro</option>
+              <option value="cs">Checo</option>
+              <option value="ro">Rumano</option>
+              <option value="bg">Búlgaro</option>
+              <option value="uk">Ucraniano</option>
+              <option value="vi">Vietnamita</option>
+              <option value="th">Tailandés</option>
+              <option value="ms">Malayo</option>
+              <option value="id">Indonesio</option>
+              <option value="tl">Tagalo</option>
+              <option value="bn">Bengalí</option>
+              <option value="fa">Persa</option>
+              <option value="ur">Urdu</option>
+              <option value="et">Estonio</option>
+              <option value="lv">Letón</option>
+              <option value="lt">Lituano</option>
+              <option value="sk">Eslovaco</option>
+              <option value="sl">Esloveno</option>
+              <option value="sr">Serbio</option>
+              <option value="hr">Croata</option>
+              <option value="mk">Macedonio</option>
+              <option value="is">Islandés</option>
+              <option value="mt">Maltés</option>
+              <option value="cy">Galés</option>
+              <option value="ga">Irlandés</option>
+              <option value="af">Afrikáans</option>
+              <option value="sw">Suajili</option>
+              <option value="yo">Yoruba</option>
+              <option value="zu">Zulú</option>
+              <option value="am">Amárico</option>
+              <option value="tg">Tayiko</option>
+              <option value="ky">Kirguís</option>
+              <option value="uz">Uzbeko</option>
+              <option value="kk">Kazajo</option>
+              <option value="mn">Mongol</option>
+              <option value="ne">Nepalí</option>
+              <option value="si">Cingalés</option>
+              <option value="te">Telugu</option>
+              <option value="ta">Tamil</option>
+              <option value="kn">Canarés</option>
+              <option value="ml">Malayalam</option>
+              <option value="mr">Maratí</option>
+              <option value="gu">Guyaratí</option>
+              <option value="pa">Panyabí</option>
+              <option value="my">Birmano</option>
+              <option value="km">Camboyano</option>
+              <option value="lo">Lao</option>
+              <option value="hy">Armenio</option>
+              <option value="ka">Georgiano</option>
+              <option value="az">Azerí</option>
+              <option value="sq">Albanés</option>
+              <option value="bs">Bosnio</option>
+              <option value="eu">Euskera</option>
+              <option value="gl">Gallego</option>
+              <option value="ca">Catalán</option>
+            </select>
+          </div>
+          <div class="block-form">
+            <label for="subtitleOption" class="label-user-dashboard"
+              >¿Subtítulos?</label
+            >
+            <select class="select-user-dashboard" id="subtitleOption">
+              <option value="yes">Activados</option>
+              <option value="no">Desactivados</option>
+            </select>
+          </div>
+
+          <div class="block-form">
+            <label for="subtitleType" class="label-user-dashboard"
+              >¿Tipo de subtítulos?</label
+            >
+            <select class="select-user-dashboard" id="subtitleType">
+              <option value="1">Opcion 1</option>
+              <option value="2">Opcion 2</option>
+              <option value="3">Opcion 3</option>
+            </select>
+          </div>
+
+          <div class="block-form">
+            <label for="subtitlePosition" class="label-user-dashboard"
+              >Posición de los Subtítulos</label
+            >
+            <select class="select-user-dashboard" id="subtitlePosition">
+              <option value="bottom">Inferior</option>
+              <option value="top">Superior</option>
+              <option value="center">Centro</option>
+            </select>
+          </div>
+        </div>
+        <div id="more-options_GENERATE">
+          <div class="block-form">
+            <label for="videoCount" class="label-user-dashboard"
+              >Cantidad de videos</label
+            >
+            <select class="select-user-dashboard" id="videoCount">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+          <div class="block-form">
+            <label for="videoDuration" class="label-user-dashboard"
+              >Duración del Video</label
+            >
+            <select class="select-user-dashboard" id="videoDuration">
+              <option value="menos de 1 minuto">Menos de 1 minuto</option>
+              <option value="2 minutos">1-2 minutos</option>
+              <option value="10 minutos">5-10 minutos</option>
+              <option value="20 minutos">15-20 minutos</option>
+              <!--
+                                <option value="30 minutos">20-30 minutos</option>
+                                <option value="40 minutos">Más de 30 minutos</option>
+                                -->
+            </select>
+          </div>
+          <div class="block-form">
+            <label for="contentOption" class="label-user-dashboard"
+              >Tipo de Contenido</label
+            >
+            <select class="select-user-dashboard" id="contentOption">
+              <option value="mixto">Mixto</option>
+              <option value="imagenes">Solo Imágenes</option>
+              <option value="videos">Solo Videos</option>
+              <option value="personal">Carpeta Personal</option>
+              <option value="google">Google solo imágenes</option>
+            </select>
+          </div>
+          <div class="block-form">
+            <label for="referenceLink" class="label-user-dashboard"
+              >Ingresa un link de referencia</label
+            >
+            <input
+              type="text"
+              class="input-user-dashboard"
+              id="referenceLink"
+              placeholder="https://www.youtube.com/watch?v=..."
+            />
+          </div>
+          <div class="block-form" id="personalFolderSection">
+            <!-- style="display: none" -->
+            <div class="block-form">
+              <label for="personalFolder" class="label-user-dashboard"
+                >Seleccionar Carpeta Personal</label
+              >
+              <input
+                type="file"
+                id="personalFolder"
+                webkitdirectory
+                directory
+                multiple
+                class="input-user-dashboard"
+              />
+            </div>
+          </div>
+          <div class="block-form">
+            <label for="videoOrientation" class="label-user-dashboard"
+              >Orientación del Video</label
+            >
+            <select
+              class="select-user-dashboard"
+              id="videoOrientation"
+              style="width: auto"
+            >
+              <option value="horizontal">Horizontal</option>
+              <option value="vertical">Vertical</option>
+            </select>
+          </div>
+        </div>
+        <!-- opciones de configuracion -->
+
+        <span id="close-modal_GENERATE" class="close-modal-options">
+          Guardar cambios
+          <!-- <i class="fa-solid fa-floppy-disk"></i> -->
+        </span>
+      </div>
+    </div>
   </div>
   <!--  -->
 
   <div id="scriptSection">
     <h2>Guion Generado</h2>
-    <textarea
-      id="generatedScript"
-      class="input-user-dashboard"
-      rows="10"
-    ></textarea>
+    <textarea id="generatedScript" class="input-user-dashboard"></textarea>
     <div>
       <button class="btn btn-custom" onclick="acceptScript()">Aceptar</button>
       <button class="btn btn-custom" onclick="generateScript()">
@@ -1008,7 +1029,11 @@ Videos IA{% endblock %} {% block content %}
   </div>
 
   <!-- CHATBOT -->
-  <div class="chatbot-container" id="chatbotContainer">
+  <div class="overlay-chatbot" onclick="toggleChatbot()"></div>
+  <div
+    class="chatbot-container animate__animated animate__bounceInDown"
+    id="chatbotContainer"
+  >
     <div class="chatbot-header">Asistente Virtual</div>
     <div class="chatbot-questions" id="chatbotQuestions">
       <button

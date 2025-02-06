@@ -12,101 +12,63 @@
   margin: 0 auto;
 }
 
-.benefits > p {
-  font-family: var(--main);
-  font-size: 30px;
-  font-weight: bolder;
-  color: var(--greenFull1);
-  text-align: center;
-}
-
-.benefits > span {
-  font-family: var(--second);
-  font-size: 20px;
-  color: var(--greenFull1);
-  text-align: center;
-  font-weight: 300;
-  font-weight: bolder;
-}
-
 .cards-benefits-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
   position: relative;
+  gap: 10px;
 }
 
-.card-benefit:nth-child(2) {
-  border: 1px solid white;
+.card-benefit {
+  border: 3px solid var(--greenFull3);
   border-radius: 4px;
-  padding: 15px;
+  padding: 25px;
   background: transparent;
-  height: 250px;
+  height: 280px;
+  width: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 50px;
   align-items: center;
+  justify-content: flex-end;
+  gap: 25px;
   position: relative;
-}
-
-.card-benefit:nth-child(2) > p {
-  margin-top: 30px;
 }
 
 .container-start {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 80%;
   position: absolute;
   bottom: -45px;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.card-benefit:nth-child(1),
-.card-benefit:nth-child(3) {
-  border-radius: 4px;
-  height: 170px;
-  border: 1px solid white;
-  padding: 15px;
-  border-radius: 5px;
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 30px;
-  align-items: center;
-  position: relative;
+  gap: 7px;
 }
 
 .card-benefit > h3 {
-  font-family: var(--main);
-  font-size: 30px;
-  color: white;
+  font-family: var(--third);
+  font-size: 22px;
+  color: var(--greenFull3);
   text-align: center;
   position: absolute;
   top: -35px;
   padding: 20px;
   text-align: center;
-  border: 1px solid var(--greenFull2);
-  background-color: var(--greenFull1);
+  border: 1px solid var(--greenFull3);
+  background-color: var(--blackPanel);
   border-radius: 7px;
   font-weight: bolder;
-}
-.card-benefit > img {
-  width: 100px;
-  margin-bottom: 15px;
+  position: absolute;
+  width: 200px;
+  height: 80px;
 }
 
 .card-benefit > p {
-  font-family: var(--second);
+  font-family: var(--main);
   font-size: 20px;
   color: white;
   text-align: center;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 /* BENEFITS SECTION */
