@@ -4,6 +4,7 @@
     {% load static %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css"
@@ -35,6 +36,7 @@
     />
     <link href="{% static 'main/css/login.css' %}" rel="stylesheet" />
     <link href="{% static 'main/css/register.css' %}" rel="stylesheet" />
+    <link href="{% static 'main/css/Chatbot/chatbot.css' %}" rel="stylesheet" />
     <link
       href="{% static 'main/css/Dashboard/dashboard-styles.css' %}"
       rel="stylesheet"
@@ -43,6 +45,10 @@
     <link href="{% static 'main/css/Hero/hero.css' %}" rel="stylesheet" />
     <link
       href="{% static 'main/css/Benefits-Section/benefits.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'main/css/Carrusel/carrusel.css' %}"
       rel="stylesheet"
     />
 
@@ -217,7 +223,9 @@
     <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
     <script src="{% static 'main/js/init.js' %}"></script>
     <script src="{% static 'main/js/landing.js' %}"></script>
-
+    <script src="{% static 'main/js/carrusel.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    
     <!-- <script>
       document.addEventListener("DOMContentLoaded", function () {
         const navbar = document.querySelector(".navbar");

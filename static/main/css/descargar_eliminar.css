@@ -129,7 +129,7 @@
 }
 
 .Btn:hover {
-  background-color: var(--greenfull3);
+  background-color: var(--greenFull3);
   transition-duration: 0.3s;
 }
 

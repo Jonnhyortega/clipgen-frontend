@@ -59,13 +59,11 @@ function toggleChatbot() {
     chatbotContainer.style.display = "flex";
     chatbotToggle.style.right = "420px";
   } else {
-    chatbotContainer.classList.remove("animate__bounceInDown");
-    chatbotContainer.classList.add("animate__bounceOutUp");
-    setTimeout(() => {
-      overlayChatbot.style.display = "none";
-      chatbotContainer.style.display = "none";
-      chatbotToggle.style.right = "20px";
-    }, 500);
+    // chatbotContainer.classList.remove("animate__bounceInDown");
+    // chatbotContainer.classList.add("animate__bounceOutUp");
+    chatbotContainer.style.display = "none";
+    chatbotToggle.style.right = "20px";
+    overlayChatbot.style.display = "none";
   }
 }
 
