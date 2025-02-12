@@ -128,6 +128,9 @@
 #generate-script {
   display: none;
   position: relative;
+  /* * {
+    border: 1px solid gold;
+  } */
 }
 
 #config {
@@ -144,7 +147,7 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  background-color: rgb(37, 37, 37);
+  background-color: var(--blackPanel);
   color: white;
   height: 90vh;
   top: 60px;
@@ -154,15 +157,21 @@
   width: 70px;
   transition-duration: 0.4s;
   position: fixed;
-  border-right: 1px solid var(--blackPanel);
-
-  /* * {
-      border: 1px solid red;
-    } */
+  border-right: 1px solid var(--panel2);
 }
 
 #aside-buttons:hover {
   width: 250px;
+}
+
+.open-mobile-aside {
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  font-size: 1.3rem;
+  z-index: 99;
+  color: var(--panel2);
 }
 
 #aside-buttons:hover .secondary-content {
@@ -492,7 +501,7 @@ input[type="file"]::-webkit-file-upload-button {
 #btn-upload-script {
   position: absolute;
   bottom: 30px;
-  right: 30px;
+  left: 30px;
 }
 input[type="file"][webkitdirectory]::file-selector-button {
   background-color: var(--greenFull3);
@@ -668,7 +677,11 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-bottom: 40px;
+  transition: 0.8s all;
+  width: 100%;
+  padding: 60px;
+  background-color: transparent;
+  border-radius: 4px;
 }
 
 .open-form-config {
@@ -937,3 +950,75 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
 }
 
 /* CONFIG SECTION */
+
+/* RESPONSIVES QUERYS */
+@media (max-width: 968px) {
+  #options-generate-scripts {
+    padding: 5px 10px;
+    margin-bottom: 25px;
+  }
+
+  .button-option-scripts {
+    padding: 0 15px;
+    margin: 0;
+    border-radius: 0;
+    color: white;
+  }
+
+  #options-generate-scripts > span:nth-child(1) {
+    border-radius: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  #options-generate-scripts > span:nth-child(2) {
+    border-radius: 0;
+  }
+
+  #options-generate-scripts > span:nth-child(3) {
+    border-radius: 0;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+}
+@media (max-width: 668px) {
+  #dashboard-content-generator {
+    width: 94%;
+  }
+
+  #aside-buttons {
+    width: 40px;
+  }
+
+  .form-user-dashboard {
+    width: 100%;
+    padding: 40px 0 0 20px;
+  }
+
+  .buttons-content {
+    display: none;
+  }
+
+  #aside-buttons:hover .buttons-content {
+    display: block;
+  }
+
+  .open-mobile-aside {
+    display: block;
+    color: white;
+  }
+
+  #aside-buttons:hover .open-mobile-aside {
+    display: none;
+  }
+
+  .btn-custom {
+    text-align: center;
+  }
+
+  .btn-custom > img {
+    display: none;
+  }
+}
+
+/* RESPONSIVES QUERYS */

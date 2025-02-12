@@ -137,7 +137,7 @@
     z-index: 1000;
     animation: bounce 2s infinite;
     transition: 0.3s;
-    z-index: 2001;
+    z-index: 1000;
   }
   
   .chatbot-toggle:hover {

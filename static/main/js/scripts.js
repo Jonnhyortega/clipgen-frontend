@@ -252,20 +252,68 @@ function updateVideosInProgress() {
       taskProgressItem = document.createElement("div");
       taskProgressItem.className = "video-item in-progress task-progress";
       taskProgressItem.setAttribute("data-task-id", task.task_id);
-
+      // BARRA DE PROGRESO ORIGINAL
+//       taskProgressItem.innerHTML = `
+// <h4>Creando: "${task.title}"</h4>
+// <p class="status">Estado: ${currentStep}</p>
+// <div class="progress">
+// <div class="progress-bar progress-bar-striped" 
+// role="progressbar" 
+// style="width: ${progressPercentage}%;" 
+// aria-valuenow="${progressPercentage}" 
+// aria-valuemin="0" 
+// aria-valuemax="100">
+// </div>
+// </div>
+// `;
+      // BARRA DE PROGRESO ORIGINAL
+      // BARRA DE PROGRESO NUEVA
       taskProgressItem.innerHTML = `
-                <h4>Creando: "${task.title}"</h4>
-                <p class="status">Estado: ${currentStep}</p>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped" 
-                         role="progressbar" 
-                         style="width: ${progressPercentage}%;" 
-                         aria-valuenow="${progressPercentage}" 
-                         aria-valuemin="0" 
-                         aria-valuemax="100">
-                    </div>
-                </div>
-            `;
+          <span>
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/officel/50/road-worker.png"
+              alt="road-worker"
+            />
+            <p>Creando video: "${task.title}"</p>
+            <div id="puntos-suspensivos">
+              <p data="first-dot" class="dot animate__animated animate__fadeIn">
+                .
+              </p>
+              <p
+                data="second-dot"
+                class="dot animate__animated animate__fadeIn"
+              >
+                .
+              </p>
+              <p data="third-dot" class="dot animate__animated animate__fadeIn">
+                .
+              </p>
+            </div>
+          </span>
+          <div class="status">
+            <img
+              class="img-status"
+              src="{% static 'img/clipgen.ai logo.png' %}"
+              alt="Logo"
+              width="50"
+              height="50"
+            />
+            <p>${currentStep}</p>
+          </div>
+          <div class="progress-container">
+            <div 
+            role="progressbar" 
+            style="width: ${progressPercentage}%;" 
+            aria-valuenow="${progressPercentage}" 
+            aria-valuemin="0" 
+            aria-valuemax="100">
+            >
+            </div>
+          </div>
+`;
+      // BARRA DE PROGRESO NUEVA
       inProgressContainer.appendChild(taskProgressItem);
     } else {
       const progressBar = taskProgressItem.querySelector(".progress-bar");
@@ -295,7 +343,14 @@ function showUploadProgress() {
         <h4>Subiendo archivos...</h4>
         <p class="status">Estado: Subiendo archivos, por favor espera...</p>
         <div class="progress">
-            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            <div 
+            class="progress-bar progress-bar-striped bg-info" 
+            role="progressbar" 
+            style="width: 100%;" 
+            aria-valuenow="100" 
+            aria-valuemin="0" 
+            aria-valuemax="100">
+            </div>
         </div>
     `;
   inProgressContainer.appendChild(uploadProgressItem);
@@ -588,21 +643,21 @@ function deleteVideo(videoId) {
 //     .then((response) => response.json())
 //     .then((data) => {
 
-  // ************************************************
-      // ************************************************
-      // ************************************************
-      // ************************************************
-      // ************************************************
-      // ************************************************
-      // ************************************************
-      // LA PARTE DE LOS PLANES FUE CODEADA MANUALMENTE EN INDEX.HTML
-      // ************************************************
-      // ************************************************
-      // ************************************************
-      // ************************************************
-      // ************************************************
-      // ************************************************
-      // ************************************************
+// ************************************************
+// ************************************************
+// ************************************************
+// ************************************************
+// ************************************************
+// ************************************************
+// ************************************************
+// LA PARTE DE LOS PLANES FUE CODEADA MANUALMENTE EN INDEX.HTML
+// ************************************************
+// ************************************************
+// ************************************************
+// ************************************************
+// ************************************************
+// ************************************************
+// ************************************************
 //       const container = document.getElementById("plansContainer");
 //       container.innerHTML = "";
 //       // LA PARTE DE LOS PLANES FUE CODEADA MANUALMENTE EN INDEX.HTML

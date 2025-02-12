@@ -11,7 +11,7 @@
 }
 
 #content-hero {
-  margin-top: 120px;
+  margin-top: 60px;
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -66,3 +66,19 @@
 }
 
 /* HERO SECTION */
+/* RESPONSIVES QUERYS */
+@media (max-width: 668px) {
+  #title-hero {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+
+  #foot-hero {
+    font-size: 1.6rem;
+  }
+
+  .carrusel-section > #title-carrusel {
+    font-size: 2.7rem;
+}
+}
+/* RESPONSIVES QUERYS */

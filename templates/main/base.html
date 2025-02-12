@@ -4,7 +4,7 @@
     {% load static %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css"
@@ -70,13 +70,41 @@
       <div class="nav-links">
         {% if user.is_authenticated %}
         <a id="generate-content" href="{% url 'index' %}">Generar Contenido</a>
-        <!-- <a id="sobre" href="{% url 'sobre' %}">ClipgenAI</a> -->
+        <a id="sobre" href="{% url 'sobre' %}">ClipgenAI</a>
         <a id="cerrar-sesion" href="{% url 'logout' %}">Cerrar Sesión</a>
         {% else %}
         <!-- <a id="sobre" href="{% url 'sobre' %}">ClipgenAI</a> -->
         <span href="" id="login" onclick="showLogin()">Iniciar Sesión</span>
         <span href="" id="register" onclick="showRegister()">Registrarse</span>
         {% endif %}
+      </div>
+
+      <span id="btn-menu-mobile"><i class="fa-solid fa-bars"></i></span>
+      <div id="nav-mobile" class="close-nav-mobile">
+        <div>
+          <div>
+            <i class="fa-regular fa-circle-play"></i>
+            <a id="link-generate-content">Generar Contenido</a>
+          </div>
+          <div>
+            <i class="fa-solid fa-info"></i
+            ><a id="sobre" href="{% url 'sobre' %}">ClipgenAI</a>
+          </div>
+          <div>
+            <i class="fa-solid fa-right-from-bracket"></i
+            ><a id="cerrar-sesion">Cerrar Sesión</a>
+          </div>
+          <div>
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            <span id="login" onclick="showLogin()">Iniciar Sesión</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-user-plus"></i>
+            <span href="" id="register" onclick="showRegister()"
+              >Registrarse</span
+            >
+          </div>
+        </div>
       </div>
     </nav>
     <!-- NEW NAVBAR -->
@@ -209,7 +237,14 @@
       </div>
     </div>
     <!-- REGISTER SECITON -->
-
+    <!-- MENSAJES DE ALERTA HARDCODEADOS -->
+    <!-- <div class="alert alert-center alert-danger show">
+      Para sugerirte un título, por favor ingresa un título de tu video.
+    </div> -->
+    <!-- <div class="alert alert-center alert-success show">
+      Todos los videos han sido enviados para su generación.
+    </div> -->
+    <!-- MENSAJES DE ALERTA HARDCODEADOS -->
     {% block container %}
     <div class="container">{% block content %} {% endblock %}</div>
     {% endblock %}
@@ -224,8 +259,9 @@
     <script src="{% static 'main/js/init.js' %}"></script>
     <script src="{% static 'main/js/landing.js' %}"></script>
     <script src="{% static 'main/js/carrusel.js' %}"></script>
+    <script src="{% static 'main/js/nav-mobile.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-    
+
     <!-- <script>
       document.addEventListener("DOMContentLoaded", function () {
         const navbar = document.querySelector(".navbar");

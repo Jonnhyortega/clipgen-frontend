@@ -11,7 +11,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   z-index: 1999;
-
+  border-bottom: 1px solid var(--panel2);
   .link-logo {
     transition: 0.8s;
     display: flex;
@@ -58,9 +58,11 @@ nav {
   border-radius: 4px;
   cursor: pointer;
 }
+
 .nav-links > span:nth-child(1) {
   border: 1px solid grey;
 }
+
 .nav-links > span:nth-child(1):hover {
   border: 1px solid transparent;
   background-color: grey;
@@ -75,4 +77,66 @@ nav {
   color: var(--greenFull3);
 }
 
+/* MENU MOBILE */
+
+#nav-mobile {
+  flex-direction: column;
+  position: fixed;
+  transition: 1s all;
+  top: 55px;
+  right: 0;
+  z-index: 2002;
+  background-color: var(--blackPanel);
+}
+
+.open-nav-mobile {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  padding: 2rem;
+  background-color: var(--blackPanel);
+}
+
+.close-nav-mobile {
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+#btn-menu-mobile {
+  display: none;
+  padding: 1rem;
+}
+
+#nav-mobile > div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 10px;
+}
+
+#nav-mobile > div > div {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 1rem;
+
+  width: 230px;
+  gap: 20px;
+  font-family: var(--third);
+}
 /* NAVBAR */
+
+@media (max-width: 668px) {
+  #btn-menu-mobile {
+    display: flex;
+    color: var(--greenFull3);
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
+
+@media (max-width: 468px) {
+}

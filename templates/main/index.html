@@ -5,6 +5,7 @@ Videos IA{% endblock %} {% block content %}
 <section id="dashboard-section">
   <!-- Contenedor de botones para controlar seccion de generacion de contenido -->
   <aside id="aside-buttons" role="tablist">
+    <span class="open-mobile-aside"><i class="fa-solid fa-bars"></i></span>
     <div class="buttons-content">
       <button class="button-tab active" id="upload-script-tab">
         <span id="icon-content-buttons-aside">
@@ -415,7 +416,7 @@ Videos IA{% endblock %} {% block content %}
       id="config"
     >
       <h3>Opciones de configuracion</h3>
-      <form class="config-form" id="configForm" method="POST">
+      <!-- <form class="config-form" id="configForm" method="POST">
         <span id="btn-open-config-api"
           ><i class="fa-solid fa-key"></i>Claves de API</span
         >
@@ -447,14 +448,14 @@ Videos IA{% endblock %} {% block content %}
             <strong>Guardar</strong>
           </button>
         </div>
-      </form>
+      </form> -->
 
       <form class="config-form" id="changeCredentialsForm">
-        <span id="btn-open-credencials"
+        <!-- <span id="btn-open-credencials"
           ><i class="fa-solid fa-user-gear"></i> Opciones de usuario</span
-        >
-
-        <div id="content-change-credencials" class="close-form-config">
+        > -->
+        <!-- class="close-form-config" -->
+        <div id="content-change-credencials">
           <div class="block-form">
             <label for="newUsername" class="label-user-dashboard"
               >Nuevo Usuario</label

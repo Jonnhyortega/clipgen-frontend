@@ -198,6 +198,7 @@ const optionsOff = () => {
   subtitleOptions_GENERATE.style.display = "none";
   moreOptions_GENERATE.style.display = "none";
 };
+
 const listenersOptions = () => {
   // LISTENERS UPLOAD SCRIPT
   btnAudioOptions.addEventListener("click", () => {
@@ -309,68 +310,65 @@ const showVideos = () => {
 };
 
 // FUNCTION TO SHOW CONFIG USER AND API CREDENCIALS SECTION
-const containerConfigApi = document.getElementById("content-config-apis");
-const containerChangeCredencials = document.getElementById(
-  "content-change-credencials"
-);
-let openContainerConfigApiChangeCredencials = false;
-const btnOpenConfigApi = document.getElementById("btn-open-config-api");
-const btnOpenChangeCredencials = document.getElementById(
-  "btn-open-credencials"
-);
+// const containerConfigApi = document.getElementById("content-config-apis");
+// const containerChangeCredencials = document.getElementById(
+//   "content-change-credencials"
+// );
+// let openContainerConfigApiChangeCredencials = false;
+// const btnOpenConfigApi = document.getElementById("btn-open-config-api");
+// const btnOpenChangeCredencials = document.getElementById(
+//   "btn-open-credencials"
+// );
 
+// const handleContainersConfig_API = () => {
+//   openContainerConfigApiChangeCredencials =
+//     !openContainerConfigApiChangeCredencials;
 
-const handleContainersConfig_API = () => {
-  openContainerConfigApiChangeCredencials =
-    !openContainerConfigApiChangeCredencials;
+//   containerConfigApi.classList.remove(
+//     `${
+//       openContainerConfigApiChangeCredencials
+//         ? "close-form-config"
+//         : "open-form-config"
+//     }`
+//   );
+//   containerConfigApi.classList.add(
+//     `${
+//       openContainerConfigApiChangeCredencials
+//         ? "open-form-config"
+//         : "close-form-config"
+//     }`
+//   );
+// };
 
-  containerConfigApi.classList.remove(
-    `${
-      openContainerConfigApiChangeCredencials
-        ? "close-form-config"
-        : "open-form-config"
-    }`
-  );
-  containerConfigApi.classList.add(
-    `${
-      openContainerConfigApiChangeCredencials
-        ? "open-form-config"
-        : "close-form-config"
-    }`
-  );
-};
+// const handleContainersConfig_Credencials= () => {
+//   openContainerConfigApiChangeCredencials =
+//     !openContainerConfigApiChangeCredencials;
 
-const handleContainersConfig_Credencials= () => {
-  openContainerConfigApiChangeCredencials =
-    !openContainerConfigApiChangeCredencials;
-    
-    containerChangeCredencials.classList.remove(
-    `${
-      openContainerConfigApiChangeCredencials
-        ? "close-form-config"
-        : "open-form-config"
-    }`
-  );
-  containerChangeCredencials.classList.add(
-    `${
-      openContainerConfigApiChangeCredencials
-        ? "open-form-config"
-        : "close-form-config"
-    }`
-  );
-};
+//     containerChangeCredencials.classList.remove(
+//     `${
+//       openContainerConfigApiChangeCredencials
+//         ? "close-form-config"
+//         : "open-form-config"
+//     }`
+//   );
+//   containerChangeCredencials.classList.add(
+//     `${
+//       openContainerConfigApiChangeCredencials
+//         ? "open-form-config"
+//         : "close-form-config"
+//     }`
+//   );
+// };
 
-const showConfigSections = () => {
-  btnOpenConfigApi.addEventListener("click", () => {
-    handleContainersConfig_API();
+// const showConfigSections = () => {
+//   btnOpenConfigApi.addEventListener("click", () => {
+//     handleContainersConfig_API();
+//   });
+//   btnOpenChangeCredencials.addEventListener("click", () => {
+//     handleContainersConfig_Credencials  ();
+//   });
 
-  });
-  btnOpenChangeCredencials.addEventListener("click", () => {
-    handleContainersConfig_Credencials  ();
-
-  });
- 
-};
+// };
 
 // SHOW UPGRADE PANEL TO SECTION CHANGE-CREDENCIALS > UPGRADE PANEL
 let showPanelUpgrade = false;
@@ -398,8 +396,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderTemplates(20);
   // maneja la apertura del contenedor que muestra los videos
   showVideos();
-  // MANEJA LA APERTURA DE LOS DOS CONTENEDORES EN CONFIGURACION
-  showConfigSections();
+
   // APERTURA DE PANEL UPGRADE
   handleShowPanelUpgrade();
 });
