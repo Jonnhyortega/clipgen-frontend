@@ -14,12 +14,32 @@
 }
 
 .cards-benefits-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  gap: 17px 17px;
+  grid-auto-flow: row;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-template-areas:
+    "card-benefit-area1 card-benefit-area1 card-benefit-area2 card-benefit-area2"
+    "card-benefit-area1 card-benefit-area1 card-benefit-area2 card-benefit-area2"
+    ". card-benefit-area3 card-benefit-area3 ."
+    ". card-benefit-area3 card-benefit-area3 .";
   position: relative;
-  gap: 10px;
+}
+
+.card-benefit-area1 {
+  grid-area: card-benefit-area1;
+}
+
+.card-benefit-area2 {
+  grid-area: card-benefit-area2;
+}
+
+.card-benefit-area3 {
+  grid-area: card-benefit-area3;
 }
 
 .card-benefit {
@@ -35,6 +55,7 @@
   justify-content: flex-end;
   gap: 25px;
   position: relative;
+  box-shadow: -5px -5px 10px 1px #051407;
 }
 
 .container-start {
@@ -43,7 +64,7 @@
   justify-content: center;
   width: 80%;
   position: absolute;
-  top: 65px;
+  top: 55px;
   gap: 7px;
 }
 
@@ -74,3 +95,43 @@
 }
 
 /* BENEFITS SECTION */
+/* RESPONSIVES QUUERYS */
+@media (max-width: 992px) {
+  .cards-benefits-container {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 65px 0px;
+    grid-template-areas:
+      "card-benefit-area1 card-benefit-area2"
+      "card-benefit-area3 card-benefit-area3";
+    justify-items: center;
+    align-items: center;
+  }
+
+  .card-benefit {
+    width: 90%;
+    gap: 35px;
+  }
+}
+@media (max-width: 668px) {
+  .cards-benefits-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "card-benefit-area1"
+      "card-benefit-area2"
+      "card-benefit-area3";
+    justify-items: center;
+    align-items: center;
+  }
+  .card-benefit {
+    box-shadow: none;
+    width: 90%;
+    gap: 15px;
+    height: 320px;
+  }
+}
+/* PARA DISPOS MOVILES */
+
+/* RESPONSIVES QUUERYS */

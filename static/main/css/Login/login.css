@@ -47,7 +47,6 @@
 }
 
 #form-login {
-  box-shadow: 1px 1px 5px 2px rgb(11, 11, 11);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -57,7 +56,6 @@
   width: 400px;
   position: relative;
   padding: 30px;
-  background-color: black;
 }
 
 #form-login > h2 {
@@ -66,6 +64,7 @@
   font-size: 35px;
   color: white;
   margin-bottom: 25px;
+  filter: drop-shadow(2px 4px 6px black);
 }
 
 #label-login {

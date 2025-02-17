@@ -15,8 +15,6 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
-
-
 #close-modal-register {
   position: absolute;
   top: 10px;
@@ -28,6 +26,7 @@
 }
 
 #form-register {
+  margin-top: 50px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -37,17 +36,16 @@
   width: 400px;
   position: relative;
   padding: 30px;
-  background-color: black;
 }
 
 #form-register > h2 {
+  filter: drop-shadow(2px 4px 6px black);
   font-family: var(--main);
   font-weight: bold;
   font-size: 35px;
   color: white;
   margin-bottom: 25px;
 }
-
 
 #form-register > .input-type > label {
   display: flex;
@@ -70,3 +68,9 @@
 #icon-password2:hover {
   color: var(--green3);
 }
+
+/* @media (max-width: 668px) {
+  #form-register {
+    background-color: transparent;
+  }
+} */

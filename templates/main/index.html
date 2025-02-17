@@ -1,9 +1,19 @@
 {% extends "main/base.html" %} {% load static %} {% block title %}Generador de
 Videos IA{% endblock %} {% block content %}
-<div id="errorMessage" class="alert alert-danger" role="alert"></div>
+<!-- ??? -->
+<!-- <div id="alerts-modal">
+  <div class="alert alert-center alert-success show" role="alert">
+    Error: Error al acceder a la API de ChatGPT: Incorrect API key provided:
+    sk-proj-************************* *****************************************
+    ********************** ************************** **************************
+    ***********f1dc. You can find your API key a t
+    https://platform.openai.com/account/api-keys.
+  </div>
+</div> -->
 
+<!-- ??? -->
 <section id="dashboard-section">
-  <!-- Contenedor de botones para controlar seccion de generacion de contenido -->
+  <!-- PANEL LATERAL IZQUIERDO -->
   <aside id="aside-buttons" role="tablist">
     <span class="open-mobile-aside"><i class="fa-solid fa-bars"></i></span>
     <div class="buttons-content">
@@ -32,11 +42,19 @@ Videos IA{% endblock %} {% block content %}
     </div>
     <div class="secondary-content">
       <div class="logos-redes">
-        <a href="https://www.instagram.com/clipgenai/" target="_blank">
-          <span><i class="fa-brands fa-instagram"></i></span>
+        <a
+          class="aside-button-instagram-styles"
+          href="https://www.instagram.com/clipgenai/"
+          target="_blank"
+        >
+          <i class="fa-brands fa-instagram filter-shadow"></i>
         </a>
-        <a href="https://www.youtube.com/" target="_blank">
-          <span><i class="fa-brands fa-youtube"></i></span>
+        <a
+          class="aside-button-youtube-styles"
+          href="https://www.youtube.com/"
+          target="_blank"
+        >
+          <i class="fa-brands fa-youtube filter-shadow"></i>
         </a>
       </div>
       <div class="links-secondary">
@@ -50,9 +68,9 @@ Videos IA{% endblock %} {% block content %}
       </div>
     </div>
   </aside>
-  <!-- Contenedor de botones para controlar seccion de generacion de contenido -->
+  <!-- PANEL LATERAL IZQUIERDO -->
 
-  <!-- Paneles oculto al iniciar -->
+  <!-- PANEL PARA ACTUALIZAR EL PLAN -->
   <div id="upgradePanel" class="panel-upgrade">
     <div class="panel-upgrade-content">
       <p class="title-upgrade-panel">Selecciona tu Plan</p>
@@ -194,9 +212,9 @@ Videos IA{% endblock %} {% block content %}
       </div>
     </div>
   </div>
-  <!-- Paneles oculto al iniciar -->
+  <!-- PANEL PARA ACTUALIZAR EL PLAN -->
 
-  <!--  -->
+  <!-- SECCION DE GENERACION DE CONTENIDO, GALERIA Y CONFIGURACION DE PERFIL  -->
   <div id="dashboard-content-generator">
     <form
       id="uploadForm"
@@ -230,51 +248,34 @@ Videos IA{% endblock %} {% block content %}
           onclick="acceptManualScript()"
         >
           Generar video
-          <img
-            width="22"
-            height="22"
-            src="https://img.icons8.com/material-sharp/50/sparkling.png"
-            alt="sparkling"
-          />
         </button>
+        <!-- BOTON PARA GENERAR VIDEO -->
       </div>
       <!-- CONTAINER CON BOTONES PARA MOSTRAR OPCIONES -->
       <div id="options-generate-scripts">
-        <!-- <i id="audio-options">Opciones de audio</i>
-        <i id="subtitle-options">Opciones de subtitulos</i>
-        <i id="more-options">Mas opciones</i> -->
-        <span id="btn-audio-options" class="button-option-scripts">
+        <span id="btn-audio-options" class="button-option-scripts button-area1">
           <!-- <i class="fa-solid fa-volume-high"></i> -->
-          <img
+          <!-- <img
             width="35"
             height="35"
             src="https://img.icons8.com/fluency/48/high-volume.png"
             alt="high-volume"
-          />
+          /> -->
+          <i class="fa-solid fa-volume-high"></i>
           <p>Audio</p>
         </span>
-        <span id="btn-subtitle-options" class="button-option-scripts">
-          <!-- <span class="material-symbols-outlined">subtitles </span> -->
-          <img
-            width="35"
-            height="35"
-            src="https://img.icons8.com/external-xnimrodx-blue-xnimrodx/64/external-subtitle-translation-and-language-xnimrodx-blue-xnimrodx.png"
-            alt="external-subtitle-translation-and-language-xnimrodx-blue-xnimrodx"
-          />
+        <span
+          id="btn-subtitle-options"
+          class="button-option-scripts button-area2"
+        >
+          <i class="material-symbols-outlined">subtitles </i>
           <p>Subtitulos</p>
         </span>
-        <span id="btn-more-options" class="button-option-scripts">
-          <!-- <i class="fa-solid fa-gears"></i> -->
-          <img
-            width="35"
-            height="35"
-            src="https://img.icons8.com/color/48/settings--v1.png"
-            alt="settings--v1"
-          />
-          <p>Mas opciones</p>
+        <span id="btn-more-options" class="button-option-scripts button-area3">
+          <i class="fa-solid fa-gears"></i>
+          <p>Edicion</p>
         </span>
       </div>
-      <!-- BOTON PARA GENERAR VIDEO -->
     </form>
 
     <form
@@ -302,66 +303,69 @@ Videos IA{% endblock %} {% block content %}
           </button>
         </div>
 
-        <div id="titleSuggestions"></div>
+        <div id="titleSuggestions">
+          <h3 id="title-suggestion-container">
+            <i class="fa-solid fa-lightbulb"></i> Titulos sugeridos
+          </h3>
+          <div class="suggestion-item animate__animated animate__fadeIn">
+            Revelando la Vida de los Dinosaurios: Un Viaje en el Tiempo
+            <i class="fa-solid fa-plus"></i>
+          </div>
+          <div class="suggestion-item animate__animated animate__fadeIn">
+            Revelando la Vida de los Dinosaurios: Un Viaje en el Tiempo
+            <i class="fa-solid fa-plus"></i>
+          </div>
+          <div class="suggestion-item animate__animated animate__fadeIn">
+            Revelando la Vida de los Dinosaurios: Un Viaje en el Tiempo
+            <i class="fa-solid fa-plus"></i>
+          </div>
+          <div class="suggestion-item animate__animated animate__fadeIn">
+            Revelando la Vida de los Dinosaurios: Un Viaje en el Tiempo
+            <i class="fa-solid fa-plus"></i>
+          </div>
+        </div>
+
+        <!-- BOTON PARA GENERAR VIDEO -->
+        <button type="button" class="btn btn-custom" onclick="generateScript()">
+          Generar video
+        </button>
       </div>
       <!-- CONTAINER CON BOTONES PARA MOSTRAR OPCIONES -->
       <div id="options-generate-scripts">
-        <span id="btn-options-audio_GENERATE" class="button-option-scripts">
-          <!-- <i class="fa-solid fa-volume-high"></i> -->
-          <img
-            width="35"
-            height="35"
-            src="https://img.icons8.com/fluency/48/high-volume.png"
-            alt="high-volume"
-          />
+        <span
+          id="btn-options-audio_GENERATE"
+          class="button-option-scripts button-area1"
+        >
+          <i class="fa-solid fa-volume-high"></i>
+
           <p>Audio</p>
         </span>
-        <span id="btn-options-subtitle_GENERATE" class="button-option-scripts">
-          <!-- <span class="material-symbols-outlined">subtitles </span> -->
-          <img
-            width="35"
-            height="35"
-            src="https://img.icons8.com/external-xnimrodx-blue-xnimrodx/64/external-subtitle-translation-and-language-xnimrodx-blue-xnimrodx.png"
-            alt="external-subtitle-translation-and-language-xnimrodx-blue-xnimrodx"
-          />
+        <span
+          id="btn-options-subtitle_GENERATE"
+          class="button-option-scripts button-area2"
+        >
+          <i class="material-symbols-outlined">subtitles </i>
+
           <p>Subtitulos</p>
         </span>
-        <span id="btn-more-options_GENERATE" class="button-option-scripts">
-          <!-- <i class="fa-solid fa-gears"></i> -->
-          <img
-            width="35"
-            height="35"
-            src="https://img.icons8.com/color/48/settings--v1.png"
-            alt="settings--v1"
-          />
+        <span
+          id="btn-more-options_GENERATE"
+          class="button-option-scripts button-area3"
+        >
+          <i class="fa-solid fa-gears"></i>
+
           <p>Mas opciones</p>
         </span>
       </div>
-      <!-- BOTON PARA GENERAR VIDEO -->
-      <button type="button" class="btn btn-custom" onclick="generateScript()">
-        Generar video
-        <img
-          width="22"
-          height="22"
-          src="https://img.icons8.com/material-sharp/50/sparkling.png"
-          alt="sparkling"
-        />
-      </button>
     </form>
 
     <div id="your-videos" class="animate__animated animate__fadeIn">
       <div class="box-title-content">
-        <img
-          width="50"
-          height="50"
-          src="https://img.icons8.com/fluency/50/movies-folder--v2.png"
-          alt="movies-folder--v2"
-        />
         <h3>Galeria</h3>
       </div>
 
       <div id="videosList">
-        <h4><i class="fa-regular fa-clock"></i> Tareas en progreso</h4>
+        <h4><i class="fa-regular fa-clock"></i> Videos en progreso</h4>
         <div id="inProgressTasks">
           <span>
             <img
@@ -451,10 +455,6 @@ Videos IA{% endblock %} {% block content %}
       </form> -->
 
       <form class="config-form" id="changeCredentialsForm">
-        <!-- <span id="btn-open-credencials"
-          ><i class="fa-solid fa-user-gear"></i> Opciones de usuario</span
-        > -->
-        <!-- class="close-form-config" -->
         <div id="content-change-credencials">
           <div class="block-form">
             <label for="newUsername" class="label-user-dashboard"
@@ -492,10 +492,10 @@ Videos IA{% endblock %} {% block content %}
 
           <button
             type="button"
-            class="btn btn-custom"
+            class="btn-config"
             onclick="changeCredentials()"
           >
-            Guardar
+            Actualizar
           </button>
 
           <div class="minutes-info">
@@ -523,7 +523,7 @@ Videos IA{% endblock %} {% block content %}
               Cancelar Plan
             </span>
 
-            <span id="btn-upgrade-plan" class="btn-custom"> Mejorar plan </span>
+            <span id="btn-upgrade-plan" class="btn-config"> Mejorar plan </span>
             <!-- {% endif %} -->
           </div>
         </div>
@@ -536,7 +536,7 @@ Videos IA{% endblock %} {% block content %}
       <div class="animate__animated animate__bounceInUp modal-options">
         <!-- opciones de configuracion -->
         <div id="options-audio-template">
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="inputVoiceType" class="label-user-dashboard"
               >Tipo de Voz</label
             >
@@ -547,7 +547,7 @@ Videos IA{% endblock %} {% block content %}
             </select>
           </div>
 
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="inputVoice" class="label-user-dashboard">Voz</label>
             <select class="select-user-dashboard" id="inputVoice">
               <option value="nova">Nova</option>
@@ -559,7 +559,7 @@ Videos IA{% endblock %} {% block content %}
             </select>
           </div>
 
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="musicOption" class="label-user-dashboard">Música</label>
             <select class="select-user-dashboard" id="musicOption">
               <option value="no_music">Sin Música</option>
@@ -568,7 +568,7 @@ Videos IA{% endblock %} {% block content %}
           </div>
         </div>
         <div id="options-subtitle-template">
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="inputLanguage" class="label-user-dashboard"
               >Idioma</label
             >
@@ -651,18 +651,18 @@ Videos IA{% endblock %} {% block content %}
               <option value="ca">Catalán</option>
             </select>
           </div>
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="subtitleOption" class="label-user-dashboard"
-              >¿Subtítulos?</label
+              >Subtítulos</label
             >
             <select class="select-user-dashboard" id="subtitleOption">
               <option value="yes">Activados</option>
               <option value="no">Desactivados</option>
             </select>
           </div>
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="subtitleType" class="label-user-dashboard"
-              >¿Tipo de subtítulos?</label
+              >Tipo de subtítulos</label
             >
             <select class="select-user-dashboard" id="subtitleType">
               <option value="1">Opcion 1</option>
@@ -671,7 +671,7 @@ Videos IA{% endblock %} {% block content %}
             </select>
           </div>
 
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="subtitlePosition" class="label-user-dashboard"
               >Posición de los Subtítulos</label
             >
@@ -683,36 +683,36 @@ Videos IA{% endblock %} {% block content %}
           </div>
         </div>
         <div id="more-options-upload">
-          <div class="block-form">
-            <div class="block-form">
-              <label for="contentOptionManual" class="label-user-dashboard"
-                >Tipo de Contenido</label
-              >
-              <select class="select-user-dashboard" id="contentOptionManual">
-                <option value="mixto">Mixto</option>
-                <option value="imagenes">Solo Imágenes</option>
-                <option value="videos">Solo Videos</option>
-                <option value="personal">Carpeta Personal</option>
-              </select>
-            </div>
+          <div class="block-form-modal-options">
+            <label for="contentOptionManual" class="label-user-dashboard"
+              >Tipo de Contenido</label
+            >
+            <select class="select-user-dashboard" id="contentOptionManual">
+              <option value="mixto">Mixto</option>
+              <option value="imagenes">Solo Imágenes</option>
+              <option value="videos">Solo Videos</option>
+              <option value="personal">Carpeta Personal</option>
+            </select>
           </div>
-          <div class="block-form" id="personalFolderSectionManual">
+
+          <div
+            class="block-form-modal-options"
+            id="personalFolderSectionManual"
+          >
             <!-- style="display: none" -->
-            <div class="block-form">
-              <label for="personalFolderManual" class="label-user-dashboard"
-                >Seleccionar Carpeta Personal</label
-              >
-              <input
-                type="file"
-                id="personalFolderManual"
-                webkitdirectory
-                directory
-                multiple
-                class="input-user-dashboard"
-              />
-            </div>
+            <label for="personalFolderManual" class="label-user-dashboard"
+              >Seleccionar Carpeta Personal</label
+            >
+            <input
+              type="file"
+              id="personalFolderManual"
+              webkitdirectory
+              directory
+              multiple
+              class="input-user-dashboard"
+            />
           </div>
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="videoOrientationManual" class="label-user-dashboard"
               >Orientación del Video</label
             >
@@ -724,9 +724,7 @@ Videos IA{% endblock %} {% block content %}
         </div>
         <!-- opciones de configuracion -->
 
-        <span id="close-modal" class="close-modal-options">
-          Guardar cambios
-        </span>
+        <span id="close-modal" class="close-modal-options"> Guardar </span>
       </div>
     </div>
     <!-- MODAL CON LAS OPCIONES DE VIDEO CONFIGURACION SCRIPT GENERATION-->
@@ -735,7 +733,7 @@ Videos IA{% endblock %} {% block content %}
         <!-- opciones de configuracion -->
 
         <div id="options-audio_GENERATE">
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="inputVoiceType" class="label-user-dashboard"
               >Tipo de Voz</label
             >
@@ -746,7 +744,7 @@ Videos IA{% endblock %} {% block content %}
             </select>
           </div>
 
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="inputVoice" class="label-user-dashboard">Voz</label>
             <select class="select-user-dashboard" id="inputVoice">
               <option value="nova">Nova</option>
@@ -758,7 +756,7 @@ Videos IA{% endblock %} {% block content %}
             </select>
           </div>
 
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="musicOption" class="label-user-dashboard">Música</label>
             <select class="select-user-dashboard" id="musicOption">
               <option value="no_music">Sin Música</option>
@@ -767,7 +765,7 @@ Videos IA{% endblock %} {% block content %}
           </div>
         </div>
         <div id="options-subtitle_GENERATE">
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="inputLanguage" class="label-user-dashboard"
               >Idioma</label
             >
@@ -850,9 +848,9 @@ Videos IA{% endblock %} {% block content %}
               <option value="ca">Catalán</option>
             </select>
           </div>
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="subtitleOption" class="label-user-dashboard"
-              >¿Subtítulos?</label
+              >Subtítulos</label
             >
             <select class="select-user-dashboard" id="subtitleOption">
               <option value="yes">Activados</option>
@@ -860,9 +858,9 @@ Videos IA{% endblock %} {% block content %}
             </select>
           </div>
 
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="subtitleType" class="label-user-dashboard"
-              >¿Tipo de subtítulos?</label
+              >Tipo de subtítulos</label
             >
             <select class="select-user-dashboard" id="subtitleType">
               <option value="1">Opcion 1</option>
@@ -871,7 +869,7 @@ Videos IA{% endblock %} {% block content %}
             </select>
           </div>
 
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="subtitlePosition" class="label-user-dashboard"
               >Posición de los Subtítulos</label
             >
@@ -883,7 +881,7 @@ Videos IA{% endblock %} {% block content %}
           </div>
         </div>
         <div id="more-options_GENERATE">
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="videoCount" class="label-user-dashboard"
               >Cantidad de videos</label
             >
@@ -893,7 +891,7 @@ Videos IA{% endblock %} {% block content %}
               <option value="3">3</option>
             </select>
           </div>
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="videoDuration" class="label-user-dashboard"
               >Duración del Video</label
             >
@@ -908,7 +906,7 @@ Videos IA{% endblock %} {% block content %}
                                 -->
             </select>
           </div>
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="contentOption" class="label-user-dashboard"
               >Tipo de Contenido</label
             >
@@ -920,34 +918,7 @@ Videos IA{% endblock %} {% block content %}
               <option value="google">Google solo imágenes</option>
             </select>
           </div>
-          <div class="block-form">
-            <label for="referenceLink" class="label-user-dashboard"
-              >Ingresa un link de referencia</label
-            >
-            <input
-              type="text"
-              class="input-user-dashboard"
-              id="referenceLink"
-              placeholder="https://www.youtube.com/watch?v=..."
-            />
-          </div>
-          <div class="block-form" id="personalFolderSection">
-            <!-- style="display: none" -->
-            <div class="block-form">
-              <label for="personalFolder" class="label-user-dashboard"
-                >Seleccionar Carpeta Personal</label
-              >
-              <input
-                type="file"
-                id="personalFolder"
-                webkitdirectory
-                directory
-                multiple
-                class="input-user-dashboard"
-              />
-            </div>
-          </div>
-          <div class="block-form">
+          <div class="block-form-modal-options">
             <label for="videoOrientation" class="label-user-dashboard"
               >Orientación del Video</label
             >
@@ -960,77 +931,54 @@ Videos IA{% endblock %} {% block content %}
               <option value="vertical">Vertical</option>
             </select>
           </div>
+          <div class="block-form-modal-options" id="referenceLink">
+            <label for="referenceLink" class="label-user-dashboard"
+              >Ingresa un link de referencia</label
+            >
+            <input
+              type="text"
+              class="input-user-dashboard"
+              id="referenceLink"
+              placeholder="https://www.youtube.com/watch?v=..."
+            />
+          </div>
+          <div class="block-form-modal-options" id="personalFolderSection">
+            <!-- style="display: none" -->
+            <label for="personalFolder" class="label-user-dashboard"
+              >Seleccionar Carpeta Personal</label
+            >
+            <input
+              type="file"
+              id="personalFolder"
+              webkitdirectory
+              directory
+              multiple
+              class="input-user-dashboard"
+            />
+          </div>
         </div>
         <!-- opciones de configuracion -->
 
         <span id="close-modal_GENERATE" class="close-modal-options">
-          Guardar cambios
-          <!-- <i class="fa-solid fa-floppy-disk"></i> -->
+          Guardar
         </span>
       </div>
     </div>
   </div>
-  <!--  -->
+  <!-- SECCION DE GENERACION DE CONTENIDO, GALERIA Y CONFIGURACION DE PERFIL  -->
 
-  <div id="scriptSection">
-    <h2>Guion Generado</h2>
-    <textarea id="generatedScript" class="input-user-dashboard"></textarea>
-    <div>
-      <button class="btn btn-custom" onclick="acceptScript()">Aceptar</button>
-      <button class="btn btn-custom" onclick="generateScript()">
-        Reintentar
-      </button>
-    </div>
+  <!-- LOADER  -->
+  <div id="loading">
+    <span class="loader"> </span>
   </div>
-
-  <div id="imagesSection">
-    <h2>Imágenes Generadas</h2>
-    <div id="generatedImages"></div>
-    <div>
-      <input
-        type="file"
-        id="uploadImage"
-        accept="image/jpeg,image/png,image/webp"
-        multiple
-        class="input-user-dashboard"
-      />
-      <!-- style="display: none" -->
-      <button
-        class="btn btn-custom"
-        onclick="document.getElementById('uploadImage').click()"
-      >
-        Agregar Imagen
-      </button>
-      <button class="btn btn-custom" type="button" onclick="generateVideo()">
-        <strong>Generar Video</strong>
-      </button>
-    </div>
-  </div>
-
-  <div id="videoSection">
-    <h2>Video Generado</h2>
-    <!-- <video id="generatedVideo" controls class="w-100"></video> -->
-    <video src="https://www.youtube.com/watch?v=R4id1K3P8mI"></video>
-    <div>
-      <button class="btn btn-custom" onclick="repeatVideo()">
-        Repetir Video
-      </button>
-      <button class="btn btn-custom" onclick="saveVideo()">Guardar</button>
-      <button class="btn btn-custom" onclick="generateScript()">
-        Hacer Otro
-      </button>
-    </div>
-  </div>
-
-  <div class="center-body" id="loading">
-    <div class="loader-circle-9">
-      Cargando
-      <span></span>
-    </div>
-  </div>
+  <!-- IMAGEN DE CARGA DE PANTALLA -->
 
   <!-- CHATBOT -->
   <div class="overlay-chatbot" onclick="toggleChatbot()"></div>
+  <i
+    class="fa-solid fa-circle-xmark btn-close-chatbot"
+    onclick="toggleChatbot()"
+  ></i>
   <div
     class="chatbot-container animate__animated animate__bounceInDown"
     id="chatbotContainer"
@@ -1066,7 +1014,6 @@ Videos IA{% endblock %} {% block content %}
       <button onclick="sendMessage()">Enviar</button>
     </div>
   </div>
-  <!-- <button class="chatbot-toggle" id="chatbotToggle" onclick="toggleChatbot()"> -->
   <img
     class="chatbot-toggle"
     id="chatbotToggle"
@@ -1074,7 +1021,6 @@ Videos IA{% endblock %} {% block content %}
     src="{% static 'img/clipgen.ai logo.png' %}"
     alt="Chat Icon"
   />
-  <!-- </button> -->
   <!-- CHATBOT -->
 </section>
 {% endblock %}

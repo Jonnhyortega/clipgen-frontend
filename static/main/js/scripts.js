@@ -1,15 +1,21 @@
 function showAlert(type, message) {
+  const errorMessageContainer = document.createElement("div");
+  errorMessageContainer.id = "alerts-modal";
   const alert = document.createElement("div");
   alert.className = `alert alert-center ${type}`;
   alert.role = "alert";
   alert.textContent = message;
-  document.body.appendChild(alert);
+  errorMessageContainer.appendChild(alert);
+  // document.body.appendChild(alert);
 
   setTimeout(() => {
     alert.classList.add("show");
     setTimeout(() => {
       alert.classList.remove("show");
-      setTimeout(() => alert.remove(), 500); // Permitimos tiempo para animación de salida
+      setTimeout(() => {
+        errorMessageContainer.remove();
+        alert.remove();
+      }, 500); // Permitimos tiempo para animación de salida
     }, 10000);
   }, 10); // Delay
 }
@@ -72,12 +78,20 @@ function suggestTitles() {
         );
       } else {
         titles.forEach((title) => {
+          const suggestionTitle = document.getElementById(
+            "title-suggestion-container"
+          );
+          suggestionTitle.style.display = "block";
           const suggestion = document.createElement("div");
           suggestion.className = "suggestion-item";
-          suggestion.textContent = title;
+          suggestion.classList.add("animate__animated animate__fadeIn ");
+          // suggestion.textContent = title;
+
+          suggestion.innerHTML = `${title} <i class="fa-solid fa-plus"></i>`;
           suggestion.onclick = () => {
             document.getElementById("inputTitle").value = title;
             titleSuggestions.innerHTML = "";
+            suggestionTitle.style.display = "none";
           };
           titleSuggestions.appendChild(suggestion);
         });
@@ -253,19 +267,19 @@ function updateVideosInProgress() {
       taskProgressItem.className = "video-item in-progress task-progress";
       taskProgressItem.setAttribute("data-task-id", task.task_id);
       // BARRA DE PROGRESO ORIGINAL
-//       taskProgressItem.innerHTML = `
-// <h4>Creando: "${task.title}"</h4>
-// <p class="status">Estado: ${currentStep}</p>
-// <div class="progress">
-// <div class="progress-bar progress-bar-striped" 
-// role="progressbar" 
-// style="width: ${progressPercentage}%;" 
-// aria-valuenow="${progressPercentage}" 
-// aria-valuemin="0" 
-// aria-valuemax="100">
-// </div>
-// </div>
-// `;
+      //       taskProgressItem.innerHTML = `
+      // <h4>Creando: "${task.title}"</h4>
+      // <p class="status">Estado: ${currentStep}</p>
+      // <div class="progress">
+      // <div class="progress-bar progress-bar-striped"
+      // role="progressbar"
+      // style="width: ${progressPercentage}%;"
+      // aria-valuenow="${progressPercentage}"
+      // aria-valuemin="0"
+      // aria-valuemax="100">
+      // </div>
+      // </div>
+      // `;
       // BARRA DE PROGRESO ORIGINAL
       // BARRA DE PROGRESO NUEVA
       taskProgressItem.innerHTML = `
@@ -494,9 +508,7 @@ function saveVideo() {
 function resetForm() {
   document.getElementById("generateForm").reset();
   document.getElementById("uploadForm").reset();
-  document.getElementById("scriptSection").classList.add("d-none");
-  document.getElementById("imagesSection").classList.add("d-none");
-  document.getElementById("videoSection").classList.add("d-none");
+
   hideError();
 }
 

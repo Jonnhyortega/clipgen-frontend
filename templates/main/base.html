@@ -34,8 +34,11 @@
       href="{% static 'main/css/descargar_eliminar.css' %}"
       rel="stylesheet"
     />
-    <link href="{% static 'main/css/login.css' %}" rel="stylesheet" />
-    <link href="{% static 'main/css/register.css' %}" rel="stylesheet" />
+    <link href="{% static 'main/css/Login/login.css' %}" rel="stylesheet" />
+    <link
+      href="{% static 'main/css/Register/register.css' %}"
+      rel="stylesheet"
+    />
     <link href="{% static 'main/css/Chatbot/chatbot.css' %}" rel="stylesheet" />
     <link
       href="{% static 'main/css/Dashboard/dashboard-styles.css' %}"
@@ -51,6 +54,7 @@
       href="{% static 'main/css/Carrusel/carrusel.css' %}"
       rel="stylesheet"
     />
+    <link href="{% static 'main/css/Alerts/alerts.css' %}" rel="stylesheet" />
 
     <meta name="csrf-token" content="{{ csrf_token }}" />
   </head>
@@ -69,13 +73,16 @@
       </a>
       <div class="nav-links">
         {% if user.is_authenticated %}
-        <a id="generate-content" href="{% url 'index' %}">Generar Contenido</a>
+        <a id="generate-content" href="{% url 'index' %}">Crear video</a>
         <a id="sobre" href="{% url 'sobre' %}">ClipgenAI</a>
         <a id="cerrar-sesion" href="{% url 'logout' %}">Cerrar Sesión</a>
         {% else %}
-        <!-- <a id="sobre" href="{% url 'sobre' %}">ClipgenAI</a> -->
-        <span href="" id="login" onclick="showLogin()">Iniciar Sesión</span>
-        <span href="" id="register" onclick="showRegister()">Registrarse</span>
+        <span id="btn-show-login" id="login">Iniciar Sesión</span>
+        <span id="btn-show-register">Registrarse</span>
+        <span id="generate-content" href="{% url 'index' %}">Crear video</span>
+        <a id="sobre" href="{% url 'sobre' %}"> ClipgenAI</a>
+        <a id="cerrar-sesion">Cerrar Sesión</a>
+
         {% endif %}
       </div>
 
@@ -84,25 +91,23 @@
         <div>
           <div>
             <i class="fa-regular fa-circle-play"></i>
-            <a id="link-generate-content">Generar Contenido</a>
+            <a id="link-generate-content">Crear video</a>
           </div>
-          <div>
-            <i class="fa-solid fa-info"></i
-            ><a id="sobre" href="{% url 'sobre' %}">ClipgenAI</a>
+          <div onclick="toggleChatbot()">
+            <i class="fa-solid fa-info" style="padding: 0 11px 0 0"></i
+            ><a id="sobre">Ayuda</a>
           </div>
           <div>
             <i class="fa-solid fa-right-from-bracket"></i
             ><a id="cerrar-sesion">Cerrar Sesión</a>
           </div>
-          <div>
+          <div id="btn-show-login-mobile">
             <i class="fa-solid fa-arrow-right-to-bracket"></i>
-            <span id="login" onclick="showLogin()">Iniciar Sesión</span>
+            <span id="btn-login-mobile">Iniciar Sesión</span>
           </div>
-          <div>
+          <div id="btn-show-register-mobile">
             <i class="fa-solid fa-user-plus"></i>
-            <span href="" id="register" onclick="showRegister()"
-              >Registrarse</span
-            >
+            <span id="btn-register-mobile">Registrarse</span>
           </div>
         </div>
       </div>
@@ -111,9 +116,7 @@
 
     <!-- LOGIN SECTION -->
     <section id="login-section" class="animate__animated animate__fadeIn">
-      <span id="close-modal-login" onclick="showLogin()"
-        ><i class="fa-solid fa-xmark"></i
-      ></span>
+      <span id="close-modal-login"><i class="fa-solid fa-xmark"></i></span>
       <a id="logo-auth-container" href="#">
         <img src="{% static 'img/clipgen.ai logo.png' %}" alt="Logo" />
         <h1>Clipgen Ai</h1>
@@ -156,9 +159,7 @@
       </form>
       <div class="third-line">
         <p>¿No tienes cuenta?</p>
-        <a onclick="loginToRegister()" id="link-to-login-register">
-          Regístrate aquí</a
-        >
+        <a id="link-to-login-register"> Regístrate aquí</a>
       </div>
     </section>
     <!-- LOGIN SECTION -->
@@ -168,9 +169,7 @@
       class="register-container animate__animated animate__fadeIn"
       id="register-container"
     >
-      <span id="close-modal-register" onclick="showRegister()"
-        ><i class="fa-solid fa-xmark"></i
-      ></span>
+      <span id="close-modal-register"><i class="fa-solid fa-xmark"></i></span>
 
       <a id="logo-auth-container" href="#">
         <img src="{% static 'img/clipgen.ai logo.png' %}" alt="Logo" />
@@ -230,9 +229,7 @@
       <div class="third-line">
         <p>
           ¿Ya tienes una cuenta?
-          <a id="link-to-login-register" onclick="registerToLogin()"
-            >Inicia sesión</a
-          >
+          <a id="link-to-register-login">Inicia sesión</a>
         </p>
       </div>
     </div>
@@ -260,7 +257,6 @@
     <script src="{% static 'main/js/landing.js' %}"></script>
     <script src="{% static 'main/js/carrusel.js' %}"></script>
     <script src="{% static 'main/js/nav-mobile.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 
     <!-- <script>
       document.addEventListener("DOMContentLoaded", function () {

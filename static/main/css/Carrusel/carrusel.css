@@ -74,8 +74,8 @@
 }
 
 .carrusel-img {
-  border-radius: 5px;
   min-height: 160px;
+  border-radius: 25px;
 }
 
 .carrusel-img > img {

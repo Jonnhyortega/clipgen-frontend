@@ -46,21 +46,23 @@ const predefinedResponses = {
 };
 
 function toggleChatbot() {
+  console.log("depuracion del chatbot");
   const chatbotContainer = document.getElementById("chatbotContainer");
   const chatbotToggle = document.getElementById("chatbotToggle");
   const overlayChatbot = document.querySelector(".overlay-chatbot");
+  const btnCloseChatbot = document.querySelector(".btn-close-chatbot");
   if (
     chatbotContainer.style.display === "none" ||
     chatbotContainer.style.display === ""
   ) {
+    btnCloseChatbot.style.display = "block";
     overlayChatbot.style.display = "block";
     chatbotContainer.classList.remove("animate__bounceOutUp");
     chatbotContainer.classList.add("animate__bounceInDown");
     chatbotContainer.style.display = "flex";
     chatbotToggle.style.right = "420px";
   } else {
-    // chatbotContainer.classList.remove("animate__bounceInDown");
-    // chatbotContainer.classList.add("animate__bounceOutUp");
+    btnCloseChatbot.style.display = "none";
     chatbotContainer.style.display = "none";
     chatbotToggle.style.right = "20px";
     overlayChatbot.style.display = "none";

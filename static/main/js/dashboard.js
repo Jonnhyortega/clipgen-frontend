@@ -1,40 +1,72 @@
-// FUNCTION TO SHOW MODAL LOGIN
-const showLogin = () => {
-  const modalLogin = document.getElementById("login-section");
-  if (modalLogin.style.display === "none") {
-    modalLogin.style.display = "flex";
-  } else {
-    modalLogin.style.display = "none";
-  }
-};
+// FUNCTION TO SHOW MODAL LOGIN AND REGISTER
+const modalLogin = document.getElementById("login-section");
+const btnShowLogin = document.getElementById("btn-show-login");
+const btnShowLoginMobile = document.getElementById("btn-show-login-mobile");
+const modalRegister = document.getElementById("register-container");
+const btnShowRegister = document.getElementById("btn-show-register");
+const btnShowRegisterMobile = document.getElementById(
+  "btn-show-register-mobile"
+);
+const btnCloseLogin = document.getElementById("close-modal-login");
+const btnCloseRegister = document.getElementById("close-modal-register");
+const btnLoginToRegister = document.getElementById("link-to-login-register");
+const btnRegisterToLogin = document.getElementById("link-to-register-login");
+let stateShowLogin = false;
+let stateShowRegister = false;
 
-// FUNCTION TO SHOW MODAL REGISTER
-const showRegister = () => {
-  const modalRegister = document.getElementById("register-container");
+const handleShowLoginAndRegister = () => {
+  btnShowLogin.addEventListener("click", () => {
+    stateShowLogin = !stateShowLogin;
+    modalLogin.style.display = stateShowLogin ? "flex" : "none";
+  });
 
-  if (modalRegister.style.display === "none") {
-    modalRegister.style.display = "flex";
-  } else {
-    modalRegister.style.display = "none";
-  }
+  btnShowRegister.addEventListener("click", () => {
+    stateShowRegister = !stateShowRegister;
+    modalRegister.style.display = stateShowRegister ? "flex" : "none";
+  });
+
+  btnCloseLogin.addEventListener("click", () => {
+    stateShowLogin = !stateShowLogin;
+    modalLogin.style.display = stateShowLogin ? "flex" : "none";
+  });
+
+  btnCloseRegister.addEventListener("click", () => {
+    stateShowRegister = !stateShowRegister;
+    modalRegister.style.display = stateShowRegister ? "flex" : "none";
+  });
+
+  btnLoginToRegister.addEventListener("click", () => {
+    stateShowRegister = !stateShowRegister;
+    stateShowLogin = !stateShowLogin;
+    modalLogin.style.display = stateShowLogin ? "flex" : "none";
+    modalRegister.style.display = stateShowRegister ? "flex" : "none";
+  });
+
+  btnRegisterToLogin.addEventListener("click", () => {
+    stateShowRegister = !stateShowRegister;
+    stateShowLogin = !stateShowLogin;
+    modalLogin.style.display = stateShowLogin ? "flex" : "none";
+    modalRegister.style.display = stateShowRegister ? "flex" : "none";
+  });
+
+  btnShowLoginMobile.addEventListener("click", () => {
+    stateShowLogin = !stateShowLogin;
+    modalLogin.style.display = stateShowLogin ? "flex" : "none";
+  });
+
+  btnShowRegisterMobile.addEventListener("click", () => {
+    stateShowRegister = !stateShowRegister;
+    modalRegister.style.display = stateShowRegister ? "flex" : "none";
+  });
 };
 
 // FUNCTION TO CLOSE MODAL LOGIN AND OPEN REGISTER
-const loginToRegister = () => {
-  const modalLogin = document.getElementById("login-section");
-  const modalRegister = document.getElementById("register-container");
-
-  modalLogin.style.display = "none";
-  modalRegister.style.display = "flex";
-};
+const loginToRegister = () => {};
 
 // FUNCTION TO CLOSE MODAL REGISTER AND OPEN LOGIN
 const registerToLogin = () => {
   const modalLogin = document.getElementById("login-section");
   const modalRegister = document.getElementById("register-container");
-
-  modalRegister.style.display = "none";
-  modalLogin.style.display = "flex";
 };
 
 // FUNCTION TO SHOW PASSWORD1 REGISTER
@@ -388,6 +420,8 @@ const handleShowPanelUpgrade = () => {
 
 // INICIALIZACION DE APP
 document.addEventListener("DOMContentLoaded", () => {
+  // BOTONES PARA MOSTRAR PANEL DE LOGIN Y REGISTRO
+  handleShowLoginAndRegister();
   // BOTONES PARA MOSTRAR CADA FORM DE LA CONFIGURACION
   handleShowPanels();
   // BOTONES PARA MOSTRAR OPCIONES DE CADA SECCION
@@ -399,4 +433,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // APERTURA DE PANEL UPGRADE
   handleShowPanelUpgrade();
+
+  // test loader
+  functionTest();
 });
+
+const functionTest = () => {
+  setTimeout(() => {
+    document.getElementById("loading").style.display = "none";
+  }, 2000);
+};
+
