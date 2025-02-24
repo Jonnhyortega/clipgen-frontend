@@ -51,10 +51,12 @@
       rel="stylesheet"
     />
     <link
-      href="{% static 'main/css/Carrusel/carrusel.css' %}"
+      href="{% static 'main/css/Videos-layout/videos-layout.css' %}"
       rel="stylesheet"
     />
     <link href="{% static 'main/css/Alerts/alerts.css' %}" rel="stylesheet" />
+    <link href="{% static 'main/css/Features/features.css' %}" rel="stylesheet" />
+    <link href="{% static 'main/css/Last-section/last-section.css' %}" rel="stylesheet" />
 
     <meta name="csrf-token" content="{{ csrf_token }}" />
   </head>
@@ -144,17 +146,9 @@
             <div id="icon-login-password"><i class="fa-solid fa-eye"></i></div>
           </label>
         </div>
-        <button class="submit-button" type="submit">
-          <img
-            width="35"
-            height="35"
-            src="https://img.icons8.com/fluency/48/enter-2.png"
-            alt="enter-2"
-          />Iniciar Sesión
-        </button>
+        <button class="submit-button" type="submit">Iniciar Sesión</button>
         <button class="submit-button">
-          <img src="{% static 'img/icon-google.png' %}" alt="" />Continuar con
-          Google
+          <img src="{% static 'img/icon-google.png' %}" alt="" /> con Google
         </button>
       </form>
       <div class="third-line">
@@ -164,7 +158,7 @@
     </section>
     <!-- LOGIN SECTION -->
 
-    <!-- REGISTER SECITON -->
+    <!-- REGISTER SECTION -->
     <div
       class="register-container animate__animated animate__fadeIn"
       id="register-container"
@@ -213,17 +207,9 @@
           </label>
         </div>
 
-        <button class="submit-button" type="submit">
-          <img
-            width="35"
-            height="35"
-            src="https://img.icons8.com/fluency/48/enter-2.png"
-            alt="enter-2"
-          />Registrarse
-        </button>
+        <button class="submit-button" type="submit">Registrarse</button>
         <button class="submit-button">
-          <img src="{% static 'img/icon-google.png' %}" alt="" />Continuar con
-          Google
+          <img src="{% static 'img/icon-google.png' %}" alt="" /> con Google
         </button>
       </form>
       <div class="third-line">
@@ -233,15 +219,8 @@
         </p>
       </div>
     </div>
-    <!-- REGISTER SECITON -->
-    <!-- MENSAJES DE ALERTA HARDCODEADOS -->
-    <!-- <div class="alert alert-center alert-danger show">
-      Para sugerirte un título, por favor ingresa un título de tu video.
-    </div> -->
-    <!-- <div class="alert alert-center alert-success show">
-      Todos los videos han sido enviados para su generación.
-    </div> -->
-    <!-- MENSAJES DE ALERTA HARDCODEADOS -->
+    <!-- REGISTER SECTION -->
+
     {% block container %}
     <div class="container">{% block content %} {% endblock %}</div>
     {% endblock %}
@@ -253,9 +232,8 @@
     <script src="{% static 'main/js/dashboard.js' %}"></script>
     <script src="{% static 'main/js/panelCancel.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
-    <script src="{% static 'main/js/init.js' %}"></script>
-    <script src="{% static 'main/js/landing.js' %}"></script>
-    <script src="{% static 'main/js/carrusel.js' %}"></script>
+    <script src="{% static 'main/js/functions-tests.js' %}"></script>
+    <script src="{% static 'main/js/videos-section.js' %}"></script>
     <script src="{% static 'main/js/nav-mobile.js' %}"></script>
 
     <!-- <script>

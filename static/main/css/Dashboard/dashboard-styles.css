@@ -14,8 +14,9 @@
   display: none;
   flex-direction: column;
   flex-wrap: wrap;
+  gap: 20px;
   width: 500px;
-  margin: 2rem auto;
+  margin-bottom: 20px;
   position: relative;
 }
 
@@ -26,12 +27,13 @@
   display: flex;
   flex-direction: column;
 }
+
 .block-form-modal-options {
-  padding: 10px;
+  padding: 0 0 10px 0;
+  border-bottom: 2px solid var(--borderInputs);
   display: flex;
   justify-content: space-between;
   gap: 5px;
-  border-radius: 4px;
   position: relative;
   /* border: 1px solid yellow;
   * {
@@ -50,7 +52,7 @@
   border: none;
   border-bottom: 4px solid var(--borderInputs);
   border-radius: 0;
-  padding: 0 0 8px 0;
+  padding: 0 15px 15px 0;
 }
 
 .block-form-modal-options > .select-user-dashboard:focus {
@@ -100,10 +102,10 @@
   width: 100vw;
   height: 100vh;
   z-index: 5000;
-
   backdrop-filter: blur(25px) saturate(180%);
   -webkit-backdrop-filter: blur(25px) saturate(180%);
   background-color: rgba(0, 0, 0, 0.75);
+  border-top: 10px solid var(--greenFull3);
 }
 
 .modal-options h3 {
@@ -129,6 +131,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
+  padding: 25px 5px;
 }
 
 .close-modal-options {
@@ -543,7 +547,7 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 .block-form {
-  padding: 10px;
+  padding: 0 0 10px 0;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -631,7 +635,6 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
 /* DASHBOARD APP*/
 .minutes-info {
   margin-top: 40px;
-  border-top: 1px solid var(--inputs);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -658,7 +661,7 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   color: white;
   font-weight: bolder;
   letter-spacing: 1px;
-  font-size: 25px;
+  font-size: 1.5rem;
   font-family: var(--main);
 }
 
@@ -666,8 +669,9 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   color: var(--greenFull2);
   font-weight: bolder;
   letter-spacing: 1px;
-  font-size: 30px;
+  font-size: 1.5rem;
   font-family: var(--third);
+  filter: drop-shadow(1px 1px 6px black);
 }
 
 /* BUTTON SAVE API KEY */
@@ -719,30 +723,29 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
 
 /* CONFIG SECTION */
 
-#config > h3 {
-  font-family: var(--main);
-  font-weight: bolder;
-  letter-spacing: 2px;
-  color: white;
-  font-size: 35px;
-  width: 100%;
-  text-align: center;
-  padding: 30px 0;
-}
-
 #configForm,
 #changeCredentialsForm {
   width: 80%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: start;
   gap: 10px;
   margin: 20px auto;
 }
 
+#newUsername,
+#currentPassword,
+#newPassword {
+  width: auto;
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid var(--greenFull3);
+  font-family: var(--third);
+}
+
 .btn-config {
-  width: 100%;
+  margin-top: 30px;
   padding: 5px 20px;
   background-color: var(--greenFull3);
   border: none;
@@ -750,8 +753,8 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   cursor: pointer;
   font-family: "Inter";
   font-weight: 600;
-  font-size: 1.2rem;
-  text-align: right;
+  font-size: 1.5rem;
+  text-align: center;
   margin-bottom: 20px;
   color: white;
 }
@@ -769,7 +772,8 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   transition: 0.8s all;
   width: 80%;
   background-color: transparent;
-  border-radius: 4px;
+  /* border-radius: 4px; */
+  padding: 2rem;
 }
 
 .open-form-config {
@@ -825,6 +829,13 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   background-color: var(--borderInputs);
 }
 
+#show-pw-config1,
+#show-pw-config2 {
+  position: absolute;
+  right: 20px;
+  top: 60px;
+}
+
 .btn-cancel-plan {
   overflow: hidden;
   width: 100%;
@@ -834,7 +845,7 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   background-color: transparent;
   transition: 0.2s;
   position: relative;
-  color: white;
+  color: var(--panel2);
   cursor: pointer;
   font-family: Inter;
   font-weight: 600;
@@ -848,6 +859,7 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
 
 .btn-cancel-plan:hover {
   background-color: red;
+  color: white;
 }
 
 .btn-cancel-panel {
@@ -893,11 +905,11 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  font-family: var(--main);
+  font-family: var(--four);
   font-weight: bold;
   font-size: 25px;
-  -webkit-text-stroke: 2px black;
-  color: white;
+  color: var(--greenFull3);
+  filter: drop-shadow(1px 1px 5px black);
   font-size: 25px;
 }
 
@@ -950,15 +962,17 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
 }
 .panel-cancel-content > div > h2 {
   color: white;
-  font-weight: bold;
-  font-size: 28px;
-  font-family: var(--main);
+  font-weight: 200;
+  font-size: 2rem;
+  font-family: var(--third);
+  margin-bottom: 1rem;
 }
 .panel-cancel-content > div > p {
   color: white;
-  font-size: 16px;
-  font-family: var(--second);
+  font-size: 1.2rem;
+  font-family: var(--third);
   text-align: center;
+  font-weight: 200;
   width: 100%;
 }
 
@@ -967,7 +981,7 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 10px;
   width: 80%;
   margin: 0 auto;
 }
@@ -978,7 +992,7 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
 .panel-cancel-content > form > textarea {
   width: 100%;
   text-align: left;
-  font-family: var(--main);
+  font-family: var(--second);
   border-radius: 5px;
   font-size: 20px;
 }
@@ -996,15 +1010,26 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
 }
 
 #motivo,
+#motivos:focus,
+#motivos:active {
+  border: none;
+  border-bottom: 2px solid var(--greenFull3);
+  padding: 0 0 5px 0;
+}
+
 #comentarios,
 #comentarios:focus,
-#motivos:focus {
-  border-radius: 5px;
-  border: 1px solid white;
+#comentarios:active {
+  border-top: 1px solid var(--borderInputs);
+  border-left: 1px solid var(--borderInputs);
+  border-right: 1px solid var(--borderInputs);
+  border-bottom: 2px solid var(--greenFull3);
+  padding: 0.6rem;
 }
 
 .panel-cancel-content > form > textarea {
   height: 100px;
+  border: 1px solid var(--inputs);
 }
 
 .panel-cancel-content > form > select > option:hover {
@@ -1027,7 +1052,7 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   border: none;
   background-color: rgba(34, 34, 34, 0.27);
   font-weight: bolder;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-family: var(--main);
   padding: 15px;
   cursor: pointer;
@@ -1129,12 +1154,22 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
     font-size: 2rem;
     padding: 30px;
   }
+
+  #show-pw-config1,
+  #show-pw-config2 {
+    right: -20px;
+  }
 }
 @media (max-width: 668px) {
+  #configForm,
+  #changeCredentialsForm {
+    flex-direction: column;
+    border-top: 1px solid var(--borderInputs);
+  }
   .modal-options {
     width: 100vw;
-    height: 101vh;
-    border-radius: 0;
+    height: 100vh;
+    top: 10px;
   }
   .btn-custom {
     width: 100%;
@@ -1176,6 +1211,10 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
   .minutes-info-line > strong {
     font-size: 1rem;
   }
+
+  .panel-cancel-content {
+    padding: 0;
+  }
 }
 
 @media (max-width: 468px) {
@@ -1194,6 +1233,22 @@ input[type="file"][webkitdirectory]:hover::file-selector-button {
       "button-area1"
       "button-area2"
       "button-area3";
+  }
+
+  #title-suggestion-container > i {
+    display: none;
+  }
+
+  #price-plan {
+    font-size: 1.3rem;
+  }
+
+  #plan-item-content-finally {
+    flex-direction: column-reverse;
+    margin-top: 6px;
+  }
+  .plan-item {
+    height: 500px;
   }
 }
 /* RESPONSIVES QUERYS */

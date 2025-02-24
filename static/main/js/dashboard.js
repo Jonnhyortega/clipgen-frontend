@@ -279,68 +279,7 @@ const listenersOptions = () => {
   });
 };
 
-// VIDEO ITEMS
-const templateVideoItem = `<div class="video-item">
-            <h4>TITULO DE VIDEO</h4>
-            <video width="320" height="240" controls>
-              <source
-                src="https://www.youtube.com/watch?v=qw7YMU3EHRI"
-                type="video/mp4"
-              />
-              Tu navegador no soporta el elemento de video.
-            </video>
-            <div class="button-container">
-                        <button class="bin-button" onclick="deleteVideo($video.id)">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 39 7" class="bin-top">
-                                <line stroke-width="4" stroke="white" y2="5" x2="39" y1="5"></line>
-                                <line stroke-width="3" stroke="white" y2="1.5" x2="26.0357" y1="1.5" x1="12"></line>
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 33 39" class="bin-bottom">
-                                <mask fill="white" id="path-1-inside-1_8_19">
-                                    <path d="M0 0H33V35C33 37.2091 31.2091 39 29 39H4C1.79086 39 0 37.2091 0 35V0Z"></path>
-                                </mask>
-                                <path mask="url(#path-1-inside-1_8_19)" fill="white" d="M0 0H33H0ZM37 35C37 39.4183 33.4183 43 29 43H4C-0.418278 43 -4 39.4183 -4 35H4H29H37ZM4 43C-0.418278 43 -4 39.4183 -4 35V0H4V35V43ZM37 0V35C37 39.4183 33.4183 43 29 43V35V0H37Z"></path>
-                                <path stroke-width="4" stroke="white" d="M12 6L12 29"></path>
-                                <path stroke-width="4" stroke="white" d="M21 6V29"></path>
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 89 80" class="garbage">
-                                <path fill="white" d="M20.5 10.5L37.5 15.5L42.5 11.5L51.5 12.5L68.75 0L72 11.5L79.5 12.5H88.5L87 22L68.75 31.5L75.5066 25L86 26L87 35.5L77.5 48L70.5 49.5L80 50L77.5 71.5L63.5 58.5L53.5 68.5L65.5 70.5L45.5 73L35.5 79.5L28 67L16 63L12 51.5L0 48L16 25L22.5 17L20.5 10.5Z"></path>
-                            </svg>
-                        </button>
-                        <button class="Btn" onclick="downloadVideo('{video.download_url')">
-                            <svg class="svgIcon" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"></path>
-                            </svg>
-                            <span class="icon2"></span>
-                            <span class="tooltip">Download</span>
-                        </button>
-                    </div>
-          </div>`;
-const containerExistingVideos = document.getElementById("existingVideos");
-// renderizar cada video item
-const renderTemplates = (count) => {
-  let videoItems = "";
-  for (let i = 1; i <= count; i++) {
-    videoItems += templateVideoItem;
-  }
-  containerExistingVideos.innerHTML += videoItems;
-};
-// function to show videos
-const btnOpenContainer = document.getElementById("btn-open-existing-videos");
-let containerOpen = false;
-const showVideos = () => {
-  btnOpenContainer.addEventListener("click", () => {
-    containerOpen = !containerOpen;
-    if (containerOpen) {
-      containerExistingVideos.classList.remove("close-existing");
-      containerExistingVideos.classList.add("open-existing");
-    } else {
-      containerExistingVideos.classList.remove("open-existing");
-      containerExistingVideos.classList.add("close-existing");
-    }
-  });
-};
-
+// NO BORRAR
 // FUNCTION TO SHOW CONFIG USER AND API CREDENCIALS SECTION
 // const containerConfigApi = document.getElementById("content-config-apis");
 // const containerChangeCredencials = document.getElementById(
@@ -418,6 +357,138 @@ const handleShowPanelUpgrade = () => {
   });
 };
 
+// FUNCTION TO SHOW PASSWORD IN CONFIG SECTION
+const btnShowPwConfig1 = document.getElementById("show-pw-config1");
+const btnShowPwConfig2 = document.getElementById("show-pw-config2");
+const inputCurrentPassword = document.getElementById("currentPassword");
+const inputNewPassword2 = document.getElementById("newPassword");
+let showPasswordConfig1 = false;
+let showPasswordConfig2 = false;
+const handleShowPassword = () => {
+  btnShowPwConfig1.addEventListener("click", () => {
+    showPasswordConfig1 = !showPasswordConfig1;
+    inputCurrentPassword.type = showPasswordConfig1 ? "text" : "password";
+
+    btnShowPwConfig1.classList.remove(
+      "fa-solid",
+      "fa-eye",
+      "far",
+      "fa-eye-slash",
+      "icon"
+    );
+    if (showPasswordConfig1) {
+      btnShowPwConfig1.classList.add("fa-solid", "fa-eye");
+    } else {
+      btnShowPwConfig1.classList.add("far", "fa-eye-slash", "icon");
+    }
+  });
+
+  btnShowPwConfig2.addEventListener("click", () => {
+    showPasswordConfig2 = !showPasswordConfig2;
+    inputNewPassword2.type = showPasswordConfig2 ? "text" : "password";
+
+    btnShowPwConfig2.classList.remove(
+      "fa-solid",
+      "fa-eye",
+      "far",
+      "fa-eye-slash",
+      "icon"
+    );
+    if (showPasswordConfig2) {
+      btnShowPwConfig2.classList.add("fa-solid", "fa-eye");
+    } else {
+      btnShowPwConfig2.classList.add("far", "fa-eye-slash", "icon");
+    }
+  });
+};
+
+// FUNCTION TO REDIRECT GALLERY
+const btnGenerateVideo = document.getElementById(
+  "btn-generate-video-generate-script"
+);
+const btnGenerateUploadScriptVideo =
+  document.getElementById("btn-upload-script");
+
+const handleButtonsGenerateVideo = () => {
+  btnGenerateVideo.addEventListener("click", () => {
+    yourVideos.style.display = "flex";
+    uploadScript.style.display = "none";
+    generateScript.style.display = "none";
+    config.style.display = "none";
+    // BUTTONS ACTIVE
+    yourVideosButton.classList.add("active");
+    uploadScriptButton.classList.remove("active");
+    generateScriptButton.classList.remove("active");
+    configButton.classList.remove("active");
+  });
+
+  btnGenerateUploadScriptVideo.addEventListener("click", () => {
+    yourVideos.style.display = "flex";
+    uploadScript.style.display = "none";
+    generateScript.style.display = "none";
+    config.style.display = "none";
+    // BUTTONS ACTIVE
+    yourVideosButton.classList.add("active");
+    uploadScriptButton.classList.remove("active");
+    generateScriptButton.classList.remove("active");
+    configButton.classList.remove("active");
+  });
+};
+
+// FUNCION PARA OCULTAR Y DESOCULTAR LOS SELECTS DEL PANEL UPLOAD SCRIPT
+var select = document.getElementById("subtitleOption");
+const showSelects = () => {
+  var selectsToDisable = [
+    document.getElementById("subtitleType"),
+    document.getElementById("subtitlePosition"),
+    document.getElementById("inputLanguage"),
+  ];
+
+  selectsToDisable.forEach((select) => {
+    select.disabled = true;
+    select.style.opacity = 0.5;
+    select.style.cursor = "not-allowed";
+  });
+
+  select.addEventListener("change", () => {
+    var selectedOption = this.options[this.selectedIndex];
+
+    selectsToDisable.forEach((select) => {
+      select.disabled = selectedOption.value === "yes" ? false : true;
+      select.style.opacity = selectedOption.value === "yes" ? 1 : 0.5;
+      select.style.cursor =
+        selectedOption.value === "yes" ? "pointer" : "not-allowed";
+    });
+  });
+};
+
+// FUNCION PARA OCULTAR Y DESOCULTAR LOS SELECTS DEL PANEL GENERATE SCRIPT
+var selectGenerate = document.getElementById("subtitleOption_GENERATE");
+const showSelectsGenerateScript = () => {
+  var selectsToDisable = [
+    document.getElementById("subtitleType_GENERATE"),
+    document.getElementById("subtitlePosition_GENERATE"),
+    document.getElementById("inputLanguage_GENERATE"),
+  ];
+
+  selectsToDisable.forEach((select) => {
+    select.disabled = true;
+    select.style.opacity = 0.5;
+    select.style.cursor = "not-allowed";
+  });
+
+  selectGenerate.addEventListener("change", function () {
+    var selectedOption = this.options[this.selectedIndex];
+    
+    selectsToDisable.forEach((select) => {
+      select.disabled = selectedOption.value === "yes" ? false : true;
+      select.style.opacity = selectedOption.value === "yes" ? 1 : 0.5;
+      select.style.cursor =
+        selectedOption.value === "yes" ? "pointer" : "not-allowed";
+    });
+  });
+};
+
 // INICIALIZACION DE APP
 document.addEventListener("DOMContentLoaded", () => {
   // BOTONES PARA MOSTRAR PANEL DE LOGIN Y REGISTRO
@@ -426,21 +497,25 @@ document.addEventListener("DOMContentLoaded", () => {
   handleShowPanels();
   // BOTONES PARA MOSTRAR OPCIONES DE CADA SECCION
   listenersOptions();
-  // RENDERIZA LOS VIDEO ITEMS EN CONTENEDOR #EXISTINGVIDEOS
-  renderTemplates(20);
+  // MANEJA EL ESTADO DE LOS SELECTS DEL PANEL UPLOAD SCRIPT
+  showSelects();
+  // MANEJA EL ESTADO DE LOS SELECTS DEL PANEL GENERATE SCRIPT
+  showSelectsGenerateScript();
   // maneja la apertura del contenedor que muestra los videos
   showVideos();
-
   // APERTURA DE PANEL UPGRADE
   handleShowPanelUpgrade();
-
+  // FUNCION PARA MOSTRAR PASSWORD EN SECCION DE CONFIGURACION DE PASSWORD
+  handleShowPassword();
+  // FUNCION PARA REDIRECCIONAR A GALERIA CUANDO SE DA CLICK EN GENERAR VIDEO
+  handleButtonsGenerateVideo();
   // test loader
   functionTest();
 });
 
+// SOLO EN CONTEXTO DE PRUEBA
 const functionTest = () => {
   setTimeout(() => {
     document.getElementById("loading").style.display = "none";
   }, 2000);
 };
-

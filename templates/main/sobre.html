@@ -17,109 +17,131 @@ Clipgen.ai{% endblock %} {% block content %}
     >
   </section>
   <!-- HERO SECTION -->
+
   <!-- CARRUSEL videos SECTION -->
-  <section class="carrusel-section">
-    <h3 id="title-carrusel">
-      Crea <strong>videos</strong> <strong>sorprendentes</strong>
-    </h3>
-    <div id="carrusel-track">
-      <div class="carrusel-container">
-        <iframe
-        class="simple-one"
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/7J9q0DERCYE"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-        <video class="video simple-two" muted>
-          <source src="video2.mp4" type="video/mp4" />
+  <section id="video-layout">
+    <h3>Crea videos asombrosos</h3>
+    <div class="video-container">
+      <div class="sub-container-video animate__animated">
+        <!-- Video 1 -->
+      <div class="video-wrapper video1">
+        <!-- poster="{% static 'img/video-layout-imgs/poster1.png' %}" -->
+        <video
+          class="video"
+          muted
+          preload="metadata"
+          onmouseover="this.play()"
+          onmouseout="this.pause()"
+        >
+          <source
+            src="https://videoslandingclipgen.s3.us-east-2.amazonaws.com/cats+subtitulo+blanco+y+verde+ingles+abajo.mp4"
+            type="video/mp4"
+          />
           Tu navegador no soporta el video.
         </video>
-        <video class="video double" muted>
-          <source src="video3.mp4" type="video/mp4" />
-          Tu navegador no soporta el video.
-        </video>
-        <video class="video simple-three" muted>
-          <source src="video1.mp4" type="video/mp4" />
-          Tu navegador no soporta el video.
-        </video>
-        <video class="video double-two" muted>
-          <source src="video2.mp4" type="video/mp4" />
-          Tu navegador no soporta el video.
-        </video>
-        <video class="video simple-four" muted>
-          <source src="video3.mp4" type="video/mp4" />
-          Tu navegador no soporta el video.
-        </video>
+        <button class="sound-toggle" onclick="toggleSound(this)">🔇</button>
       </div>
-
-      <div class="carrusel-container">
-        <video class="video" muted>
-          <source src="video1.mp4" type="video/mp4" />
+      <!-- Video 2 -->
+      <div class="video-wrapper video2">
+        <!-- poster="{% static 'img/video-layout-imgs/poster2.png' %}" -->
+        <video
+          class="video"
+          muted
+          preload="metadata"
+          onmouseover="this.play()"
+          onmouseout="this.pause()"
+        >
+          <source
+            src="https://videoslandingclipgen.s3.us-east-2.amazonaws.com/clipgenai+solo+video+ingles.mp4"
+            type="video/mp4"
+          />
           Tu navegador no soporta el video.
         </video>
-        <video class="video" muted>
-          <source src="video2.mp4" type="video/mp4" />
-          Tu navegador no soporta el video.
-        </video>
-        <video class="video" muted>
-          <source src="video3.mp4" type="video/mp4" />
-          Tu navegador no soporta el video.
-        </video>
-        <video class="video" muted>
-          <source src="video1.mp4" type="video/mp4" />
-          Tu navegador no soporta el video.
-        </video>
-        <video class="video" muted>
-          <source src="video2.mp4" type="video/mp4" />
-          Tu navegador no soporta el video.
-        </video>
-        <video class="video" muted>
-          <source src="video3.mp4" type="video/mp4" />
-          Tu navegador no soporta el video.
-        </video>
+        <button class="sound-toggle" onclick="toggleSound(this)">🔇</button>
       </div>
-
-      <div class="carrusel-container">
-        <video class="video" muted>
-          <source src="video1.mp4" type="video/mp4" />
+      </div>
+      <div class="sub-container-video animate__animated">
+        <!-- Video 3 -->
+      <div class="video-wrapper video3">
+        <!-- poster="{% static 'img/video-layout-imgs/poster3.png' %}" -->
+        <video
+          class="video"
+          muted
+          preload="metadata"
+          onmouseover="this.play()"
+          onmouseout="this.pause()"
+        >
+          <source
+            src="https://videoslandingclipgen.s3.us-east-2.amazonaws.com/jesus+ingles+ok.mp4"
+            type="video/mp4"
+          />
           Tu navegador no soporta el video.
         </video>
-        <video class="video" muted>
-          <source src="video2.mp4" type="video/mp4" />
+        <button class="sound-toggle" onclick="toggleSound(this)">🔇</button>
+      </div>
+      <!-- Video 4 -->
+      <div class="video-wrapper video4">
+        <!-- poster="{% static 'img/video-layout-imgs/poster7.png' %}" -->
+        <video
+          class="video"
+          muted
+          preload="metadata"
+          onmouseover="this.play()"
+          onmouseout="this.pause()"
+        >
+          <source
+            src="https://videoslandingclipgen.s3.us-east-2.amazonaws.com/video+para+subir+al+drive+hecho+.mov"
+            type="video/mp4"
+          />
           Tu navegador no soporta el video.
         </video>
-        <video class="video" muted>
-          <source src="video3.mp4" type="video/mp4" />
+        <button class="sound-toggle" onclick="toggleSound(this)">🔇</button>
+      </div>
+      </div>
+      <div class="sub-container-video animate__animated">
+        <!-- Video 5 -->
+      <div class="video-wrapper video5">
+        <!-- poster="{% static 'img/video-layout-imgs/poster6.png' %}" -->
+        <video
+          class="video"
+          muted
+          preload="metadata"
+          onmouseover="this.play()"
+          onmouseout="this.pause()"
+        >
+          <source
+            src="https://videoslandingclipgen.s3.us-east-2.amazonaws.com/video+para+subir+drive+2.mov"
+            type="video/mp4"
+          />
           Tu navegador no soporta el video.
         </video>
-        <video class="video" muted>
-          <source src="video1.mp4" type="video/mp4" />
+        <button class="sound-toggle" onclick="toggleSound(this)">🔇</button>
+      </div>
+      <!-- Video 6 -->
+      <div class="video-wrapper video6">
+        <!-- poster="{% static 'img/video-layout-imgs/poster5.png' %}" -->
+        <video
+          class="video"
+          muted
+          preload="metadata"
+          onmouseover="this.play()"
+          onmouseout="this.pause()"
+        >
+          <source
+            src="https://videoslandingclipgen.s3.us-east-2.amazonaws.com/video+subir+a+drive+3.mov"
+            type="video/mp4"
+          />
           Tu navegador no soporta el video.
         </video>
-        <video class="video" muted>
-          <source src="video2.mp4" type="video/mp4" />
-          Tu navegador no soporta el video.
-        </video>
-        <video class="video" muted>
-          <source src="video3.mp4" type="video/mp4" />
-          Tu navegador no soporta el video.
-        </video>
+        <button class="sound-toggle" onclick="toggleSound(this)">🔇</button>
+      </div>
       </div>
     </div>
-    <div class="carrusel-buttons-container">
-      <span id="btn-backward-container" class="button-carrusel-container"
-        ><i class="fa-solid fa-arrow-left"></i
-      ></span>
-      <span id="btn-next-container" class="button-carrusel-container"
-        ><i class="fa-solid fa-arrow-right"></i
-      ></span>
-    </div>
+  <button class="btn-prev" id="btn-prev-container">&#10094;</button>
+  <button class="btn-next" id="btn-next-container">&#10095;</button>
   </section>
   <!-- CARRUSEL videos SECTION -->
+
   <!-- BENEFITS SECTION -->
   <section id="benefits" class="benefits">
     <div class="cards-benefits-container">
@@ -259,5 +281,83 @@ Clipgen.ai{% endblock %} {% block content %}
     </div>
   </section>
   <!-- BENEFITS SECTION -->
+
+  <!-- FEATURES SECTION-->
+  <section id="features">
+    <div class="feature-container">
+      <div class="feature-text">
+        <h3>Crea facilmente</h3>
+        <p>
+          Ingrese un guion y obtenga un video para su canal de inmediato.
+        </p>
+        <a href="#">Crear ahora</a>
+      </div>
+
+      <div class="features-images">
+        <img
+          src="{% static 'img/Features/button-generate.png' %}"
+          class="button-photo"
+          alt=""
+        />
+        <img
+          src="{% static 'img/Features/feature-img1.webp' %}"
+          class="img-video"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="feature-container">
+      <div class="feature-text">
+        <h3>Tu historia, a tu manera</h3>
+        <p>
+         Ingrese su propio guion personalizado para la narracion de voz en off
+          y ClipgenAI hara el resto.
+        </p>
+        <a href="#">Crear ahora</a>
+      </div>
+      <div class="features-images">
+        <img
+          src="{% static 'img/Features/button-generate.png' %}"
+          class="button-photo"
+          alt=""
+        />
+        <img
+          src="{% static 'img/Features/feature-img3.webp' %}"
+          class="img-video"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="feature-container">
+      <div class="feature-text">
+        <h3>Crea vídeos inspiradores</h3>
+        <p>
+          Selecciona entre nuestras mas de 50 voces, suba sus propios archivos para crear un video unico
+          y personalizado.
+        </p>
+        <a href="#">Crear ahora</a>
+      </div>
+      <div class="features-images">
+        <!-- <img
+          src="{% static 'img/Features/button-generate.png' %}"
+          class="button-photo"
+          alt=""
+        /> -->
+        <img
+          src="{% static 'img/Features/feature-img2.webp' %}"
+          class="img-video"
+          alt=""
+        />
+      </div>
+    </div>
+  </section>
+  <!-- FEATURES SECTION-->
+
+  <!-- LAST SECTION -->
+  <section id="last-section">
+    <h3>El futuro de la creación de vídeos IA en video</h3>
+    <a href="">Empieza ya</a>
+  </section>
+  <!-- LAST SECTION -->
 </section>
 {% endblock %}

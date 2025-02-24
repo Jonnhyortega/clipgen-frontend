@@ -26,7 +26,6 @@
 }
 
 #form-register {
-  margin-top: 50px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -69,8 +68,12 @@
   color: var(--green3);
 }
 
-/* @media (max-width: 668px) {
+@media (max-width: 668px) {
   #form-register {
-    background-color: transparent;
+    width: auto;
   }
-} */
+
+  #close-modal-register {
+    bottom: 10px;
+  }
+}

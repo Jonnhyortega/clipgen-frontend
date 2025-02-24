@@ -1,0 +1,44 @@
+#last-section {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 3rem;
+}
+
+#last-section h3 {
+  background: linear-gradient(
+      to left,
+      var(--greenFull3),
+      var(--greenFull2) 85%,
+      white
+    )
+    57%;
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  font-size: 3rem;
+  text-align: center;
+  font-family: var(--third);
+  filter: drop-shadow(1px 1px 2px var(--greenFull3));
+}
+
+#last-section a {
+  padding: 1rem 2rem;
+  background-color: var(--greenFull3);
+  color: black;
+  text-align: center;
+  font-family: var(--third);
+  font-weight: 400;
+  font-size: 1.3rem;
+  border-radius: 30px;
+  letter-spacing: 1px;
+  margin-top: 3rem;
+}
+
+#last-section a:hover {
+  background-color: var(--greenFull2);
+}

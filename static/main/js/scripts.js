@@ -315,6 +315,7 @@ function updateVideosInProgress() {
               height="50"
             />
             <p>${currentStep}</p>
+            <span id="progress-percentage">${progressPercentage}%</span>
           </div>
           <div class="progress-container">
             <div 

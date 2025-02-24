@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
   padding: 10px;
   background-color: black;
 }
@@ -69,7 +69,7 @@
 /* RESPONSIVES QUERYS */
 @media (max-width: 668px) {
   #title-hero {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 15px;
   }
 
@@ -79,6 +79,14 @@
 
   .carrusel-section > #title-carrusel {
     font-size: 2.7rem;
+  }
 }
+@media (max-width: 468px) {
+  #title-hero {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  
 }
 /* RESPONSIVES QUERYS */

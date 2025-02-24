@@ -1,6 +1,6 @@
 {% extends "main/base.html" %} {% load static %} {% block title %}Generador de
 Videos IA{% endblock %} {% block content %}
-<!-- ??? -->
+<!-- MENSAJE ALERT HARDCODE -->
 <!-- <div id="alerts-modal">
   <div class="alert alert-center alert-success show" role="alert">
     Error: Error al acceder a la API de ChatGPT: Incorrect API key provided:
@@ -10,6 +10,7 @@ Videos IA{% endblock %} {% block content %}
     https://platform.openai.com/account/api-keys.
   </div>
 </div> -->
+<!-- MENSAJE ALERT HARDCODE -->
 
 <!-- ??? -->
 <section id="dashboard-section">
@@ -302,31 +303,37 @@ Videos IA{% endblock %} {% block content %}
             Sugerir Títulos
           </button>
         </div>
-
+        <!--  opciones sugeridas hardcodeadas-->
         <div id="titleSuggestions">
           <h3 id="title-suggestion-container">
             <i class="fa-solid fa-lightbulb"></i> Titulos sugeridos
           </h3>
           <div class="suggestion-item animate__animated animate__fadeIn">
             Revelando la Vida de los Dinosaurios: Un Viaje en el Tiempo
-            <i class="fa-solid fa-plus"></i>
+            <i class="fa-solid fa-check"></i>
           </div>
           <div class="suggestion-item animate__animated animate__fadeIn">
             Revelando la Vida de los Dinosaurios: Un Viaje en el Tiempo
-            <i class="fa-solid fa-plus"></i>
+            <i class="fa-solid fa-check"></i>
           </div>
           <div class="suggestion-item animate__animated animate__fadeIn">
             Revelando la Vida de los Dinosaurios: Un Viaje en el Tiempo
-            <i class="fa-solid fa-plus"></i>
+            <i class="fa-solid fa-check"></i>
           </div>
           <div class="suggestion-item animate__animated animate__fadeIn">
             Revelando la Vida de los Dinosaurios: Un Viaje en el Tiempo
-            <i class="fa-solid fa-plus"></i>
+            <i class="fa-solid fa-check"></i>
           </div>
         </div>
-
+        <!--  opciones sugeridas hardcodeadas-->
+        <!--  opciones sugeridas hardcodeadas-->
         <!-- BOTON PARA GENERAR VIDEO -->
-        <button type="button" class="btn btn-custom" onclick="generateScript()">
+        <button
+          id="btn-generate-video-generate-script"
+          type="button"
+          class="btn btn-custom"
+          onclick="generateScript()"
+        >
           Generar video
         </button>
       </div>
@@ -345,7 +352,6 @@ Videos IA{% endblock %} {% block content %}
           class="button-option-scripts button-area2"
         >
           <i class="material-symbols-outlined">subtitles </i>
-
           <p>Subtitulos</p>
         </span>
         <span
@@ -360,35 +366,11 @@ Videos IA{% endblock %} {% block content %}
     </form>
 
     <div id="your-videos" class="animate__animated animate__fadeIn">
-      <div class="box-title-content">
-        <h3>Galeria</h3>
-      </div>
-
       <div id="videosList">
-        <h4><i class="fa-regular fa-clock"></i> Videos en progreso</h4>
+        <h4>Videos en progreso</h4>
         <div id="inProgressTasks">
           <span>
-            <img
-              width="30"
-              height="30"
-              src="https://img.icons8.com/officel/50/road-worker.png"
-              alt="road-worker"
-            />
             <p>Creando video: "lobo cazando"</p>
-            <div id="puntos-suspensivos">
-              <p data="first-dot" class="dot animate__animated animate__fadeIn">
-                .
-              </p>
-              <p
-                data="second-dot"
-                class="dot animate__animated animate__fadeIn"
-              >
-                .
-              </p>
-              <p data="third-dot" class="dot animate__animated animate__fadeIn">
-                .
-              </p>
-            </div>
           </span>
           <div class="status">
             <img
@@ -398,7 +380,8 @@ Videos IA{% endblock %} {% block content %}
               width="50"
               height="50"
             />
-            <p>Generando guion y descargando imágenes</p>
+            <p id="current-step-info"></p>
+            <span id="progress-percentage"></span>
           </div>
           <div class="progress-container">
             <div class="progress-bar" id="progress-bar"></div>
@@ -407,9 +390,7 @@ Videos IA{% endblock %} {% block content %}
       </div>
 
       <div id="videos-store">
-        <h3 id="btn-open-existing-videos">
-          <i class="fa-solid fa-film"></i> Videos almacenados
-        </h3>
+        <h3 id="btn-open-existing-videos">Videos almacenados</h3>
         <!-- <button id="btn-open-existing-videos">Ver videos</button> -->
         <div id="existingVideos" class="close-existing"></div>
       </div>
@@ -419,7 +400,7 @@ Videos IA{% endblock %} {% block content %}
       class="dashboard-content-forms animate__animated animate__fadeIn"
       id="config"
     >
-      <h3>Opciones de configuracion</h3>
+      <!-- SECCION DE CONFIGURACION DE API -->
       <!-- <form class="config-form" id="configForm" method="POST">
         <span id="btn-open-config-api"
           ><i class="fa-solid fa-key"></i>Claves de API</span
@@ -453,6 +434,7 @@ Videos IA{% endblock %} {% block content %}
           </button>
         </div>
       </form> -->
+      <!-- SECCION DE CONFIGURACION DE API -->
 
       <form class="config-form" id="changeCredentialsForm">
         <div id="content-change-credencials">
@@ -477,6 +459,7 @@ Videos IA{% endblock %} {% block content %}
               id="currentPassword"
               placeholder="Introduce tu contraseña actual"
             />
+            <i id="show-pw-config1" class="fa-solid fa-eye"></i>
           </div>
           <div class="block-form">
             <label for="newPassword" class="label-user-dashboard"
@@ -488,6 +471,7 @@ Videos IA{% endblock %} {% block content %}
               id="newPassword"
               placeholder="Introduce tu nueva contraseña"
             />
+            <i id="show-pw-config2" class="fa-solid fa-eye"></i>
           </div>
 
           <button
@@ -497,35 +481,35 @@ Videos IA{% endblock %} {% block content %}
           >
             Actualizar
           </button>
+        </div>
 
-          <div class="minutes-info">
-            <span class="minutes-info-line"
-              ><p>Minutos restantes:</p>
-              <strong>200 min</strong>
-            </span>
-            <span class="minutes-info-line"
-              ><p>Fecha de vencimiento:</p>
-              <strong>12/12/25</strong></span
-            >
+        <div class="minutes-info">
+          <span class="minutes-info-line"
+            ><p>Minutos restantes:</p>
+            <strong>200 min</strong>
+          </span>
+          <span class="minutes-info-line"
+            ><p>Fecha de vencimiento:</p>
+            <strong>12/12/25</strong></span
+          >
 
-            <!-- {% if current_plan_name %} -->
-            <!-- solo aparece el botón si hay plan actual -->
-            <!-- {% else %} -->
-            <!-- <span class="minutes-info-line"
-              ><p>Plan Actual:</p>
-              <strong>Free</strong></span
-            > -->
-            <span class="minutes-info-line"
-              ><p>Plan Actual:</p>
-              <strong>CREATOR</strong></span
-            >
-            <span id="btn-cancel-plan" class="btn-cancel-plan">
-              Cancelar Plan
-            </span>
+          <!-- {% if current_plan_name %} -->
+          <!-- solo aparece el botón si hay plan actual -->
+          <!-- {% else %} -->
+          <!-- <span class="minutes-info-line"
+            ><p>Plan Actual:</p>
+            <strong>Free</strong></span
+          > -->
+          <span class="minutes-info-line"
+            ><p>Plan Actual:</p>
+            <strong>CREATOR</strong></span
+          >
+          <span id="btn-cancel-plan" class="btn-cancel-plan">
+            Cancelar Plan
+          </span>
 
-            <span id="btn-upgrade-plan" class="btn-config"> Mejorar plan </span>
-            <!-- {% endif %} -->
-          </div>
+          <span id="btn-upgrade-plan" class="btn-config"> Mejorar plan </span>
+          <!-- {% endif %} -->
         </div>
       </form>
     </div>
@@ -549,14 +533,65 @@ Videos IA{% endblock %} {% block content %}
 
           <div class="block-form-modal-options">
             <label for="inputVoice" class="label-user-dashboard">Voz</label>
-            <select class="select-user-dashboard" id="inputVoice">
+            <select class="select-user-dashboard" id="inputVoiceManual">
+              <option value="sarah">Sarah</option>
+              <option value="daniel">Daniel</option>
+              <option value="drew">Drew</option>
+              <option value="james">James</option>
+              <option value="dorothy">Dorothy</option>
+              <option value="serena">Serena</option>
+              <option value="adam">Adam</option>
+              <option value="alice">Alice</option>
+              <option value="arnold">Arnold</option>
+              <option value="callum">Callum</option>
+              <option value="charlie">Charlie</option>
+              <option value="chris">Chris</option>
+              <option value="dave">Dave</option>
+              <option value="elli">Elli</option>
+              <option value="emily">Emily</option>
+              <option value="ethan">Ethan</option>
+              <option value="fin">Fin</option>
+              <option value="freya">Freya</option>
+              <option value="george">George</option>
+              <option value="giovanni">Giovanni</option>
+              <option value="glinda">Glinda</option>
+              <option value="grace">Grace</option>
+              <option value="harry">Harry</option>
+              <option value="jessie">Jessie</option>
+              <option value="joseph">Joseph</option>
+              <option value="josh">Josh</option>
+              <option value="liam">Liam</option>
+              <option value="lily">Lily</option>
+              <option value="matilda">Matilda</option>
+              <option value="matthew">Matthew</option>
+              <option value="michael">Michael</option>
+              <option value="mimi">Mimi</option>
+              <option value="nicole">Nicole</option>
+              <option value="patrick">Patrick</option>
+              <option value="paul">Paul</option>
+              <option value="rachel">Rachel</option>
+              <option value="sam">Sam</option>
+              <option value="thomas">Thomas</option>
+              <option value="antoni">Antoni</option>
+              <option value="bill">Bill</option>
+              <option value="brian">Brian</option>
+              <option value="charlotte">Charlotte</option>
+              <option value="clyde">Clyde</option>
+              <option value="domi">Domi</option>
+              <option value="gigi">Gigi</option>
+              <option value="jeremy">Jeremy</option>
+              <option value="valentino">Valentino</option>
+              <option value="john">John</option>
+              <option value="marcus">Marcus</option>
+            </select>
+            <!-- <select class="select-user-dashboard" id="inputVoice">
               <option value="nova">Nova</option>
               <option value="shimmer">Shimmer</option>
               <option value="echo">Echo</option>
               <option value="onyx">Onyx</option>
               <option value="fable">Fable</option>
               <option value="alloy">Alloy</option>
-            </select>
+            </select> -->
           </div>
 
           <div class="block-form-modal-options">
@@ -569,10 +604,20 @@ Videos IA{% endblock %} {% block content %}
         </div>
         <div id="options-subtitle-template">
           <div class="block-form-modal-options">
+            <label for="subtitleOption" class="label-user-dashboard"
+              >Subtítulos</label
+            >
+            <select class="select-user-dashboard" id="subtitleOption">
+              <option value="no">Desactivados</option>
+              <option value="yes">Activados</option>
+            </select>
+          </div>
+
+          <div class="block-form-modal-options">
             <label for="inputLanguage" class="label-user-dashboard"
               >Idioma</label
             >
-            <select class="select-user-dashboard" id="inputLanguage">
+            <select class="select-user-dashboard" id="inputLanguage" disabled>
               <option value="es">Español</option>
               <option value="en">Inglés</option>
               <option value="fr">Francés</option>
@@ -651,20 +696,12 @@ Videos IA{% endblock %} {% block content %}
               <option value="ca">Catalán</option>
             </select>
           </div>
-          <div class="block-form-modal-options">
-            <label for="subtitleOption" class="label-user-dashboard"
-              >Subtítulos</label
-            >
-            <select class="select-user-dashboard" id="subtitleOption">
-              <option value="yes">Activados</option>
-              <option value="no">Desactivados</option>
-            </select>
-          </div>
+
           <div class="block-form-modal-options">
             <label for="subtitleType" class="label-user-dashboard"
               >Tipo de subtítulos</label
             >
-            <select class="select-user-dashboard" id="subtitleType">
+            <select class="select-user-dashboard" id="subtitleType" disabled>
               <option value="1">Opcion 1</option>
               <option value="2">Opcion 2</option>
               <option value="3">Opcion 3</option>
@@ -675,13 +712,18 @@ Videos IA{% endblock %} {% block content %}
             <label for="subtitlePosition" class="label-user-dashboard"
               >Posición de los Subtítulos</label
             >
-            <select class="select-user-dashboard" id="subtitlePosition">
+            <select
+              class="select-user-dashboard"
+              id="subtitlePosition"
+              disabled
+            >
               <option value="bottom">Inferior</option>
               <option value="top">Superior</option>
               <option value="center">Centro</option>
             </select>
           </div>
         </div>
+
         <div id="more-options-upload">
           <div class="block-form-modal-options">
             <label for="contentOptionManual" class="label-user-dashboard"
@@ -731,7 +773,6 @@ Videos IA{% endblock %} {% block content %}
     <div id="modal_GENERATE">
       <div class="animate__animated animate__bounceInUp modal-options">
         <!-- opciones de configuracion -->
-
         <div id="options-audio_GENERATE">
           <div class="block-form-modal-options">
             <label for="inputVoiceType" class="label-user-dashboard"
@@ -766,10 +807,19 @@ Videos IA{% endblock %} {% block content %}
         </div>
         <div id="options-subtitle_GENERATE">
           <div class="block-form-modal-options">
+            <label for="subtitleOption" class="label-user-dashboard"
+              >Subtítulos</label
+            >
+            <select class="select-user-dashboard" id="subtitleOption_GENERATE">
+              <option value="no">Desactivados</option>
+              <option value="yes">Activados</option>
+            </select>
+          </div>
+          <div class="block-form-modal-options">
             <label for="inputLanguage" class="label-user-dashboard"
               >Idioma</label
             >
-            <select class="select-user-dashboard" id="inputLanguage">
+            <select class="select-user-dashboard" id="inputLanguage_GENERATE">
               <option value="es">Español</option>
               <option value="en">Inglés</option>
               <option value="fr">Francés</option>
@@ -849,31 +899,23 @@ Videos IA{% endblock %} {% block content %}
             </select>
           </div>
           <div class="block-form-modal-options">
-            <label for="subtitleOption" class="label-user-dashboard"
-              >Subtítulos</label
-            >
-            <select class="select-user-dashboard" id="subtitleOption">
-              <option value="yes">Activados</option>
-              <option value="no">Desactivados</option>
-            </select>
-          </div>
-
-          <div class="block-form-modal-options">
             <label for="subtitleType" class="label-user-dashboard"
               >Tipo de subtítulos</label
             >
-            <select class="select-user-dashboard" id="subtitleType">
+            <select class="select-user-dashboard" id="subtitleType_GENERATE">
               <option value="1">Opcion 1</option>
               <option value="2">Opcion 2</option>
               <option value="3">Opcion 3</option>
             </select>
           </div>
-
           <div class="block-form-modal-options">
             <label for="subtitlePosition" class="label-user-dashboard"
               >Posición de los Subtítulos</label
             >
-            <select class="select-user-dashboard" id="subtitlePosition">
+            <select
+              class="select-user-dashboard"
+              id="subtitlePosition_GENERATE"
+            >
               <option value="bottom">Inferior</option>
               <option value="top">Superior</option>
               <option value="center">Centro</option>
@@ -958,7 +1000,6 @@ Videos IA{% endblock %} {% block content %}
           </div>
         </div>
         <!-- opciones de configuracion -->
-
         <span id="close-modal_GENERATE" class="close-modal-options">
           Guardar
         </span>
@@ -967,7 +1008,7 @@ Videos IA{% endblock %} {% block content %}
   </div>
   <!-- SECCION DE GENERACION DE CONTENIDO, GALERIA Y CONFIGURACION DE PERFIL  -->
 
-  <!-- LOADER  -->
+  <!-- IMAGEN DE CARGA DE PANTALLA  -->
   <div id="loading">
     <span class="loader"> </span>
   </div>

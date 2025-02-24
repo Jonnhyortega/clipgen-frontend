@@ -25,7 +25,7 @@ const handleActionLink = () => {
   const urlActual = window.location.href;
   console.log(urlActual);
 
-  const targetURL = "http://127.0.0.1:8000";
+  const targetURL = "http://127.0.0.1:8000" || "www.clipgenai.com";
 
   if (urlActual === targetURL || urlActual === targetURL + "/") {
     handleNavMobile(false);
