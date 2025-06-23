@@ -1,5 +1,4 @@
-{% extends "main/base.html" %} {% load static %} {% block title %}Sobre
-Clipgen.ai{% endblock %} {% block content %}
+{% extends "main/base.html" %} {% load static %} {% block title %}Clipgen{% endblock %} {% block content %}
 <section class="sobre-section">
   <!-- HERO SECTION -->
   <section class="hero">
@@ -12,7 +11,7 @@ Clipgen.ai{% endblock %} {% block content %}
         fortuna en editores caros y lentos.
       </h3>
     </div>
-    <a id="link-hero" href="/index" class="animate__animated animate__bounce"
+    <a id="link-hero" href="/" class="animate__animated animate__bounce"
       >Prueba ClipgenAI</a
     >
   </section>
@@ -25,8 +24,8 @@ Clipgen.ai{% endblock %} {% block content %}
       <div class="sub-container-video animate__animated">
         <!-- Video 1 -->
       <div class="video-wrapper video1">
-        <!-- poster="{% static 'img/video-layout-imgs/poster1.png' %}" -->
         <video
+          
           class="video"
           muted
           preload="metadata"
@@ -43,7 +42,6 @@ Clipgen.ai{% endblock %} {% block content %}
       </div>
       <!-- Video 2 -->
       <div class="video-wrapper video2">
-        <!-- poster="{% static 'img/video-layout-imgs/poster2.png' %}" -->
         <video
           class="video"
           muted
@@ -63,7 +61,6 @@ Clipgen.ai{% endblock %} {% block content %}
       <div class="sub-container-video animate__animated">
         <!-- Video 3 -->
       <div class="video-wrapper video3">
-        <!-- poster="{% static 'img/video-layout-imgs/poster3.png' %}" -->
         <video
           class="video"
           muted
@@ -198,6 +195,7 @@ Clipgen.ai{% endblock %} {% block content %}
           height="96"
           src="https://img.icons8.com/color/96/fast-download.png"
           alt="fast-download"
+          style="margin-bottom: 20px"
         />
         <p>Acelera tu produccion como nunca antes</p>
         <div class="container-start">
@@ -338,11 +336,6 @@ Clipgen.ai{% endblock %} {% block content %}
         <a href="#">Crear ahora</a>
       </div>
       <div class="features-images">
-        <!-- <img
-          src="{% static 'img/Features/button-generate.png' %}"
-          class="button-photo"
-          alt=""
-        /> -->
         <img
           src="{% static 'img/Features/feature-img2.webp' %}"
           class="img-video"

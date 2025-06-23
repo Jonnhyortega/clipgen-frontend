@@ -1,4 +1,4 @@
-// FUNCTION TO SHOW MODAL LOGIN AND REGISTER
+// FUNCION PARA MOSTRAR REGISTRO Y LOGIN
 const modalLogin = document.getElementById("login-section");
 const btnShowLogin = document.getElementById("btn-show-login");
 const btnShowLoginMobile = document.getElementById("btn-show-login-mobile");
@@ -60,16 +60,8 @@ const handleShowLoginAndRegister = () => {
   });
 };
 
-// FUNCTION TO CLOSE MODAL LOGIN AND OPEN REGISTER
-const loginToRegister = () => {};
 
-// FUNCTION TO CLOSE MODAL REGISTER AND OPEN LOGIN
-const registerToLogin = () => {
-  const modalLogin = document.getElementById("login-section");
-  const modalRegister = document.getElementById("register-container");
-};
-
-// FUNCTION TO SHOW PASSWORD1 REGISTER
+// FUNCION PARA MOSTRAR PASSWORD EN REGISTRO
 let statePassword = false;
 const divIcon = document.getElementById("icon-password1");
 const inputPassword = document.getElementById("password1");
@@ -85,7 +77,7 @@ divIcon.addEventListener("click", () => {
   }
 });
 
-// FUNCTION TO SHOW PASSWORD2 REGISTER
+// FUNCION PARA MOSTRAR SEGUNDO PASSWORD EN REGISTRO
 let statePassword2 = false;
 const divIcon2 = document.getElementById("icon-password2");
 const inputPassword2 = document.getElementById("password2");
@@ -100,7 +92,7 @@ divIcon2.addEventListener("click", () => {
   }
 });
 
-// FUNCTION TO SHOW PASSWORD IN LOGIN
+// FUNCION PARA MOSTRAR CONTRASEÑA EN LOGIN
 let stateloginPassword = false;
 const divIconLogin = document.getElementById("icon-login-password");
 const loginPassword = document.getElementById("login-password");
@@ -116,20 +108,21 @@ divIconLogin.addEventListener("click", () => {
   }
 });
 
-// FUNCTION TO SHOW DASHBOARD CONTENTS
-// PANELS TO SHOW
+// FUNCION PARA MOSTRAR CONTENIDO DEL DASHBOARD
+// PANELES A MOSTRAR
 const uploadScript = document.getElementById("uploadForm");
 const generateScript = document.getElementById("generate-script");
 const yourVideos = document.getElementById("your-videos");
 const config = document.getElementById("config");
-// BUTTONS TO CONTROL
+// BOTONES DE CONTROL
 const generateScriptButton = document.getElementById("generate-script-tab");
 const uploadScriptButton = document.getElementById("upload-script-tab");
 const yourVideosButton = document.getElementById("your-videos-tab");
 const configButton = document.getElementById("config-tab");
 let showUploadScript = true;
 let showGenerateScript = false;
-// manejo de estado para mostrar los correspondientes paneles
+
+// MANEJO DE ESTADO PARA MOSTRAR LOS PANELES
 const handleShowUploadOrGenerateScripts = () => {
   showUploadScript = !showUploadScript;
   showGenerateScript = !showGenerateScript;

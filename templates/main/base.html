@@ -76,13 +76,13 @@
       <div class="nav-links">
         {% if user.is_authenticated %}
         <a id="generate-content" href="{% url 'index' %}">Crear video</a>
-        <a id="sobre" href="{% url 'sobre' %}">ClipgenAI</a>
+        <!-- <a id="sobre" href="{% url 'sobre' %}">ClipgenAI</a> -->
         <a id="cerrar-sesion" href="{% url 'logout' %}">Cerrar Sesión</a>
         {% else %}
         <span id="btn-show-login" id="login">Iniciar Sesión</span>
         <span id="btn-show-register">Registrarse</span>
         <span id="generate-content" href="{% url 'index' %}">Crear video</span>
-        <a id="sobre" href="{% url 'sobre' %}"> ClipgenAI</a>
+        <!-- <a id="sobre" href="{% url 'sobre' %}"> ClipgenAI</a> -->
         <a id="cerrar-sesion">Cerrar Sesión</a>
 
         {% endif %}
@@ -226,7 +226,6 @@
     {% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- <script src="{% static 'main/js/scripts.js' %}"></script> -->
     <script src="{% static 'main/js/chatbot.js' %}"></script>
     <script src="{% static 'main/js/tab_management.js' %}"></script>
     <script src="{% static 'main/js/dashboard.js' %}"></script>

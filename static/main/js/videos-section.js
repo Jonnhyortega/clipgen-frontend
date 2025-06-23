@@ -66,6 +66,7 @@ function showNextContainer() {
 
 function showPrevContainer() {
   videos[currentContainer].classList.add("animate__backOutRight");
+  
   setTimeout(() => {
     videos[currentContainer].classList.remove("show-container");
     videos[currentContainer].classList.remove("animate__backOutRight");

@@ -46,7 +46,6 @@ const predefinedResponses = {
 };
 
 function toggleChatbot() {
-  console.log("depuracion del chatbot");
   const chatbotContainer = document.getElementById("chatbotContainer");
   const chatbotToggle = document.getElementById("chatbotToggle");
   const overlayChatbot = document.querySelector(".overlay-chatbot");
