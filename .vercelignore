@@ -1,0 +1,16 @@
+# NO subir tu base de datos local
+db.sqlite3
+*.sqlite3
+
+# NO subir tu carpeta de fuentes estáticas (solo necesitas staticfiles)
+static/
+
+# NO subir tu build output local ni caches
+staticfiles/
+__pycache__/
+*.pyc
+
+# NO subir pruebas, logs, history
+chatapp/tests/
+*.log
+.git
